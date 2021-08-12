@@ -1,0 +1,22 @@
+.members {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.members-card {
+  background: lightgrey;
+  padding: 1.5rem;
+  border-radius: .5rem;
+}
+
+.members-name {
+  font-weight: 550;
+
+}
+
+.members-img {
+  border-radius: 50%;
+  height: 10rem;
+}
