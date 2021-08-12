@@ -1,16 +1,14 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./component/Header/Header.js";
-import Footer from "./components/Footer/Footer";
-import Members from "./components/Members/Members";
+import Header from "./components/Header/Header.js";
+import Title from "./components/Title/Title.js";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Members />
-      <Footer />
+      <Title />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
