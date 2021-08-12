@@ -2,14 +2,12 @@ import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Header from './component/Header/Header.js'
-import Footer from './components/Footer/Footer.js'
 
 
 function App() {
   return (
     <div className="App">
         <Header />
-        <Footer />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
