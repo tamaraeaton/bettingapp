@@ -1,19 +1,12 @@
-
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Members from "./components/Members/Members";
-import React from 'react'
-import Header from './component/Header/Header.js'
-
-
+import Header from "./component/Header/Header.js";
 
 function App() {
   return (
     <div className="App">
-
-      <Members />
-    
-        <Header />
+      <Header />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -28,7 +21,6 @@ function App() {
           Learn React
         </a>
       </header> */}
-
     </div>
   );
 }
