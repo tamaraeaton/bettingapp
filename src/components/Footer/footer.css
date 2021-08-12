@@ -10,3 +10,13 @@
   width: 100%;
   height: 5rem;
 }
+
+.footer-right {
+  margin-left: auto;
+  margin-right: 3rem;
+}
+
+.footer-right a {
+  text-decoration: none;
+  color: whitesmoke;
+}
