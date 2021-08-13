@@ -6,10 +6,12 @@ const Welcome = () => {
   return (
     <>
       <div className='welcome'>
-        <h1 className='login'>Login</h1>
-        <h1 className='sign-up' src=''>
-          Sign Up
-        </h1>
+        <div className="links-section">
+        <a className="login-anchor"href="#"><h1 className='login'>Login</h1></a>
+        <a href="#" className="signup-anchor"><h1 className='sign-up' src=''>
+          sign up
+        </h1></a>
+        </div>
         <img id='friends-betting-img' src={FriendsBetting} alt="bettingFriends" />
       </div>
       <div className='intro'>
