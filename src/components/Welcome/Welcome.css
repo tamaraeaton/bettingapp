@@ -4,6 +4,11 @@
     box-sizing: border-box;
     /* border: 1px solid hotpink; */
 }
+
+html { 
+    font-size: calc(1em + 1vw) 
+}
+
 .welcome {
     background-color: #D2B48C;
     display: flex;
@@ -44,9 +49,9 @@
 
 .intro {
     background-color: #C4C4C4;
-    padding: 5%;
+    padding: 3%;
 }
 
-/* .intro-text {
-    padding-top: 5%;
-} */
+.intro-text {
+    margin: 5%;
+}

@@ -15,13 +15,11 @@ const Welcome = () => {
         <img id='friends-betting-img' src={FriendsBetting} alt="bettingFriends" />
       </div>
       <div className='intro'>
-        <h1 className="intro-text">
-          Have a little fun placing bets with your friends and others with ease
-          on our app.
+        <h3 className="intro-text">
+          Have a little fun placing bets with your friends and others with ease on our friendly wager app.
           <br />
-          You can create your own silly bet or place your bet with current open
-          bets.
-        </h1>
+          You can create your own silly bet with friends or place your bet with current open bets.
+        </h3>
       </div>
     </>
   );
