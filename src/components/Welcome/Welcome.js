@@ -8,8 +8,8 @@ const Welcome = () => {
       <div className='welcome'>
         <div className="links-section">
         <a className="login-anchor"href="#"><h1 className='login'>Login</h1></a>
-        <a href="#" className="signup-anchor"><h1 className='sign-up' src=''>
-          sign up
+        <a href="#" className="signup-anchor"><h1 className='sign-up'>
+          Sign up
         </h1></a>
         </div>
         <img id='friends-betting-img' src={FriendsBetting} alt="bettingFriends" />

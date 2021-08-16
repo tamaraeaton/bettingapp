@@ -1,49 +1,39 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* border: 1px solid hotpink; */
-}
-
-html { 
-    font-size: calc(1em + 1vw) 
-}
-
 .welcome {
     background-color: #D2B48C;
     display: flex;
-    padding: 3em;
+    padding: 1em 1em 3em 3em;
     justify-content: space-around;
 }
 
 .links-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    text-align: left;
+    /* justify-content: space-evenly; */
 }
 
 #friends-betting-img {
-    width: 70%;
+    width: 60%;
     height: auto;
+    /* padding-left: 2%; */
 }
 
 .login-anchor {
-    text-decoration: none;
+    color: #120906
 }
 
 .login {
-    color: white;
-    font-size: 80px;
-    
+    color: #120906;
+    font-size: 40px;
+    margin-bottom: 1em;
 }
 
-/* .signup-anchor {
-    font-size: 20px;
-} */
+.signup-anchor {
+    color: #120906;
+}
 
 .sign-up {
-    /* color: white; */
     font-size: 40px;
 }
 
