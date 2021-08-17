@@ -1,6 +1,49 @@
 .calheader{
-    background-color: purple;
+    background-color: black;
     color: white;
     height: 75px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    align-items: center;
 }
+
+
+.company-section{
+    display: flex;
+    align-items: center;
+}
+
+.twire-logo{
+    background-color: grey;
+    height: 50px;
+    width: 50px;
+    margin-right: 25px;
+}
+
+.twire-link{
+    color:white;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+  .header-link-section{
+    display: flex;
+    justify-content: space-between;
+ }  
+
+.log-out{
+    color:white;
+    margin-right: 1rem;
+    text-decoration: none; 
+    font-weight: 900;
+}
+
+.about-link{
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+}
+
 
