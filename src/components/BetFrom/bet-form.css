@@ -1,0 +1,59 @@
+.betters-img {
+  position: absolute;
+  height: 93%;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  top: 50px;
+}
+
+.bet-form-title {
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+  color: rgba(253, 253, 253, .6);
+}
+
+.create-bet-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+.bet-input {
+  height: 1.3rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  padding: 0.2rem;
+}
+
+.bet-textarea {
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  padding: 0.2rem;
+}
+
+.bet-button {
+  margin-top: 0.5rem;
+  width: 6rem;
+  height: 1.3rem;
+  background: #120906;
+  align-self: flex-end;
+  border-radius: 5px;
+  letter-spacing: 3px;
+  font-weight: 530;
+  color: white;
+}
+
+.bet-button:hover {
+  cursor: pointer;
+  background-color: purple;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .create-bet-form {
+    width: 400px;
+  }
+}
