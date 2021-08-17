@@ -10,6 +10,8 @@
 .bet-form-title {
   font-weight: 500;
   margin-top: 1rem;
+  text-align: center;
+  color: rgba(253, 253, 253, .6);
 }
 
 .create-bet-form {
@@ -36,11 +38,12 @@
   margin-top: 0.5rem;
   width: 6rem;
   height: 1.3rem;
-  background: rgba(128, 0, 128, 0.707);
+  background: #120906;
   align-self: flex-end;
   border-radius: 5px;
   letter-spacing: 3px;
   font-weight: 530;
+  color: white;
 }
 
 .bet-button:hover {
