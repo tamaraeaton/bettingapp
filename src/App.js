@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import BetForm from "./components/BetFrom/BetForm";
 import Header from "./components/Header/Header.js";
 import Welcome from "./components/Welcome/Welcome";
+import Home from './components/Home/Home'
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {/* <Welcome /> */}
-      <BetForm />
+<Home/>
     </div>
   );
 }
