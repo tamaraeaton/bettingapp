@@ -4,7 +4,7 @@ import FriendsBetting from "../../assets/friendsBetting.PNG";
 
 const Welcome = () => {
   return (
-    <>
+    <div>
       <div className='welcome'>
         <div className="links-section">
         <a className="login-anchor"href="#"><h1 className='login'>Login</h1></a>
@@ -21,7 +21,7 @@ const Welcome = () => {
           You can create your own silly bet with friends or place your bet with current open bets.
         </h3>
       </div>
-    </>
+    </div>
   );
 };
 
