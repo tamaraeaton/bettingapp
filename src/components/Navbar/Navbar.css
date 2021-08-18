@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  background: white;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  transition: 1s ease-in-out;
+  text-decoration: underline;
+}
