@@ -14,9 +14,9 @@ function App() {
       <div className="App">
         <Header />
         <Navbar />
-        <Welcome />
+        <Welcom />
         <Route exact path="/home" component={Home} />
-        <Route exact path="/bet-form" component={BetFrom} />
+        <Route exact path="/bet-form" component={BetForm} />
         <Footer />
       </div>
     </BrowserRouter>
