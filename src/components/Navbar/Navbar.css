@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   background: white;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
 
 .nav-link {
