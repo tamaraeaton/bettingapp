@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Header />
-        <Welcome />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/bet-form" component={BetFrom} />
         <Footer />
