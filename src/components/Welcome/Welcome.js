@@ -9,10 +9,6 @@ const Welcome = () => {
       <div className="welcome">
         <div className="links-section">
           <Link to="/login" className="login-anchor">
-            Login
-          </Link>
-          <Link to="/register" className="signup-anchor">
-            Sign Up
             <h1 className="login">Login</h1>
           </Link>
           <Link to="/register" className="signup-anchor">
