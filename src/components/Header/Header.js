@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
-  const [isAuth, setIsAuth] = useState(true);
-  console.log(isAuth)
+  const { isAuth, setIsAuth } = useContext(AuthContext);
   return (
     <div className="calheader">
       <div className="company-section">
