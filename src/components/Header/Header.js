@@ -25,10 +25,7 @@ const Header = () => {
             </Link>
           ) : null}
         </div>
-        <a href="" className="about-link">
-          <link src="url" />
-          About
-        </a>
+        <Link to="/about" className="create-about-button">About</Link>
       </div>
     </div>
   );

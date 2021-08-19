@@ -1,0 +1,22 @@
+.about-intro{
+    color:black;
+    font-weight: 500;
+}
+
+.about{
+    background-image: url("../../assets/sports1.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: 100%;
+  padding: 1em 1em 3em 3em;
+  justify-content: space-around;
+}
+
+
+.content{
+    width: 60%;
+    height: auto;
+    background-color: hsla(34, 44%, 69%, 1);
+  }
