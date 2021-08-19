@@ -1,0 +1,44 @@
+.register-title {
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+  color: rgba(253, 253, 253, 0.6);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+.register-input {
+  height: 1.3rem;
+  margin-top: 0.5rem;
+  opacity: 0.8rem;
+  padding: 0.2rem;
+}
+
+.register-button {
+  margin-top: 0.5rem;
+  width: 6rem;
+  height: 1.3rem;
+  background: #120906;
+  align-self: flex-end;
+  border-radius: 5px;
+  letter-spacing: 3px;
+  font-weight: 530;
+  color: white;
+}
+
+.register-button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-form {
+    width: 400px;
+  }
+}

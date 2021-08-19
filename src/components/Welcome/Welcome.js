@@ -13,6 +13,10 @@ const Welcome = () => {
           </Link>
           <Link to="/register" className="signup-anchor">
             Sign Up
+            <h1 className="login">Login</h1>
+          </Link>
+          <Link to="/register" className="signup-anchor">
+            <h1 className="sign-up">Sign Up</h1>
           </Link>
         </div>
         <img

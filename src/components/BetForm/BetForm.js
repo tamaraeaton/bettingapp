@@ -1,5 +1,5 @@
 import React from "react";
-import "./bet-form.css";
+import "./BetForm.css";
 import betters from "../../assets/friendsBetting.PNG";
 
 const BetForm = () => {
