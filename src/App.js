@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
@@ -11,21 +11,24 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
 
+import { AuthContext } from "./context/AuthContext";
+
 function App() {
+  const { isAuth } = useContext(AuthContext);
+  console.log(isAuth);
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Navbar />
-        <Route exact path="/" component={Welcome} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/bet-form" component={BetForm} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/about" component={About} />
-        <Footer />
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Navbar />
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/bet-form" component={BetForm} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Footer />
+        </div>
+      </BrowserRouter>
   );
 }
 
