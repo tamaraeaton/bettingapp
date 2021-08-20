@@ -9,6 +9,7 @@ import BetForm from "./components/BetForm/BetForm";
 import Navbar from "./components/Navbar/Navbar";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/bet-form" component={BetForm} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/about" component={About} />
         <Footer />
       </div>
     </BrowserRouter>
