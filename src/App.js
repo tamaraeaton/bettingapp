@@ -26,6 +26,7 @@ function App() {
           <Route exact path="/bet-form" component={BetForm} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/about" component={About}/>
           <Footer />
         </div>
       </BrowserRouter>
