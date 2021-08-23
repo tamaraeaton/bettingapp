@@ -25,7 +25,7 @@ const Home = () => {
     getBets();
   }, []);
 
-  console.log(bets)
+  console.log(bets);
 
   return (
     <div className="home">
@@ -35,9 +35,8 @@ const Home = () => {
           Create Bet
         </Link>
       </div>
-      <div className="bet-list">
-        <h4></h4>
-      </div>
+
+    
     </div>
   );
 };

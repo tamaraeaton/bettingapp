@@ -10,7 +10,7 @@ const BetForm = () => {
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState("");
 
-  const ref = firebase.firestore().collection("shcools");
+  const ref = firebase.firestore().collection("bets");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const BetForm = () => {
     };
 
     ref
-      .doc(newBet)
+      .doc(newBet.id)
       .set(newBet)
       .catch((err) => console.log(err));
   };
