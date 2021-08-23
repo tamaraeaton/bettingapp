@@ -1,15 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import betters from "../../assets/friendsBetting.PNG";
-import { AuthContext } from "../../context/AuthContext";
+import firebase from "../../firebase/firebase";
 
 const Login = () => {
-  const { setIsAuth } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setIsAuth(true);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setEmail("");
+        setPassword("");
+      })
+      .catch((err) => console.log(err));
   };
+
   return (
     <div>
       <img src={betters} alt="background" className="betters-img" />
@@ -19,14 +27,18 @@ const Login = () => {
           <input
             className="login-input"
             type="text"
-            placeholder="Username"
-            name="username"
+            placeholder="Email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <input
             className="login-input"
             type="password"
             name="password"
             placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <input className="login-button" type="submit" value="Submit" />
         </form>

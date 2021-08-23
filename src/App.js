@@ -11,11 +11,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
 
-import { AuthContext } from "./context/AuthContext";
-
 function App() {
-  const { isAuth } = useContext(AuthContext);
-  console.log(isAuth);
   return (
       <BrowserRouter>
         <div className="App">
