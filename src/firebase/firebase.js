@@ -1,16 +1,17 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
-import "firebase/auth"
+import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBGTBlEXyzJngPSGJiVu65IMSB2S0DXib4",
-  authDomain: "fir-tutorial-ninja-e1c22.firebaseapp.com",
-  projectId: "fir-tutorial-ninja-e1c22",
-  storageBucket: "fir-tutorial-ninja-e1c22.appspot.com",
-  messagingSenderId: "841662252681",
-  appId: "1:841662252681:web:dd4a1fa2ec20725455a858",
-  measurementId: "G-QV5FEF6TP6",
+  apiKey: "AIzaSyBY7tWgvoz_jO2oAHx0LTA17lM7iF55CmI",
+  authDomain: "collab-twire.firebaseapp.com",
+  projectId: "collab-twire",
+  storageBucket: "collab-twire.appspot.com",
+  messagingSenderId: "374058999959",
+  appId: "1:374058999959:web:3b8d86fec9a7f8c71109d2",
+  measurementId: "G-JJVRB4X2LS",
 };
 
 firebase.initializeApp(firebaseConfig);
+
 export default firebase;

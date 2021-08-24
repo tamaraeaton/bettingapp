@@ -14,9 +14,9 @@ const Register = () => {
 
     if (confirmPassword !== password) {
       setErrMsg("Passwords do not match!");
-      setEmail("")
-      setPassword("")
-      setConfirmPassword("")
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
     } else {
       firebase
         .auth()
@@ -38,6 +38,14 @@ const Register = () => {
       <div>
         <h2 className="register-title">Sign Up</h2>
         <form className="login-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="register-input"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
           {/* <input
             type="text"
             name="firstName"
@@ -51,18 +59,12 @@ const Register = () => {
             className="register-input"
           /> */}
           <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="register-input"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
             type="password"
             name="password"
             placeholder="Password"
             className="register-input"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <input
             type="password"
@@ -70,6 +72,7 @@ const Register = () => {
             placeholder="Confirm Password"
             className="register-input"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
           />
           <input type="submit" value="Sign up" className="register-button" />
         </form>
