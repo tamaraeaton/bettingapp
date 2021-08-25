@@ -1,0 +1,25 @@
+#bet-list {
+  height: 435px !important;
+  overflow: auto;
+}
+
+.bet-list-title {
+  text-align: center;
+  background: #120906;
+  color: whitesmoke;
+}
+
+.bet-list-bet {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+#bet-items {
+  background-color: rgba(211, 211, 211, 0.5);
+  border-radius: 4px;
+}

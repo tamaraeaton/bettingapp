@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase/firebase";
+import BetList from "../BetList/BetList";
 
 const Home = () => {
   const [bets, setBets] = useState([]);
@@ -35,8 +36,11 @@ const Home = () => {
           Create Bet
         </Link>
       </div>
-
-    
+      <div className="bet-list">
+        <div>
+          <BetList bets={bets} />
+        </div>
+      </div>
     </div>
   );
 };
