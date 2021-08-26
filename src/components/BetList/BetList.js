@@ -1,5 +1,6 @@
 import React from "react";
 import "./BetList.css";
+import {Link} from 'react-router-dom';
 
 const BetList = ({ bets }) => {
   return (
@@ -20,12 +21,12 @@ const BetList = ({ bets }) => {
             </tr>
           </thead>
           <tbody id="bet-items">
-            {bets.map((bet)=>(
-                <tr>
-                    <td>{bet.name}</td>
-                    <td>{bet.amount}</td>
-                    <td><button>Join Bet</button></td>
-                </tr>
+            {bets.map((bet) => (
+              <tr>
+                <td>{bet.name}</td>
+                <td>{bet.amount}</td>
+                <td><Link to="/join-bet"><button>Join Bet</button></Link></td>
+              </tr>
             ))
 
             }
