@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./context/AppContext";
+import { AuthProvider } from "./context/Auth";
 
 ReactDOM.render(
-  <AppProvider>
-    <App />
+  <AppProvider> 
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </AppProvider>,
   document.getElementById("root")
 );

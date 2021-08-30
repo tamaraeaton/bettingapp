@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../context/AppContext";
+import { AuthContext } from "../../context/Auth";
 
 const Header = () => {
-  const { isAuth, setIsAuth } = useContext(AppContext);
+  const { currentUser, logout } = useContext(AuthContext);
+
   return (
     <div className="calheader">
       <div className="company-section">
@@ -17,15 +18,17 @@ const Header = () => {
         </div>
       </div>
       <div className="header-link-section">
-        <div>
-          {isAuth ? (
-            <Link to="/" onClick={() => setIsAuth(false)} className="log-out">
-              <link src="url" />
+        {currentUser ? (
+          <div>
+            <Link to="/" className="log-out" onClick={logout}>
               Log Out
             </Link>
-          ) : null}
-        </div>
-        <Link to="/about" className="create-about-button">About</Link>
+            {/* other links here */}
+          </div>
+        ) : null}
+        <Link to="/about" className="create-about-button">
+          About
+        </Link>
       </div>
     </div>
   );

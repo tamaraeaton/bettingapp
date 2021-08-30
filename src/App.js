@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import About from "./components/About/About";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import 'bootstrap/dist/js/bootstrap.js';
+import JoinBet from "./components/JoinBet/JoinBet";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/about" component={About}/>
+          <Route exact path="/join-bet" component={JoinBet} />
+          
           <Footer />
         </div>
       </BrowserRouter>
