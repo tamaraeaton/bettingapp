@@ -12,6 +12,7 @@ const BetList = () => {
   useEffect(() => {
     getBets(currentUserId, setLoading);
   }, [currentUser]);
+import {Link} from 'react-router-dom';
 
   return (
     <div>
@@ -40,7 +41,7 @@ const BetList = () => {
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                    <button>Display Bet</button>
+                    <Link to="/join-bet"><button>Join Bet</button></Link>
                   </td>
                 </tr>
               ))
