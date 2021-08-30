@@ -4,9 +4,11 @@ import betters from "../../assets/friendsBetting.PNG";
 import firebase from "../../context/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
+import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
   const { currentUser } = useContext(AuthContext);
+  const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
@@ -37,6 +39,7 @@ const BetForm = () => {
         setAmount(0);
         setDescription("");
         setCategory("");
+        history.push("/home");
       })
       .catch((err) => console.log(err));
   };
