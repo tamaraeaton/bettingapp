@@ -26,7 +26,7 @@ const Register = () => {
           setPassword("");
           setConfirmPassword("");
           setErrMsg("");
-          history.push("/login");
+          history.push("/home");
         })
         .catch((err) => setErrMsg(err.message));
     }
