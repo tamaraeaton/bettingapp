@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./BetList.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
@@ -12,7 +13,6 @@ const BetList = () => {
   useEffect(() => {
     getBets(currentUserId, setLoading);
   }, [currentUser]);
-import {Link} from 'react-router-dom';
 
   return (
     <div>
@@ -41,7 +41,9 @@ import {Link} from 'react-router-dom';
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                    <Link to="/join-bet"><button>Join Bet</button></Link>
+                    <Link to="/join-bet">
+                      <button>Join Bet</button>
+                    </Link>
                   </td>
                 </tr>
               ))
