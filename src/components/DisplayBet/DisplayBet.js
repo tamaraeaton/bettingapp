@@ -1,7 +1,7 @@
 import React from 'react'
-import './JoinBet.css'
+import './DisplayBet.css'
 
-const JoinBet = () => {
+const DisplayBet = () => {
     return (
         <div className="join-bet">
            <div><h1 className='name'>Bet Name:</h1></div> 
@@ -12,4 +12,4 @@ const JoinBet = () => {
     )
 }
 
-export default JoinBet;
+export default DisplayBet;
