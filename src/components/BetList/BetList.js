@@ -25,7 +25,7 @@ const BetList = ({ bets }) => {
               <tr>
                 <td>{bet.name}</td>
                 <td>{bet.amount}</td>
-                <td><Link to="/join-bet"><button>Join Bet</button></Link></td>
+                <td><Link to="/display-bet"><button>DisplayBet</button></Link></td>
               </tr>
             ))
 
