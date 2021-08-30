@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Register.css";
 import betters from "../../assets/friendsBetting.PNG";
-import firebase from "../../firebase/firebase";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../context/Auth";
 
 const Register = () => {
+  const { register } = useContext(AuthContext);
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,20 +17,18 @@ const Register = () => {
 
     if (confirmPassword !== password) {
       setErrMsg("Passwords do not match!");
-      setEmail("");
       setPassword("");
       setConfirmPassword("");
     } else {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
+      register(email, password)
         .then(() => {
           setEmail("");
           setPassword("");
           setConfirmPassword("");
           setErrMsg("");
+          history.push("/home");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => setErrMsg(err.message));
     }
   };
 
@@ -37,6 +38,7 @@ const Register = () => {
       <img src={betters} alt="background" className="betters-img" />
       <div>
         <h2 className="register-title">Sign Up</h2>
+        <div className="error">{errMsg}</div>
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             type="email"

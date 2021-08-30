@@ -1,33 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import firebase from "../../firebase/firebase";
 import BetList from "../BetList/BetList";
 
 const Home = () => {
-  const [bets, setBets] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const ref = firebase.firestore().collection("bets");
-
-  const getBets = () => {
-    setLoading(true);
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((bet) => {
-        items.push(bet.data());
-      });
-      setBets(items);
-      setLoading(false);
-    });
-  };
-
-  useEffect(() => {
-    getBets();
-  }, []);
-
-  console.log(bets);
-
   return (
     <div className="home">
       <div className="create-bet-here">
@@ -38,7 +14,7 @@ const Home = () => {
       </div>
       <div className="bet-list">
         <div>
-          <BetList bets={bets} />
+          <BetList />
         </div>
       </div>
     </div>
