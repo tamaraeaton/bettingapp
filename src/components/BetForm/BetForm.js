@@ -1,20 +1,19 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./BetForm.css";
 import betters from "../../assets/friendsBetting.PNG";
-import firebase from "../../context/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
+import { AppContext } from "../../context/AppContext";
 import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
   const { currentUser } = useContext(AuthContext);
+  const { addBet } = useContext(AppContext);
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState("");
-
-  const ref = firebase.firestore().collection("bets");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,13 +26,9 @@ const BetForm = () => {
       amount,
       description,
       id: uuidv4(),
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
-    ref
-      .doc(newBet.id)
-      .set(newBet)
+    addBet(newBet)
       .then(() => {
         setName("");
         setAmount(0);

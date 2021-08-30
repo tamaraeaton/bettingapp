@@ -21,7 +21,18 @@ export const AppProvider = (props) => {
         load(false);
       });
   };
+
+  const addBet = (bet) => {
+    const newBet = {
+      ...bet,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
+    };
+    return ref.doc(newBet.id).set(newBet);
+  };
   return (
-    <AppContext.Provider value={{ bets, getBets }}>{props.children}</AppContext.Provider>
+    <AppContext.Provider value={{ bets, getBets, addBet }}>
+      {props.children}
+    </AppContext.Provider>
   );
 };
