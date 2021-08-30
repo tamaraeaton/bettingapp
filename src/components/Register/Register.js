@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./Register.css";
 import betters from "../../assets/friendsBetting.PNG";
 import firebase from "../../firebase/firebase";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,6 +28,7 @@ const Register = () => {
           setPassword("");
           setConfirmPassword("");
           setErrMsg("");
+          history.push("/login");
         })
         .catch((err) => console.log(err));
     }

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./BetForm.css";
 import betters from "../../assets/friendsBetting.PNG";
 import firebase from "../../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
+import { AuthContext } from "../../auth/Auth";
 
 const BetForm = () => {
+  const { currentUser } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
@@ -16,16 +18,26 @@ const BetForm = () => {
     e.preventDefault();
 
     const newBet = {
+      owner: currentUser.uid,
+      ownerEmail: currentUser.email,
       name,
       category,
       amount,
       description,
       id: uuidv4(),
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
     ref
       .doc(newBet.id)
       .set(newBet)
+      .then(() => {
+        setName("");
+        setAmount(0);
+        setDescription("");
+        setCategory("");
+      })
       .catch((err) => console.log(err));
   };
 

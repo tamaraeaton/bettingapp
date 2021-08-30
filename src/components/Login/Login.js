@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./login.css";
+import { useHistory } from "react-router-dom";
 import betters from "../../assets/friendsBetting.PNG";
 import firebase from "../../firebase/firebase";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
@@ -14,6 +16,7 @@ const Login = () => {
       .then(() => {
         setEmail("");
         setPassword("");
+        history.push("/home");
       })
       .catch((err) => console.log(err));
   };
