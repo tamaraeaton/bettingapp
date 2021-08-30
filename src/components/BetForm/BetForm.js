@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./BetForm.css";
 import betters from "../../assets/friendsBetting.PNG";
-import firebase from "../../firebase/firebase";
+import firebase from "../../context/firebase";
 import { v4 as uuidv4 } from "uuid";
-import { AuthContext } from "../../auth/Auth";
+import { AuthContext } from "../../context/Auth";
 
 const BetForm = () => {
   const { currentUser } = useContext(AuthContext);

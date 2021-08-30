@@ -1,15 +1,11 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../auth/Auth";
-import firebase from "../../firebase/firebase"
+import { AuthContext } from "../../context/Auth";
 
 const Header = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
-  const logout = () => {
-    firebase.auth().signOut();
-  };
   return (
     <div className="calheader">
       <div className="company-section">
@@ -22,13 +18,14 @@ const Header = () => {
         </div>
       </div>
       <div className="header-link-section">
-        <div>
-          {currentUser ? (
+        {currentUser ? (
+          <div>
             <Link to="/" className="log-out" onClick={logout}>
               Log Out
             </Link>
-          ) : null}
-        </div>
+            {/* other links here */}
+          </div>
+        ) : null}
         <Link to="/about" className="create-about-button">
           About
         </Link>

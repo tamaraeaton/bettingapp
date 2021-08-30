@@ -1,40 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./BetList.css";
-import { AuthContext } from "../../auth/Auth";
-import firebase from "../../firebase/firebase";
+import { AuthContext } from "../../context/Auth";
+import { AppContext } from "../../context/AppContext";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
+  const { bets, getBets } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
-  const [bets, setBets] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const ref = firebase.firestore().collection("bets");
-
-  const getBets = () => {
-    setLoading(true);
-    ref
-      .where("owner", "==", currentUserId)
-      .orderBy("lastUpdate", "asc")
-      .onSnapshot((querySnapshot) => {
-        const items = [];
-        querySnapshot.forEach((bet) => {
-          items.push(bet.data());
-        });
-        setBets(items);
-        setLoading(false);
-      });
-  };
-
   useEffect(() => {
-    getBets();
+    getBets(currentUserId, setLoading);
   }, [currentUser]);
 
-  console.log(bets);
   return (
     <div>
       <h2 className="bet-list-title">Bet List</h2>
-
       <div id="bet-list">
         <table
           id="table-list"
@@ -48,7 +29,6 @@ const BetList = () => {
               <th>Actions</th>
             </tr>
           </thead>
-
           <tbody id="bet-items">
             {loading ? (
               <tr>
@@ -60,7 +40,7 @@ const BetList = () => {
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                    <button>Join Bet</button>
+                    <button>Display Bet</button>
                   </td>
                 </tr>
               ))

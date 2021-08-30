@@ -2,23 +2,24 @@ import React, { useContext, useState } from "react";
 import "./login.css";
 import { useHistory } from "react-router-dom";
 import betters from "../../assets/friendsBetting.PNG";
-import firebase from "../../firebase/firebase";
+import { AuthContext } from "../../context/Auth";
 
 const Login = () => {
   const history = useHistory();
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
+    login(email, password)
       .then(() => {
         setEmail("");
         setPassword("");
         history.push("/home");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setErrMsg(err.message));
   };
 
   return (
@@ -26,6 +27,7 @@ const Login = () => {
       <img src={betters} alt="background" className="betters-img" />
       <div>
         <h2 className="login-title">Login</h2>
+        <div className="error">{errMsg}</div>
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             className="login-input"

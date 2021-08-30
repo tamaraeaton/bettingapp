@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./context/AppContext";
-import { AuthContext, AuthProvider } from "./auth/Auth";
+import { AuthProvider } from "./context/Auth";
 
 ReactDOM.render(
-  <AppProvider>
+  <AppProvider> 
     <AuthProvider>
       <App />
     </AuthProvider>
