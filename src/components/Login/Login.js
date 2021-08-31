@@ -6,10 +6,9 @@ import { AuthContext } from "../../context/Auth";
 
 const Login = () => {
   const history = useHistory();
-  const { login } = useContext(AuthContext);
+  const { login, errMsg, setErrMsg } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

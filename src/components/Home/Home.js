@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import BetList from "../BetList/BetList";
 
 const Home = () => {
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withRouter(Home);
