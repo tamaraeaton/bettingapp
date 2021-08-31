@@ -15,37 +15,41 @@ const BetList = () => {
   }, [currentUser]);
 
   return (
-    <div>
+    <div className="custom-bet-list">
       <h2 className="bet-list-title">Bet List</h2>
-      <div id="bet-list">
+      <div>
         <table
           id="table-list"
           className="table table-striped"
           style={{ marginTop: 20 }}
         >
           <thead>
-            <tr>
+            <tr className="head-row">
               <th>Owner</th>
               <th>Amount</th>
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="bet-items">
+          <hr />
+          <div>
             {loading ? (
               <tr>
+                <td>Loading...</td>
               </tr>
             ) : (
               bets.map((bet) => (
-                <tr key={bet.id}>
+                <tr key={bet.id} className="head-row bet-item">
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                  <td><Link to="/display-bet"><button>DisplayBet</button></Link></td>
+                    <Link to="/display-bet">
+                      <button>DisplayBet</button>
+                    </Link>
                   </td>
                 </tr>
               ))
             )}
-          </tbody>
+          </div>
         </table>
       </div>
     </div>

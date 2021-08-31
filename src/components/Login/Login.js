@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   return (
-    <div className="general">
+    <div className="general flex-component">
       {/* <img src={betters} alt="background" className="betters-img" /> */}
       <div>
         <h2 className="login-title">Login</h2>

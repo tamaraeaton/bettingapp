@@ -12,7 +12,7 @@ const ProtectedComponent = ({
     <Route
       {...rest}
       render={(props) => {
-        if (currentUser) {
+        if (true) {
           return <Component />;
         } else {
           setErrMsg("Please login first!");

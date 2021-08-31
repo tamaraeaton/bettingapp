@@ -26,7 +26,7 @@ html, body, #root {
   overflow-y: auto;
   background: url("./assets/friendsBetting.PNG");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 /* utility class for layout - used by all components */

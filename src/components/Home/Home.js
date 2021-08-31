@@ -12,11 +12,7 @@ const Home = () => {
           Create Bet
         </Link>
       </div>
-      <div className="bet-list">
-        <div>
-          <BetList />
-        </div>
-      </div>
+      <BetList />
     </div>
   );
 };
