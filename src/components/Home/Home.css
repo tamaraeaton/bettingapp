@@ -1,9 +1,9 @@
 .home {
-  background-image: url("../../assets/friendsBetting.PNG");
-  background-repeat: no-repeat;
+  /* background-image: url("../../assets/friendsBetting.PNG"); */
+  /* background-repeat: no-repeat; */
   background-size: cover;
   background-position: center;
-  display: flex;
+  /* display: flex; */
   padding: 1em 1em 3em 3em;
   justify-content: space-around;
 }
@@ -20,7 +20,7 @@
 }
 
 .create-bet-button {
-  width: 6rem;
+  width: 8rem;
   height: 1.3rem;
   background: #120906;
   border-radius: 5px;
@@ -32,6 +32,6 @@
 
 .bet-list {
   width: 60%;
-  height: auto;
+  height: 90%;
   background-color: hsla(34, 44%, 69%, 1);
 }
