@@ -11,7 +11,6 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import 'bootstrap/dist/js/bootstrap.js';
 import DisplayBet from "./components/DisplayBet/DisplayBet";
 
 function App() {
