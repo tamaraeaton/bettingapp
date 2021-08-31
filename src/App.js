@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
@@ -10,27 +10,45 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import 'bootstrap/dist/js/bootstrap.js';
-import JoinBet from "./components/JoinBet/JoinBet";
+import DisplayBet from "./components/DisplayBet/DisplayBet";
+import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
+import { AuthContext } from "./context/Auth";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
   return (
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <Navbar />
-          <Route exact path="/" component={Welcome} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/bet-form" component={BetForm} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/about" component={About}/>
-          <Route exact path="/join-bet" component={JoinBet} />
-          
-          <Footer />
-        </div>
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+
+        <Navbar />
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/about" component={About} />
+
+        <ProtectedComponent
+          exact
+          path="/display-bet"
+          component={DisplayBet}
+          currentUser={currentUser}
+        />
+        <ProtectedComponent
+          exact
+          path="/home"
+          component={Home}
+          currentUser={currentUser}
+        />
+        <ProtectedComponent
+          exact
+          path="/bet-form"
+          component={BetForm}
+          currentUser={currentUser}
+        />
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
