@@ -1,15 +1,20 @@
 .register-title {
-  font-weight: 500;
-  margin-top: 1rem;
+  /* font-weight: 500; */
+  /* margin-top: 1rem; */
   text-align: center;
+  /* display: flex; */
   color: rgba(253, 253, 253, 0.6);
 }
 
-.register-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: auto;
+/* .register-form { */
+  /* flex-direction: column; */
+  /* max-width: 600px; */
+  /* margin: auto; */
+/* } */
+
+.login-form {
+  /* background-color: hotpink; */
+  width: 30%;
 }
 
 .register-input {
@@ -47,7 +52,7 @@
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .register-form {
     width: 400px;
   }
@@ -55,4 +60,4 @@
   .error {
     max-width: 400px;
   }
-}
+} */
