@@ -15,7 +15,7 @@ const DisplayBet = ({ bet }) => {
                 <h1 className="name">Bet Name: {disBet.name}</h1>
             </div>
             <div>
-                {currentUserId === disBet.owner ? <h1 className="Oh">Owner/Host: You</h1> : <h1 className="Oh">Owner/Host: {disBet.ownerhost}</h1>}
+                {currentUserId === disBet.owner ? <h1 className="Oh">Owner/Host: You</h1> : <h1 className="Oh">Owner/Host: {disBet.ownerEmail}</h1>}
             </div>
             <div>
                 <h1 className="bd">Bet Description: {disBet.description}</h1>
