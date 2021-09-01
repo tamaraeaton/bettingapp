@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [errMsg, setErrMsg] = useState("");
 
   const login = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -25,7 +26,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout, register }}>
+    <AuthContext.Provider
+      value={{ currentUser, login, logout, register, errMsg, setErrMsg }}
+    >
       {children}
     </AuthContext.Provider>
   );

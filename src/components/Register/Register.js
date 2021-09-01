@@ -5,12 +5,11 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const Register = () => {
-  const { register } = useContext(AuthContext);
+  const { register, errMsg, setErrMsg } = useContext(AuthContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
