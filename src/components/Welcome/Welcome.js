@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Welcome = () => {
   return (
     <div>
-      <div className="welcome">
+      <div className="welcome general">
         <div className="links-section">
           <Link to="/login" className="login-anchor">
             <h1 className="login">Login</h1>

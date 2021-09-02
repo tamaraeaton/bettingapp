@@ -33,11 +33,9 @@ const Register = () => {
 
   console.log(errMsg);
   return (
-    <div>
-      <img src={betters} alt="background" className="betters-img" />
-      <div>
+      <div className="general flex-component">
+        {/* <div className="error">{errMsg}</div> */}
         <h2 className="register-title">Sign Up</h2>
-        <div className="error">{errMsg}</div>
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             type="email"
@@ -47,18 +45,6 @@ const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          {/* <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            className="register-input"
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            className="register-input"
-          /> */}
           <input
             type="password"
             name="password"
@@ -78,7 +64,6 @@ const Register = () => {
           <input type="submit" value="Sign up" className="register-button" />
         </form>
       </div>
-    </div>
   );
 };
 

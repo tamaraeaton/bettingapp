@@ -10,7 +10,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
-import "bootstrap/dist/css/bootstrap.min.css";
 import DisplayBet from "./components/DisplayBet/DisplayBet";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
 import { AuthContext } from "./context/Auth";

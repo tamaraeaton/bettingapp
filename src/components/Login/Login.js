@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./login.css";
 import { useHistory } from "react-router-dom";
-import betters from "../../assets/friendsBetting.PNG";
+// import betters from "../../assets/friendsBetting.PNG";
 import { AuthContext } from "../../context/Auth";
 
 const Login = () => {
@@ -22,8 +22,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <img src={betters} alt="background" className="betters-img" />
+    <div className="general flex-component">
+      {/* <img src={betters} alt="background" className="betters-img" /> */}
       <div>
         <h2 className="login-title">Login</h2>
         <div className="error">{errMsg}</div>

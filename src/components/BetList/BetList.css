@@ -1,15 +1,43 @@
-#bet-list {
-  height: 435px !important;
-  overflow: auto;
+.custom-bet-list {
+  /* height: 435px !important;
+  overflow: auto; */
+  background: black;
+  color: white;
+  max-height: 80vh;
+  height: 20rem;
+  /* padding: 1rem 1.5rem; */
 }
 
 .bet-list-title {
   text-align: center;
-  background: #120906;
-  color: whitesmoke;
+  color: black;
+  width: 100%;
+  background: white;
+  margin: 0;
+  padding: 0;
 }
 
-.bet-list-bet {
+.head-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-width: 20rem;
+  width: 50vw;
+  text-align: center;
+  align-items: center;
+}
+
+.bet-item:nth-child(odd) {
+  background: darkslategrey;
+}
+.bet-item:nth-child(even) {
+  background: lightslategrey;
+}
+
+/* .bet-items {
+  width: 100%;
+} */
+
+/* .bet-list-bet {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -17,9 +45,6 @@
   background: white;
   padding: 1rem;
   border-radius: 15px;
-}
+} */
 
-#bet-items {
-  background-color: rgba(211, 211, 211, 0.5);
-  border-radius: 4px;
-}
+
