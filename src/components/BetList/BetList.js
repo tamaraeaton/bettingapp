@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
-  const { bets, getBets } = useContext(AppContext);
+  const { bets, getBets, setDisBet } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
   const [loading, setLoading] = useState(false);
 
@@ -33,17 +33,15 @@ const BetList = () => {
           <hr />
           <div>
             {loading ? (
-              <tr>
-                <td>Loading...</td>
-              </tr>
+              <tr></tr>
             ) : (
               bets.map((bet) => (
                 <tr key={bet.id} className="head-row bet-item">
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                    <Link to="/display-bet">
-                      <button>DisplayBet</button>
+                    <Link to="/display-bet" onClick={() => setDisBet(bet)}>
+                     <button>DisplayBet</button>
                     </Link>
                   </td>
                 </tr>
