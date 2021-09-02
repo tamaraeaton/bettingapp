@@ -3,7 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const ProtectedComponent = ({
-  currentUser: currentUser,
   component: Component,
   ...rest
 }) => {

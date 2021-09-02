@@ -33,6 +33,7 @@ export const AppProvider = (props) => {
     };
     return ref.doc(newBet.id).set(newBet);
   };
+
   return (
     <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet }}>
       {props.children}

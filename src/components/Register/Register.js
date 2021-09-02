@@ -5,14 +5,26 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const Register = () => {
-  const { register, errMsg, setErrMsg } = useContext(AuthContext);
+  const { register, errMsg, setErrMsg, addUser } = useContext(AuthContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      age,
+      gender,
+    };
 
     if (confirmPassword !== password) {
       setErrMsg("Passwords do not match!");
@@ -20,18 +32,23 @@ const Register = () => {
       setConfirmPassword("");
     } else {
       register(email, password)
-        .then(() => {
-          setEmail("");
-          setPassword("");
-          setConfirmPassword("");
-          setErrMsg("");
-          history.push("/home");
+        .then((user) => {
+          console.log(user.user.uid);
+          newUser.ownerId = user.user.uid;
+          addUser(newUser).then((res) => {
+            console.log(res);
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+            setErrMsg("");
+            history.push("/home");
+          });
         })
         .catch((err) => setErrMsg(err.message));
     }
   };
 
-  console.log(errMsg);
+  // console.log(errMsg);
   return (
       <div className="general flex-component">
         {/* <div className="error">{errMsg}</div> */}
@@ -44,6 +61,38 @@ const Register = () => {
             className="register-input"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+          />
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            className="register-input"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className="register-input"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+          />
+          <input
+            type="text"
+            name="age"
+            placeholder="Age"
+            className="register-input"
+            onChange={(e) => setAge(e.target.value)}
+            value={age}
+          />
+          <input
+            type="text"
+            name="gender"
+            placeholder="Gender"
+            className="register-input"
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
           />
           <input
             type="password"
