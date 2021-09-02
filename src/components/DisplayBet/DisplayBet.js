@@ -23,14 +23,14 @@ const DisplayBet = ({ bet }) => {
             <div>
                 <h1 className="bd">Members: Number Of Members</h1>
             </div>
-            <div>
+            <div className='button-link'>
                 <h1 className="Am">Total Amount:</h1>
-            </div>
-            {currentUserId === disBet.owner ? (
-                <button>See Members</button>
+                {currentUserId === disBet.owner ? (
+                <button className='display-bet-button'>See Members</button>
             ) : (
-                <button>Join Bet</button>
+                <button className='display-bet-button'>Join Bet</button>
             )}
+            </div>
         </div>
 
     );
