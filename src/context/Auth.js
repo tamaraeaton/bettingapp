@@ -6,25 +6,37 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
+  const [pending, setPending] = useState(true);
 
   const refUsers = firebase.firestore().collection("users");
 
-  const login = (email, password) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
+  const login = (email, password, history) => {
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => setCurrentUser(res.user));
   };
 
   const logout = () => {
     return firebase.auth().signOut();
   };
 
-  const register = (email, password) => {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+  const register = async (email, password) => {
+    return await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => setCurrentUser(res.user));
+  };
+
+  const getUser = async () => {
+    await firebase.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setPending(false);
+    });
   };
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setCurrentUser(user);
-    });
+    getUser();
   }, []);
 
   const addUser = (user) => {
@@ -35,6 +47,10 @@ export const AuthProvider = ({ children }) => {
     };
     return refUsers.doc(newUser.id).set(newUser);
   };
+
+  if (pending) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <AuthContext.Provider
