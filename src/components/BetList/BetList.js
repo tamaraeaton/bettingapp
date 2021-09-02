@@ -32,15 +32,18 @@ const BetList = () => {
           </thead>
           <tbody id="bet-items">
             {loading ? (
-              <tr>
-              </tr>
+              <tr></tr>
             ) : (
               bets.map((bet) => (
                 <tr key={bet.id}>
                   <td>{bet.name}</td>
                   <td>{bet.amount}</td>
                   <td>
-                  <td><Link to="/display-bet"><button>DisplayBet</button></Link></td>
+                    <td>
+                      <Link to="/display-bet">
+                        <button>DisplayBet</button>
+                      </Link>
+                    </td>
                   </td>
                 </tr>
               ))

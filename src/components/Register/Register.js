@@ -3,11 +3,9 @@ import "./Register.css";
 import betters from "../../assets/friendsBetting.PNG";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
-import { AppContext } from "../../context/AppContext"
 
 const Register = () => {
-  const { register, errMsg, setErrMsg } = useContext(AuthContext);
-  const { addUser } = useContext(AppContext);
+  const { register, errMsg, setErrMsg, addUser } = useContext(AuthContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,8 +23,8 @@ const Register = () => {
       lastName,
       email,
       age,
-      gender
-    }
+      gender,
+    };
 
     if (confirmPassword !== password) {
       setErrMsg("Passwords do not match!");
@@ -35,84 +33,86 @@ const Register = () => {
     } else {
       register(email, password)
         .then((user) => {
-          console.log(user)
-          // newUser.email = 
-          addUser(newUser)
-          setEmail("");
-          setPassword("");
-          setConfirmPassword("");
-          setErrMsg("");
-          history.push("/home");
+          console.log(user.user.uid);
+          newUser.ownerId = user.user.uid;
+          addUser(newUser).then((res) => {
+            console.log(res);
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+            setErrMsg("");
+            history.push("/home");
+          });
         })
         .catch((err) => setErrMsg(err.message));
     }
   };
 
-  console.log(errMsg);
+  // console.log(errMsg);
   return (
     <div>
-      <img src={betters} alt='background' className='betters-img' />
+      <img src={betters} alt="background" className="betters-img" />
       <div>
-        <h2 className='register-title'>Sign Up</h2>
-        <div className='error'>{errMsg}</div>
-        <form className='login-form' onSubmit={handleSubmit}>
+        <h2 className="register-title">Sign Up</h2>
+        <div className="error">{errMsg}</div>
+        <form className="login-form" onSubmit={handleSubmit}>
           <input
-            type='email'
-            name='email'
-            placeholder='Email'
-            className='register-input'
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="register-input"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
-            type='text'
-            name='firstName'
-            placeholder='First Name'
-            className='register-input'
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            className="register-input"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
           />
           <input
-            type='text'
-            name='lastName'
-            placeholder='Last Name'
-            className='register-input'
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className="register-input"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
           />
           <input
-            type='text'
-            name='age'
-            placeholder='Age'
-            className='register-input'
+            type="text"
+            name="age"
+            placeholder="Age"
+            className="register-input"
             onChange={(e) => setAge(e.target.value)}
             value={age}
           />
           <input
-            type='text'
-            name='gender'
-            placeholder='Gender'
-            className='register-input'
+            type="text"
+            name="gender"
+            placeholder="Gender"
+            className="register-input"
             onChange={(e) => setGender(e.target.value)}
             value={gender}
           />
           <input
-            type='password'
-            name='password'
-            placeholder='Password'
-            className='register-input'
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="register-input"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
           <input
-            type='password'
-            name='confirmPassword'
-            placeholder='Confirm Password'
-            className='register-input'
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="register-input"
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
           />
-          <input type='submit' value='Sign up' className='register-button' />
+          <input type="submit" value="Sign up" className="register-button" />
         </form>
       </div>
     </div>

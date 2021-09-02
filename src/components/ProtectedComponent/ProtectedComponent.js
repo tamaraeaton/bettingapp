@@ -3,7 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const ProtectedComponent = ({
-  currentUser: currentUser,
   component: Component,
   ...rest
 }) => {
@@ -12,7 +11,7 @@ const ProtectedComponent = ({
     <Route
       {...rest}
       render={(props) => {
-        if (currentUser) {
+        if (true) {
           return <Component />;
         } else {
           setErrMsg("Please login first!");

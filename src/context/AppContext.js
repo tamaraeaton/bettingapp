@@ -6,7 +6,6 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const ref = firebase.firestore().collection("bets");
-  const refUsers = firebase.firestore().collection("users");
 
   const getBets = (user, load) => {
     load(true);
@@ -31,17 +30,9 @@ export const AppProvider = (props) => {
     };
     return ref.doc(newBet.id).set(newBet);
   };
-  const addUser = (user) => {
-    const newUser = {
-      ...user,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
-    };
-    return refUsers.doc(newUser.id).set(newUser);
-  };
 
   return (
-    <AppContext.Provider value={{ bets, getBets, addBet, addUser }}>
+    <AppContext.Provider value={{ bets, getBets, addBet }}>
       {props.children}
     </AppContext.Provider>
   );
