@@ -1,13 +1,9 @@
-.footer {
-  position: relative;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.custom-footer {
   background: black;
-  width: 100%;
-  height: 2rem;
-  margin-top: auto;
+  display: flex;
+  align-items: center;
+  padding: .8rem .5rem;
+  font-size: 1.4rem;
 }
 
 .footer-left {
@@ -27,5 +23,5 @@ padding-left: 2%;
 
 .company-text{
   color: white;
-  font-size: .5rem;
+  font-size: .8rem;
 }

@@ -40,8 +40,8 @@ const BetForm = () => {
   };
 
   return (
-    <div className="bet-form">
-      <img src={betters} alt="background" className="betters-img" />
+    <div className="bet-form general flex-component">
+      {/* <img src={betters} alt="background" className="betters-img" /> */}
       <div className="bet-form-container">
         <h2 className="bet-form-title">Create A Bet</h2>
         <form className="create-bet-form" onSubmit={handleSubmit}>

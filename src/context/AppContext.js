@@ -5,12 +5,15 @@ export const AppContext = createContext();
 
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
+  const [disBet, setDisBet] = useState({});
   const ref = firebase.firestore().collection("bets");
+
+  console.log(disBet);
 
   const getBets = (user, load) => {
     load(true);
     ref
-      .where("owner", "==", user)
+      // .where("owner", "==", user)
       .orderBy("lastUpdate", "asc")
       .onSnapshot((querySnapshot) => {
         const items = [];
@@ -32,7 +35,7 @@ export const AppProvider = (props) => {
   };
 
   return (
-    <AppContext.Provider value={{ bets, getBets, addBet }}>
+    <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet }}>
       {props.children}
     </AppContext.Provider>
   );

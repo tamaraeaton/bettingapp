@@ -2,6 +2,7 @@
     background-color: gray;
     color: white;
     height: 100%;
+    padding: 10px;
 }
 
 .bd{
@@ -19,9 +20,26 @@
 .Am{
     font-weight: 400;
     font-size:xx-large;
-    margin-top: 300px;
+    margin-top: 50px;
 }
 
+.Oh{
+    font-weight: 400;
+    font-size:xx-large;
+    margin-top: 50px;
+}
+
+.button-link{
+    display: flex;
+    justify-content: space-between;
+    /* height: 100px; */
+    /* justify-content: center; */
+}
+
+.display-bet-button{
+    height: 50px;
+    background-color: tan;
+}
 
 
 
