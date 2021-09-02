@@ -1,5 +1,6 @@
 .custom-bet-list {
-  overflow: scroll; 
+  overflow-y: scroll; 
+  overflow-x: hidden;
   background: black;
   color: white;
   max-height: 80vh;
