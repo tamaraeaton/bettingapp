@@ -1,11 +1,10 @@
 .custom-bet-list {
-  /* height: 435px !important;
-  overflow: auto; */
+  overflow-y: scroll; 
+  overflow-x: hidden;
   background: black;
   color: white;
   max-height: 80vh;
   height: 20rem;
-  /* padding: 1rem 1.5rem; */
 }
 
 .bet-list-title {
@@ -32,19 +31,3 @@
 .bet-item:nth-child(even) {
   background: lightslategrey;
 }
-
-/* .bet-items {
-  width: 100%;
-} */
-
-/* .bet-list-bet {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 1rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 15px;
-} */
-
-

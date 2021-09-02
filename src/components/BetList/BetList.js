@@ -18,11 +18,7 @@ const BetList = () => {
     <div className="custom-bet-list">
       <h2 className="bet-list-title">Bet List</h2>
       <div>
-        <table
-          id="table-list"
-          className="table table-striped"
-          style={{ marginTop: 20 }}
-        >
+        <table>
           <thead>
             <tr className="head-row">
               <th>Owner</th>
@@ -30,10 +26,9 @@ const BetList = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <hr />
-          <div>
+          <tbody>
             {loading ? (
-              <tr></tr>
+              <tr><td>Loading...</td></tr>
             ) : (
               bets.map((bet) => (
                 <tr key={bet.id} className="head-row bet-item">
@@ -47,7 +42,7 @@ const BetList = () => {
                 </tr>
               ))
             )}
-          </div>
+            </tbody>
         </table>
       </div>
     </div>

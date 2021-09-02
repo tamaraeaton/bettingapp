@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "./BetForm.css";
-import betters from "../../assets/friendsBetting.PNG";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
@@ -41,7 +40,6 @@ const BetForm = () => {
 
   return (
     <div className="bet-form general flex-component">
-      {/* <img src={betters} alt="background" className="betters-img" /> */}
       <div className="bet-form-container">
         <h2 className="bet-form-title">Create A Bet</h2>
         <form className="create-bet-form" onSubmit={handleSubmit}>
