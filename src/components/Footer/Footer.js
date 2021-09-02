@@ -9,7 +9,7 @@ const Footer = () => {
         <p className='company-text'>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Banyan Labs All Rights Reserved</p>
       </div>
       <div className="footer-right">
-        <a href="#" className="footer-link">
+        <a target="_blank" className="footer-link">
           Contact Us
         </a>
       </div>

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
-import betters from "../../assets/friendsBetting.PNG";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
@@ -51,7 +50,7 @@ const Register = () => {
   // console.log(errMsg);
   return (
       <div className="general flex-component">
-        {/* <div className="error">{errMsg}</div> */}
+        <div className="error">{errMsg}</div>
         <h2 className="register-title">Sign Up</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <input

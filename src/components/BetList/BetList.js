@@ -26,10 +26,9 @@ const BetList = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <hr />
-          <div>
+          <tbody>
             {loading ? (
-              <tr></tr>
+              <tr><td>Loading...</td></tr>
             ) : (
               bets.map((bet) => (
                 <tr key={bet.id} className="head-row bet-item">
@@ -43,7 +42,7 @@ const BetList = () => {
                 </tr>
               ))
             )}
-          </div>
+            </tbody>
         </table>
       </div>
     </div>
