@@ -18,11 +18,7 @@ const BetList = () => {
     <div className="custom-bet-list">
       <h2 className="bet-list-title">Bet List</h2>
       <div>
-        <table
-          id="table-list"
-          className="table table-striped"
-          style={{ marginTop: 20 }}
-        >
+        <table>
           <thead>
             <tr className="head-row">
               <th>Owner</th>
