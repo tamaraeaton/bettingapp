@@ -12,10 +12,8 @@ import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import DisplayBet from "./components/DisplayBet/DisplayBet";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
-import { AuthContext } from "./context/Auth";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
   return (
     <BrowserRouter>
       <div className="App">
@@ -27,24 +25,9 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
 
-        <ProtectedComponent
-          exact
-          path="/display-bet"
-          component={DisplayBet}
-          currentUser={currentUser}
-        />
-        <ProtectedComponent
-          exact
-          path="/home"
-          component={Home}
-          currentUser={currentUser}
-        />
-        <ProtectedComponent
-          exact
-          path="/bet-form"
-          component={BetForm}
-          currentUser={currentUser}
-        />
+        <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
+        <ProtectedComponent exact path="/home" component={Home} />
+        <ProtectedComponent exact path="/bet-form" component={BetForm} />
 
         <Footer />
       </div>

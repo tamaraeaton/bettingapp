@@ -1,23 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
-const ProtectedComponent = ({
-  component: Component,
-  ...rest
-}) => {
-  const { setErrMsg } = useContext(AuthContext);
+const ProtectedComponent = ({ component: Component, ...rest }) => {
+  const { setErrMsg, currentUser } = useContext(AuthContext);
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (true) {
-          return <Component />;
+        if (currentUser) {
+          return <Component {...props} />;
         } else {
           setErrMsg("Please login first!");
-          return (
-            <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
-          );
+          return <Redirect to="/login" />;
         }
       }}
     />
