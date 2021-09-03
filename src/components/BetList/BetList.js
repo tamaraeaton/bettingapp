@@ -21,7 +21,7 @@ const BetList = () => {
         <table>
           <thead>
             <tr className="head-row">
-              <th>Owner</th>
+              <th>Bet Name</th>
               <th>Amount</th>
               <th>Actions</th>
             </tr>
