@@ -33,7 +33,7 @@
     justify-content: space-between;
  }  
 
-.log-out{
+.nav-link{
     color:white;
     margin-right: 1rem;
     text-decoration: none; 
@@ -50,5 +50,13 @@
     color: white;
     text-decoration: none;
 }
+
+/* .nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+  
+  } */
 
 
