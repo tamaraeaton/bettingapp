@@ -49,10 +49,10 @@ const Register = () => {
 
   // console.log(errMsg);
   return (
-      <div className="general flex-component">
+      <div className="general flex-component custom-register">
         <div className="error">{errMsg}</div>
         <h2 className="register-title">Sign Up</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="register-form" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"

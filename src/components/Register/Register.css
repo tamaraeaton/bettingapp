@@ -1,3 +1,10 @@
+.custom-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .register-title {
   /* font-weight: 500; */
   /* margin-top: 1rem; */
@@ -6,15 +13,19 @@
   color: rgba(253, 253, 253, 0.6);
 }
 
-/* .register-form { */
-  /* flex-direction: column; */
-  /* max-width: 600px; */
-  /* margin: auto; */
-/* } */
+ /* .register-form { 
+   flex-direction: column; 
+   max-width: 600px; 
+   margin: auto; 
+}  */
 
-.login-form {
+.register-form {
   /* background-color: hotpink; */
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
 }
 
 .register-input {
