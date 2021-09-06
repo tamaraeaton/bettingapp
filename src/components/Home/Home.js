@@ -8,9 +8,9 @@ const Home = () => {
     <div className="home general flex-component">
       <div className="create-bet-here">
         <h4 className="bet-intro">Create a bet with your friends</h4>
-        <Link to="/bet-form" className="create-bet-button">
-          Create Bet
-        </Link>
+        <button className="custom-button">
+          <Link to="/bet-form">Create Bet</Link>
+        </button>
       </div>
       <BetList />
     </div>

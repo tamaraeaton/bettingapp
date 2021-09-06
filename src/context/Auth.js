@@ -21,11 +21,21 @@ export const AuthProvider = ({ children }) => {
     return firebase.auth().signOut();
   };
 
-  const register = async (email, password) => {
+  const register = async (user, password) => {
     return await firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((res) => setCurrentUser(res.user));
+      .createUserWithEmailAndPassword(user.email, password)
+      .then((res) => {
+        const userData = {
+          ...user,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
+        };
+        refUsers
+          .doc(userData.id)
+          .set(userData)
+        // setCurrentUser(res.user);
+      });
   };
 
   const getUser = async () => {
@@ -45,7 +55,10 @@ export const AuthProvider = ({ children }) => {
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
-    return refUsers.doc(newUser.id).set(newUser);
+    return refUsers
+      .doc(newUser.id)
+      .set(newUser)
+      .then((res) => setCurrentUser(res.user));
   };
 
   if (pending) {
