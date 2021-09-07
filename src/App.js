@@ -6,7 +6,6 @@ import Welcome from "./components/Welcome/Welcome";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import BetForm from "./components/BetForm/BetForm";
-import Navbar from "./components/Navbar/Navbar";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
@@ -19,7 +18,6 @@ function App() {
       <div className="App">
         <Header />
 
-        <Navbar />
         <Route exact path="/" component={Welcome} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
