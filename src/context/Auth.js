@@ -25,6 +25,16 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
+  const getUser = async (id) => {
+    await refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((user) => {
+        setCurrentUser(user.data());
+        console.log(user.data());
+        setPending(false);
+      });
+    });
+  };
+  
   const getAuth = async () => {
     await firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -35,18 +45,6 @@ export const AuthProvider = ({ children }) => {
         setPending(false);
       }
     });
-  };
-
-  const getUser = async (id) => {
-    await refUsers
-      .where("owner", "==", id)
-      .onSnapshot((querySnapshot) => {
-        querySnapshot.forEach((user) => {
-          setCurrentUser(user.data());
-          console.log(user.data());
-          setPending(false)
-        });
-      });
   };
 
   useEffect(() => {
