@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
-  const getUser = async (id) => {
+  async function getUser(id) {
     await refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       });
     });
   };
-  
+
   const getAuth = async () => {
     await firebase.auth().onAuthStateChanged((user) => {
       if (user) {
