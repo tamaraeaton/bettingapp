@@ -20,14 +20,23 @@ const Header = () => {
 
       {isAuth ? (
         <div className="header-link-section">
-          <Link to="/" className="custom-header-link" onClick={logout}>
-            Log Out
-          </Link>
           <Link to="/user-profile" className="custom-header-link">
             Profile
           </Link>
+          <Link to="/home" className="custom-header-link">
+            Home
+          </Link>
+          <Link to="/bet-form" className="custom-header-link">
+            Create Bet
+          </Link>
+          <Link to="/trshtok" className="custom-header-link">
+            TrshTok
+          </Link>
           <Link to="/about" className="custom-header-link">
             About
+          </Link>
+          <Link to="/" className="custom-header-link" onClick={logout}>
+            Log Out
           </Link>
         </div>
       ) : (
