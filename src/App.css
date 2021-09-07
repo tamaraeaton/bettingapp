@@ -98,3 +98,10 @@ body,
   cursor: pointer;
 }
 
+.custom-header-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+

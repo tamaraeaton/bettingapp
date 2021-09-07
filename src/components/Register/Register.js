@@ -33,12 +33,12 @@ const Register = () => {
       
       register(newUser, password)
         .then((user) => {
-          console.log(user.user)
+          addUser(newUser, user.user.uid).then(userdata => console.log(userdata))
           setEmail("");
           setPassword("");
           setConfirmPassword("");
           setErrMsg("");
-          // history.push("/home");
+          history.push("/home");
         })
         .catch((err) => setErrMsg(err.message));
     }

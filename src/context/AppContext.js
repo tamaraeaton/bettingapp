@@ -8,10 +8,7 @@ export const AppProvider = (props) => {
   const [disBet, setDisBet] = useState({});
   const ref = firebase.firestore().collection("bets");
 
-  console.log(disBet);
-
-  const getBets = (user, load) => {
-    load(true);
+  const getBets = (user) => {
     ref
       // .where("owner", "==", user)
       .orderBy("lastUpdate", "asc")
@@ -21,7 +18,6 @@ export const AppProvider = (props) => {
           items.push(bet.data());
         });
         setBets(items);
-        load(false);
       });
   };
 

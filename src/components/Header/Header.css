@@ -29,7 +29,7 @@
 
 .header-link-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .log-out {

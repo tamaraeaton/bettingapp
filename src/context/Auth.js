@@ -4,17 +4,15 @@ import firebase from "./firebase";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [pending, setPending] = useState(true);
 
   const refUsers = firebase.firestore().collection("users");
 
-  const login = (email, password, history) => {
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((res) => setCurrentUser(res.user));
+  const login = async (email, password) => {
+    return await firebase.auth().signInWithEmailAndPassword(email, password);
   };
 
   const logout = () => {
@@ -24,41 +22,45 @@ export const AuthProvider = ({ children }) => {
   const register = async (user, password) => {
     return await firebase
       .auth()
-      .createUserWithEmailAndPassword(user.email, password)
-      .then((res) => {
-        const userData = {
-          ...user,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
-        };
-        refUsers
-          .doc(userData.id)
-          .set(userData)
-        // setCurrentUser(res.user);
-      });
+      .createUserWithEmailAndPassword(user.email, password);
   };
 
-  const getUser = async () => {
+  const getAuth = async () => {
     await firebase.auth().onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      setPending(false);
+      if (user) {
+        setIsAuth(true);
+        getUser(user.uid);
+      } else {
+        setIsAuth(false);
+        setPending(false);
+      }
     });
   };
 
+  const getUser = async (id) => {
+    await refUsers
+      .where("owner", "==", id)
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((user) => {
+          setCurrentUser(user.data());
+          console.log(user.data());
+          setPending(false)
+        });
+      });
+  };
+
   useEffect(() => {
-    getUser();
+    getAuth();
   }, []);
 
-  const addUser = (user) => {
+  const addUser = async (user, ownerId) => {
     const newUser = {
       ...user,
+      owner: ownerId,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
-    return refUsers
-      .doc(newUser.id)
-      .set(newUser)
-      .then((res) => setCurrentUser(res.user));
+    return await refUsers.doc(newUser.id).set(newUser);
   };
 
   if (pending) {
@@ -75,6 +77,8 @@ export const AuthProvider = ({ children }) => {
         errMsg,
         setErrMsg,
         addUser,
+        isAuth,
+        getUser,
       }}
     >
       {children}

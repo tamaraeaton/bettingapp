@@ -11,6 +11,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import DisplayBet from "./components/DisplayBet/DisplayBet";
+import UserProfile from "./components/UserProfile/UserProfile";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
         <ProtectedComponent exact path="/home" component={Home} />
         <ProtectedComponent exact path="/bet-form" component={BetForm} />
+        <ProtectedComponent exact path="/user-profile" component={UserProfile} />
 
         <Footer />
       </div>
