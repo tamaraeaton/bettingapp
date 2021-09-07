@@ -1,51 +1,4 @@
-.custom-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-.register-title {
-  /* font-weight: 500; */
-  /* margin-top: 1rem; */
-  text-align: center;
-  /* display: flex; */
-  color: rgba(253, 253, 253, 0.6);
-}
-
- /* .register-form { 
-   flex-direction: column; 
-   max-width: 600px; 
-   margin: auto; 
-}  */
-
-.register-form {
-  /* background-color: hotpink; */
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: auto;
-}
-
-.register-input {
-  height: 1.3rem;
-  margin-top: 0.5rem;
-  opacity: 0.8rem;
-  padding: 0.2rem;
-}
-
-.register-button {
-  margin-top: 0.5rem;
-  width: 6rem;
-  height: 1.3rem;
-  background: #120906;
-  align-self: flex-end;
-  border-radius: 5px;
-  letter-spacing: 3px;
-  font-weight: 530;
-  color: white;
-}
 
 .register-button:hover {
   cursor: pointer;
@@ -59,7 +12,7 @@
   width: 600px;
   margin: auto;
   min-width: 400px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border-radius: 10px;
 }
 

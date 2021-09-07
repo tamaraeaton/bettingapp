@@ -3,12 +3,12 @@ import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const ProtectedComponent = ({ component: Component, ...rest }) => {
-  const { setErrMsg, currentUser } = useContext(AuthContext);
+  const { setErrMsg, isAuth } = useContext(AuthContext);
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (currentUser) {
+        if (isAuth) {
           return <Component {...props} />;
         } else {
           setErrMsg("Please login first!");
