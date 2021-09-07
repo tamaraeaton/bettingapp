@@ -25,8 +25,8 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
-  async function getUser(id) {
-    await refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
+  function getUser(id) {
+    refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
         console.log(user.data());
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getAuth();
+    getAuth()
   }, []);
 
   const addUser = async (user, ownerId) => {

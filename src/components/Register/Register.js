@@ -64,6 +64,7 @@ const Register = () => {
           className="custom-input"
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
+          required
         />
         <input
           type="text"
