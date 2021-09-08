@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import DisplayBet from "./components/DisplayBet/DisplayBet";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
+import DisplayMembers from "./components/MembersList/MembersList";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
         <ProtectedComponent exact path="/home" component={Home} />
         <ProtectedComponent exact path="/bet-form" component={BetForm} />
+        <ProtectedComponent exact path="/display-members" component={DisplayMembers} />
 
         <Footer />
       </div>

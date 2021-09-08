@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [pending, setPending] = useState(true);
 
   const refUsers = firebase.firestore().collection("users");
+  console.log('auth' + refUsers)
 
   const login = (email, password, history) => {
     return firebase
