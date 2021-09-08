@@ -11,8 +11,6 @@ export const AppProvider = (props) => {
   const [member, setMember] = useState({});
   const [members, setMembers] = useState([]);
 
-  console.log(disBet);
-
   const getBets = (user) => {
     ref
       // .where("owner", "==", user)

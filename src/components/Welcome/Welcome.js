@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div>
-      <div className="welcome general">
+    <div className="welcome">
+      <div className="welcome-hero">
         <div className="links-section">
           <Link to="/login" className="login-anchor">
             <h1 className="login">Login</h1>
@@ -21,6 +21,7 @@ const Welcome = () => {
           alt="bettingFriends"
         />
       </div>
+
       <div className="intro">
         <h3 className="intro-text">
           Have a little fun placing bets with your friends and others with ease

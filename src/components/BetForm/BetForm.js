@@ -39,45 +39,43 @@ const BetForm = () => {
   };
 
   return (
-    <div className="bet-form general flex-component">
-      <div className="bet-form-container">
-        <h2 className="bet-form-title">Create A Bet</h2>
-        <form className="create-bet-form" onSubmit={handleSubmit}>
-          <input
-            className="bet-input"
-            type="text"
-            name="betName"
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-          <input
-            className="bet-input"
-            type="text"
-            name="category"
-            placeholder="Category"
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}
-          />
-          <input
-            className="bet-input"
-            type="number"
-            name="amount"
-            placeholder="Amount"
-            onChange={(e) => setAmount(e.target.value)}
-            value={amount}
-          />
-          <textarea
-            rows="5"
-            name="description"
-            placeholder="Description..."
-            className="bet-textarea"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-          ></textarea>
-          <input type="submit" value="Submit" className="bet-button" />
-        </form>
-      </div>
+    <div className="general flex-component custom-form-page">
+      <h2 className="custom-form-title">Create A Bet</h2>
+      <form className="custom-form" onSubmit={handleSubmit}>
+        <input
+          className="custom-input"
+          type="text"
+          name="betName"
+          placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
+        <input
+          className="custom-input"
+          type="text"
+          name="category"
+          placeholder="Category"
+          onChange={(e) => setCategory(e.target.value)}
+          value={category}
+        />
+        <input
+          className="custom-input"
+          type="number"
+          name="amount"
+          placeholder="Amount"
+          onChange={(e) => setAmount(e.target.value)}
+          value={amount}
+        />
+        <textarea
+          rows="5"
+          name="description"
+          placeholder="Description..."
+          className="bet-textarea"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+        ></textarea>
+        <input type="submit" value="Submit" className="custom-button" />
+      </form>
     </div>
   );
 };

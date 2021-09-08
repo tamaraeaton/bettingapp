@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const Header = () => {
-  const { currentUser, logout } = useContext(AuthContext);
+  const { isAuth, logout } = useContext(AuthContext);
 
   return (
     <div className="calheader">
@@ -17,19 +17,35 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <div className="header-link-section">
-        {currentUser ? (
-          <div>
-            <Link to="/" className="log-out" onClick={logout}>
-              Log Out
-            </Link>
-            {/* other links here */}
-          </div>
-        ) : null}
-        <Link to="/about" className="create-about-button">
-          About
-        </Link>
-      </div>
+
+      {isAuth ? (
+        <div className="header-link-section">
+          <Link to="/user-profile" className="custom-header-link">
+            Profile
+          </Link>
+          <Link to="/home" className="custom-header-link">
+            Home
+          </Link>
+          <Link to="/bet-form" className="custom-header-link">
+            Create Bet
+          </Link>
+          <Link to="/trshtok" className="custom-header-link">
+            TrshTok
+          </Link>
+          <Link to="/about" className="custom-header-link">
+            About
+          </Link>
+          <Link to="/" className="custom-header-link" onClick={logout}>
+            Log Out
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <Link to="/about" className="custom-header-link">
+            About
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,54 +1,45 @@
-.calheader{
-    background-color: black;
-    color: white;
-    height: 75px;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    align-items: center;
+.calheader {
+  background-color: black;
+  color: white;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  align-items: center;
 }
 
-
-.company-section{
-    display: flex;
-    align-items: center;
+.company-section {
+  display: flex;
+  align-items: center;
 }
 
-.twire-logo{
-    background-color: grey;
-    height: 50px;
-    width: 50px;
-    margin-right: 25px;
+.twire-logo {
+  background-color: grey;
+  height: 50px;
+  width: 50px;
+  margin-right: 25px;
 }
 
-.twire-link{
-    color:white;
-    text-decoration: none;
-    font-weight: 900;
+.twire-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+}
+.header-link-section {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-  .header-link-section{
-    display: flex;
-    justify-content: space-between;
- }  
-
-.log-out{
-    color:white;
-    margin-right: 1rem;
-    text-decoration: none; 
-    font-weight: 600;
+.log-out {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.about-link{
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
+.about-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
 }
-
-.create-about-button{
-    color: white;
-    text-decoration: none;
-}
-
-
