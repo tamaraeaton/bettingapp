@@ -27,9 +27,9 @@ const MembersList = () => {
             <tbody>
               {members.map((member, index) => (
                 <tr key={index} className='head-row member-item'>
-                  <td>{member.firstName}</td>
-                  <td>{member.lastName}</td>
-                  <td>{member.email}</td>
+                  <td className="custom-border">{member.firstName}</td>
+                  <td className="custom-border">{member.lastName}</td>
+                  <td className="custom-border">{member.email}</td>
                   <td>
                     <a href={`mailto:${member.email}`}>
                       <button>Contact</button>

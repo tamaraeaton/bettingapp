@@ -1,34 +1,42 @@
 .custom-member-list {
-    overflow-y: scroll; 
-    overflow-x: hidden;
-    background: black;
-    color: white;
-    max-height: 80vh;
-    height: 20rem;
-    /* padding: 1rem 1.5rem; */
-  }
-  
-  .member-list-title {
-    text-align: center;
-    color: black;
-    width: 100%;
-    background: white;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .head-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    min-width: 20rem;
-    width: 50vw;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .member-item:nth-child(odd) {
-    background: darkslategrey;
-  }
-  .member-item:nth-child(even) {
-    background: lightslategrey;
-  }
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: black;
+  color: white;
+  max-height: 80vh;
+  height: 20rem;
+}
+
+.member-list-title {
+  text-align: center;
+  color: black;
+  width: 100%;
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+.head-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  min-width: 20rem;
+  width: 70vw;
+  text-align: left;
+  align-items: center;
+}
+
+.custom-border {
+  border-right: 2px solid black;
+  margin-right: 0.2rem;
+  height: 100%;
+  padding: 0.2rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.member-item:nth-child(odd) {
+  background: darkslategrey;
+}
+.member-item:nth-child(even) {
+  background: lightslategrey;
+}
