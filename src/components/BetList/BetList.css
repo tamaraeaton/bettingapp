@@ -1,5 +1,5 @@
 .custom-bet-list {
-  overflow-y: scroll; 
+  overflow-y: scroll;
   overflow-x: hidden;
   background: black;
   color: white;
@@ -21,8 +21,17 @@
   grid-template-columns: 1fr 1fr 1fr;
   min-width: 20rem;
   width: 50vw;
-  text-align: center;
+  text-align: left;
   align-items: center;
+}
+
+.custom-border {
+  border-right: 2px solid black;
+  margin-right: 0.2rem;
+  height: 100%;
+  padding: .2rem;
+  display: flex;
+  align-items: flex-end;
 }
 
 .bet-item:nth-child(odd) {

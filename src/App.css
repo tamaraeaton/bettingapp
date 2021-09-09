@@ -85,7 +85,7 @@ body,
 }
 
 .custom-button {
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
   background: #120906;
   align-self: flex-end;
   border-radius: 0.4rem;
