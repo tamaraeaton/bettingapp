@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./DisplayBet.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 
 const DisplayBet = ({ bet }) => {
   const { currentUser } = useContext(AuthContext);
@@ -32,7 +33,8 @@ const DisplayBet = ({ bet }) => {
         {currentUserId === disBet.owner ? (
           <button className="display-bet-button">See Members</button>
         ) : (
-          <button className="display-bet-button">Join Bet</button>
+          <Link to="/join-bet">
+          <button className="display-bet-button">Join Bet</button></Link>
         )}
       </div>
     </div>
