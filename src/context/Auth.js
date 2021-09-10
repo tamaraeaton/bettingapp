@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
-  const [pending, setPending] = useState(false);
+  const [pending, setPending] = useState(true);
 
   const refUsers = firebase.firestore().collection("users");
 

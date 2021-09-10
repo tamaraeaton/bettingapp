@@ -34,7 +34,12 @@ const BetList = () => {
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
                     <button>Display Bet</button>
                   </Link>
-                  <button onClick={()=>deleteBetById(bet.id)}style={{backgroundColor: 'red'}}>Delete Bet</button>
+                  <button
+                    onClick={() => deleteBetById(bet.id)}
+                    style={{ backgroundColor: "red" }}
+                  >
+                    Delete Bet
+                  </button>
                 </td>
               </tr>
             ))}
