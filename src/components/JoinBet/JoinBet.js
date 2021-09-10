@@ -1,21 +1,29 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./JoinBet";
 import { AppContext } from "../../context/AppContext";
+import BetForm from "../BetForm/BetForm";
+
 
 const JoinBet = () => {
   const { disBet } = useContext(AppContext);
 
+  const [num, setNum] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [numTik, setNumTik] = useState(1);
+
   return (
     <div className='general flex-component custom-form-page'>
-      <h2 className='custom-form-title'>Join Bet for $5</h2>
+      <h2 className='custom-form-title'>Join Bet for ${disBet.amount}</h2>
       <h3>Bet Name: {disBet.name}</h3>
       <h3>Bet Description: {disBet.description}</h3>
-      <form className='custom-form'>
-        <input type='text' placeholder='First Name' />
-        <input type='text' placeholder='Last Name' />
-        <input type='text' placeholder='Email' />
-        <input type="submit" value="Submit" className="custom-button" />
-      </form>
+      <button onClick={()=>{
+        setNum(num + 1);
+        setNumTik(numTik + 1)
+        setTotal(numTik * disBet.amount)
+      }}>Add Ticket?</button>
+      <h3>Number of Tickets:{num}</h3>
+      <h3>Your Total:{total}</h3>
+      <button>Submit</button>
     </div>
   );
 };
