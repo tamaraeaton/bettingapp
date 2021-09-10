@@ -17,7 +17,7 @@ const MembersList = () => {
         <div>
           <table>
             <thead>
-              <tr className='head-row'>
+              <tr className='memberslist-head-row'>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -26,7 +26,7 @@ const MembersList = () => {
             </thead>
             <tbody>
               {members.map((member, index) => (
-                <tr key={index} className='head-row member-item'>
+                <tr key={index} className='memberslist-head-row member-item'>
                   <td className="custom-border">{member.firstName}</td>
                   <td className="custom-border">{member.lastName}</td>
                   <td className="custom-border">{member.email}</td>
