@@ -46,7 +46,7 @@ const BetForm = () => {
           className="custom-input"
           type="text"
           name="betName"
-          placeholder="Name"
+          placeholder="Bet Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
