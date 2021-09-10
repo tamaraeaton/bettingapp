@@ -3,6 +3,8 @@
     color: white;
     height: 100%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .bd{
@@ -32,13 +34,33 @@
 .button-link{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    width: 150px;
     /* height: 100px; */
     /* justify-content: center; */
 }
 
 .display-bet-button{
-    height: 50px;
+    /* height:75px;
     background-color: tan;
+    font-weight: 75px;
+    font-size: 15px;
+    margin-top: 20px;
+    padding: 20px;  */
+    background-color: tan; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    /* text-align: center;
+    text-decoration: none; */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button-container{
+    align-self: flex-end;
 }
 
 

@@ -18,7 +18,7 @@ const BetForm = () => {
     e.preventDefault();
 
     const newBet = {
-      owner: currentUser.uid,
+      owner: currentUser.owner,
       ownerEmail: currentUser.email,
       name,
       category,

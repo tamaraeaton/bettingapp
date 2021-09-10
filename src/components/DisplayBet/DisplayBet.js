@@ -25,12 +25,14 @@ const DisplayBet = ({ bet }) => {
         <h1 className="bd">Bet Description: {disBet.description}</h1>
       </div>
       <div>
-        <h1 className="bd">Members: Number Of Members</h1>
+        <h1 className="Am">Pot Total: $</h1>
       </div>
-      <div className="button-link">
-        <h1 className="Am">Total Amount:</h1>
+      <div className='button-container'>
+        <button className="display-bet-button">See Members</button>
+      </div>
+      <div className='button-container'> 
         {currentUserId === disBet.owner ? (
-          <button className="display-bet-button">See Members</button>
+          <button className="display-bet-button">Join Bet</button>
         ) : (
           <button className="display-bet-button">Join Bet</button>
         )}
