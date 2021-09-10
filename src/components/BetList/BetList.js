@@ -19,7 +19,7 @@ const BetList = () => {
       <div>
         <table>
           <thead>
-            <tr className="head-row">
+            <tr className="betlist-head-row">
               <th>Bet Name</th>
               <th>Amount</th>
               <th>Actions</th>
@@ -27,7 +27,7 @@ const BetList = () => {
           </thead>
           <tbody>
             {bets.map((bet) => (
-              <tr key={bet.id} className="head-row bet-item">
+              <tr key={bet.id} className="betlist-head-row bet-item">
                 <td className="custom-border">{bet.name}</td>
                 <td className="custom-border">{bet.amount}</td>
                 <td>

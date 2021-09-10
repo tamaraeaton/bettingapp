@@ -16,7 +16,7 @@
   padding: 0;
 }
 
-.head-row {
+.betlist-head-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   min-width: 20rem;
