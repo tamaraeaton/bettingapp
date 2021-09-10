@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./DisplayBet.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
@@ -29,15 +30,14 @@ const DisplayBet = ({ bet }) => {
         <h1 className="Am">Pot Total: $</h1>
       </div>
       <div className='button-container'>
-        <button className="display-bet-button">See Members</button>
+        <Link to="/display-members">
+          <button className="display-bet-button">See Members</button>
+        </Link>
       </div>
       <div className='button-container'> 
-        {currentUserId === disBet.owner ? (
+        <Link to="/join-bet">
           <button className="display-bet-button">Join Bet</button>
-        ) : (
-          <Link to="/join-bet">
-          <button className="display-bet-button">Join Bet</button></Link>
-        )}
+        </Link>
       </div>
     </div>
   );

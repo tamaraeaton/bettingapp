@@ -7,6 +7,9 @@ export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const [disBet, setDisBet] = useState({});
   const ref = firebase.firestore().collection("bets");
+  const refUsers = firebase.firestore().collection("users");
+  const [member, setMember] = useState({});
+  const [members, setMembers] = useState([]);
 
   const getBets = (user) => {
     ref
@@ -30,12 +33,25 @@ export const AppProvider = (props) => {
     return ref.doc(newBet.id).set(newBet);
   };
 
-  const deleteBetById = async (id) => {
+  const getMembers = () => {
+    refUsers
+      // .where("owner", "==", user)
+      .orderBy("lastUpdate", "asc")
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((user) => {
+          items.push(user.data());
+        });
+        setMembers(items);
+      });
+  };
+  
+    const deleteBetById = async (id) => {
     await ref.doc(id).delete();
   }
 
   return (
-    <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet, deleteBetById }}>
+    <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet, members, getMembers, deleteBetById }}>
       {props.children}
     </AppContext.Provider>
   );

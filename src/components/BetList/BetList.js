@@ -42,7 +42,8 @@ const BetList = () => {
                   </button>
                 </td>
               </tr>
-            ))}
+            ))
+            }
           </tbody>
         </table>
       </div>
