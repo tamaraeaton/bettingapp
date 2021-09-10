@@ -10,6 +10,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import DisplayBet from "./components/DisplayBet/DisplayBet";
+import JoinBet from "./components/JoinBet/JoinBet";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
 import DisplayMembers from "./components/MembersList/MembersList";
@@ -30,6 +31,7 @@ function App() {
         <ProtectedComponent exact path="/bet-form" component={BetForm} />
         <ProtectedComponent exact path="/display-members" component={DisplayMembers} />
         <ProtectedComponent exact path="/user-profile" component={UserProfile} />
+        <ProtectedComponent exact path="/join-bet" component={JoinBet} />
 
         <Footer />
       </div>

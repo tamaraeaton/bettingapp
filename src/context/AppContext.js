@@ -45,11 +45,13 @@ export const AppProvider = (props) => {
         setMembers(items);
       });
   };
+  
+    const deleteBetById = async (id) => {
+    await ref.doc(id).delete();
+  }
 
   return (
-    <AppContext.Provider
-      value={{ bets, getBets, addBet, disBet, setDisBet, members, getMembers }}
-    >
+    <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet, members, getMembers, deleteBetById }}>
       {props.children}
     </AppContext.Provider>
   );

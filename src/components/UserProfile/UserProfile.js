@@ -1,18 +1,42 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../context/Auth";
-
+import "./UserProfile.css";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faUsers,
+  faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
 const UserProfile = () => {
-  const { getUser, currentUser } = useContext(AuthContext);
-  console.log(currentUser)
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   return (
-    <div>
-      <div>UserProfile</div>
-      <div className="user-card">
-        <p>{currentUser.email}</p>
-        <p>{currentUser.firstName}</p>
-        <p>{currentUser.lastName}</p>
-        <p>{currentUser.age}</p>
-        <p>{currentUser.gender}</p>
+    <div className="general flex-component user-profile">
+      <div className="user-image-name-container">
+        <FontAwesomeIcon icon={faUser} className="user-icon" />
+        <div className="user-info">
+          <p>Username: {currentUser.username}</p>
+          <p>Name: {currentUser.firstName + " " + currentUser.lastName}</p>
+          <p>
+            Email: <u>{currentUser.email}</u>
+          </p>
+          <p>Age: {currentUser.age}</p>
+          <p>Gender: {currentUser.gender}</p>
+          <p></p>
+        </div>
+      </div>
+      <div className="user-links">
+        <div className="user-link-container">
+          <Link className="link custom-user-links" to="/user-bets">
+            <FontAwesomeIcon icon={faDollarSign} /> Your Bets
+          </Link>
+          <Link className="link custom-user-links" to="/user-friends">
+            <FontAwesomeIcon icon={faUsers} /> Friends
+          </Link>
+          <Link className="link custom-user-links" to="/"></Link>
+          <Link className="link custom-user-links" to="/"></Link>
+        </div>
       </div>
     </div>
   );
