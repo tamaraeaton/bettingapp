@@ -1,0 +1,60 @@
+.user-profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 0;
+  padding: 0;
+}
+
+.user-image-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.782);
+  color: whitesmoke;
+  padding: 1rem;
+  height: 100%;
+}
+
+/* ONCE WE GET USER IMAGES UP WE WILL USE THIS STYLE. */
+/* .user-image {
+  border-radius: 100%;
+  width: 60%;
+  height: auto;
+  margin: 20% 0;
+} */
+
+.user-info {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.user-icon {
+  font-size: 7rem;
+  margin: 10% 0;
+}
+
+.user-links {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgb(22, 22, 22);
+  height: 100%;
+}
+
+.user-link-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-user-links {
+  color: rgb(255, 255, 255);
+  margin: .3rem 0;
+}
+
+@media screen and (max-width: 750px) {
+  .user-image {
+    width: 55%;
+  }
+}

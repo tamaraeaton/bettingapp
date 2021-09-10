@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { library } from '@fortawesome/fontawesome-svg-core'
 import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./context/AppContext";
 import { AuthProvider } from "./context/Auth";

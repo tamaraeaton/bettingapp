@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faHome, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { isAuth, logout } = useContext(AuthContext);
@@ -21,7 +23,7 @@ const Header = () => {
       {isAuth ? (
         <div className="header-link-section">
           <Link to="/user-profile" className="custom-header-link">
-            Profile
+            <FontAwesomeIcon icon={faUser} /> Profile
           </Link>
           <Link to="/home" className="custom-header-link">
             Home
@@ -36,6 +38,7 @@ const Header = () => {
             About
           </Link>
           <Link to="/" className="custom-header-link" onClick={logout}>
+            <FontAwesomeIcon icon={faSignOutAlt} />
             Log Out
           </Link>
         </div>
