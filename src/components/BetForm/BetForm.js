@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./BetForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
@@ -13,6 +13,7 @@ const BetForm = () => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState("");
+  const [other, setOther] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +39,14 @@ const BetForm = () => {
       .catch((err) => console.log(err));
   };
 
+  const otherFunc = () => {
+    setOther(true)
+  }
+
+  // useEffect(() => {
+  //   otherFunc()
+  // }, [setOther])
+
   return (
     <div className="general flex-component custom-form-page">
       <h2 className="custom-form-title">Create A Bet</h2>
@@ -50,6 +59,28 @@ const BetForm = () => {
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
+
+        {other ? (
+          <input
+            className="custom-input"
+            type="text"
+            name="category"
+            placeholder="Other"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          />
+        ) : (
+          <div className="custom-select">
+            <select className="select-dropdown">
+              <option className="category-option" onClick={() => setCategory("Sports")}>Sports</option>
+              <option className="category-option" onClick={() => setCategory("Weather")}>Weather</option>
+              <option className="category-option" onClick={() => setCategory("Trivial")}>Trivial</option>
+              <option className="category-option" onClick={() => setCategory("Made")}>Made Up</option>
+              <option className="category-option" onClick={() => setCategory("Other")}>Other</option>
+            </select>
+          </div>
+        )}
+
         <input
           className="custom-input"
           type="text"
