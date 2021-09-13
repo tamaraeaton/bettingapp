@@ -11,7 +11,7 @@ const BetForm = () => {
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
   const [other, setOther] = useState(false);
 
@@ -23,7 +23,7 @@ const BetForm = () => {
       ownerEmail: currentUser.email,
       name,
       category,
-      amount,
+      ticketCost,
       description,
       id: uuidv4(),
     };
@@ -31,21 +31,13 @@ const BetForm = () => {
     addBet(newBet)
       .then(() => {
         setName("");
-        setAmount(0);
+        setTicketCost(0);
         setDescription("");
         setCategory("");
         history.push("/home");
       })
       .catch((err) => console.log(err));
   };
-
-  const otherFunc = () => {
-    setOther(true)
-  }
-
-  // useEffect(() => {
-  //   otherFunc()
-  // }, [setOther])
 
   return (
     <div className="general flex-component custom-form-page">
@@ -80,22 +72,13 @@ const BetForm = () => {
             </select>
           </div>
         )}
-
-        <input
-          className="custom-input"
-          type="text"
-          name="category"
-          placeholder="Category"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
-        />
         <input
           className="custom-input"
           type="number"
-          name="amount"
+          name="ticketCost"
           placeholder="Amount"
-          onChange={(e) => setAmount(e.target.value)}
-          value={amount}
+          onChange={(e) => setTicketCost(e.target.value)}
+          value={ticketCost}
         />
         <textarea
           rows="5"
