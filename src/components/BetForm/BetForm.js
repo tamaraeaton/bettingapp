@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./BetForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
@@ -11,8 +11,9 @@ const BetForm = () => {
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
+  const [other, setOther] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ const BetForm = () => {
       ownerEmail: currentUser.email,
       name,
       category,
-      amount,
+      ticketCost,
       description,
       id: uuidv4(),
     };
@@ -30,7 +31,7 @@ const BetForm = () => {
     addBet(newBet)
       .then(() => {
         setName("");
-        setAmount(0);
+        setTicketCost(0);
         setDescription("");
         setCategory("");
         history.push("/home");
@@ -50,21 +51,34 @@ const BetForm = () => {
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
-        <input
-          className="custom-input"
-          type="text"
-          name="category"
-          placeholder="Category"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
-        />
+
+        {other ? (
+          <input
+            className="custom-input"
+            type="text"
+            name="category"
+            placeholder="Other"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          />
+        ) : (
+          <div className="custom-select">
+            <select className="select-dropdown">
+              <option className="category-option" onClick={() => setCategory("Sports")}>Sports</option>
+              <option className="category-option" onClick={() => setCategory("Weather")}>Weather</option>
+              <option className="category-option" onClick={() => setCategory("Trivial")}>Trivial</option>
+              <option className="category-option" onClick={() => setCategory("Made")}>Made Up</option>
+              <option className="category-option" onClick={() => setCategory("Other")}>Other</option>
+            </select>
+          </div>
+        )}
         <input
           className="custom-input"
           type="number"
-          name="amount"
+          name="ticketCost"
           placeholder="Amount"
-          onChange={(e) => setAmount(e.target.value)}
-          value={amount}
+          onChange={(e) => setTicketCost(e.target.value)}
+          value={ticketCost}
         />
         <textarea
           rows="5"
