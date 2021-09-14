@@ -1,5 +1,5 @@
 .welcome {
-  background-color: #d2b48c;
+  background-color: #646464;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -19,7 +19,7 @@
 }
 
 #friends-betting-img {
-  width: 60%;
+  width: 30%;
   height: auto;
 }
 
@@ -42,10 +42,11 @@
 }
 
 .intro {
-  background-color: white;
+  /* background-color: white; */
   padding: 3%;
   width: 100%;
   text-align: center;
+  background-image: linear-gradient(45deg, darkslategrey 40%, lightslategrey 60%);
 }
 
 .intro-text {

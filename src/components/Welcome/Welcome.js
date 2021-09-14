@@ -1,6 +1,6 @@
 import React from "react";
 import "./Welcome.css";
-import FriendsBetting from "../../assets/friendsBetting.PNG";
+import FriendsBetting from "../../assets/istockphoto-674585488-1024x1024.jpg";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
