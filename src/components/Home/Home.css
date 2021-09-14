@@ -3,6 +3,11 @@
   justify-content: space-around;
 }
 
+.welcome-user-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .create-bet-here {
   display: flex;
   flex-direction: column;
