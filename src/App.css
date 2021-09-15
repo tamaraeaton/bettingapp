@@ -104,6 +104,12 @@ body,
   cursor: pointer;
 }
 
+.custom-icon {
+  background: none;
+  margin: 5px;
+  font-size: 12px;
+}
+
 .custom-header-link {
   text-decoration: none;
   color: white;

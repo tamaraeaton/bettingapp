@@ -3,6 +3,8 @@ import "./BetList.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faGlasses } from "@fortawesome/free-solid-svg-icons";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
@@ -32,13 +34,15 @@ const BetList = () => {
                 <td className="custom-border">{bet.amount}</td>
                 <td>
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
-                    <button>Display Bet</button>
+                    <button 
+                    className="custom-button custom-icon"
+                    ><FontAwesomeIcon icon={faGlasses} /></button>
                   </Link>
                   <button
+                    className="custom-button custom-icon"
                     onClick={() => deleteBetById(bet.id)}
-                    style={{ backgroundColor: "red" }}
                   >
-                    Delete Bet
+                     <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </td>
               </tr>

@@ -16,14 +16,18 @@ const JoinBet = () => {
       <h2 className='custom-form-title'>Join Bet for ${disBet.amount}</h2>
       <h3>Bet Name: {disBet.name}</h3>
       <h3>Bet Description: {disBet.description}</h3>
-      <button onClick={()=>{
+      <button 
+        className="custom-button"
+        onClick={()=>{
         setNum(num + 1);
         setNumTik(numTik + 1)
         setTotal(numTik * disBet.amount)
       }}>Add Ticket?</button>
       <h3>Number of Tickets:{num}</h3>
       <h3>Your Total:{total}</h3>
-      <button>Submit</button>
+      <button
+        className="custom-button"
+      >Submit</button>
     </div>
   );
 };
