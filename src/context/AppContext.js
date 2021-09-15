@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import firebase from "./firebase";
 
 export const AppContext = createContext();
@@ -6,10 +6,10 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const [disBet, setDisBet] = useState({});
+  const [membersArr, setMembersArr] = useState([]);
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
-  const [member, setMember] = useState({});
-  const [members, setMembers] = useState([]);
+  const refBetMember = firebase.firestore().collection("members");
 
   const getBets = (user) => {
     ref
@@ -33,25 +33,45 @@ export const AppProvider = (props) => {
     return ref.doc(newBet.id).set(newBet);
   };
 
-  const getMembers = () => {
-    refUsers
-      // .where("owner", "==", user)
-      .orderBy("lastUpdate", "asc")
-      .onSnapshot((querySnapshot) => {
-        const items = [];
-        querySnapshot.forEach((user) => {
-          items.push(user.data());
-        });
-        setMembers(items);
-      });
+  const getBetMembers = async (id) => {
+    await ref.where("id", "==", id).onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => setMembersArr(doc.data().members));
+      console.log(membersArr);
+    });
   };
-  
-    const deleteBetById = async (id) => {
+
+  const addBetMember = async (bet, member) => {
+    await getBetMembers(bet.id);
+    let newMember = {
+      email: member.email,
+      name: member.firstName,
+      owner: member.owner,
+      ticketsOwned: member.numTik,
+      totalMoney: member.total,
+      belongsTo: member.belongsTo,
+    };
+
+    setMembersArr([...membersArr, newMember]);
+    await ref.doc(bet.id).set({ ...bet, members: [...membersArr, newMember] });
+  };
+
+  const deleteBetById = async (id) => {
     await ref.doc(id).delete();
-  }
+  };
 
   return (
-    <AppContext.Provider value={{ bets, getBets, addBet, disBet, setDisBet, members, getMembers, deleteBetById }}>
+    <AppContext.Provider
+      value={{
+        bets,
+        getBets,
+        addBet,
+        disBet,
+        setDisBet,
+        deleteBetById,
+        addBetMember,
+        getBetMembers,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

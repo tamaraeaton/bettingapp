@@ -1,29 +1,47 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "./JoinBet";
 import { AppContext } from "../../context/AppContext";
-import BetForm from "../BetForm/BetForm";
-
+import { v4 as uuidv4 } from "uuid";
+import { AuthContext } from "../../context/Auth";
+import { useHistory } from "react-router-dom";
 
 const JoinBet = () => {
-  const { disBet } = useContext(AppContext);
+  const { currentUser,  } = useContext(AuthContext);
+  const { disBet, addBetMember } = useContext(AppContext);
+  const history = useHistory();
 
   const [num, setNum] = useState(0);
   const [total, setTotal] = useState(0);
   const [numTik, setNumTik] = useState(1);
+  let newMember = {
+    ...currentUser,
+    total,
+    numTik: numTik - 1,
+    belongsTo: disBet.id,
+    id: uuidv4()
+  };
+
+  const handleSubmit = () => {
+    addBetMember(disBet, newMember)
+  };
 
   return (
-    <div className='general flex-component custom-form-page'>
-      <h2 className='custom-form-title'>Join Bet for ${disBet.amount}</h2>
+    <div className="general flex-component custom-form-page">
+      <h2 className="custom-form-title">Join Bet for ${disBet.ticketCost}</h2>
       <h3>Bet Name: {disBet.name}</h3>
       <h3>Bet Description: {disBet.description}</h3>
-      <button onClick={()=>{
-        setNum(num + 1);
-        setNumTik(numTik + 1)
-        setTotal(numTik * disBet.amount)
-      }}>Add Ticket?</button>
+      <button
+        onClick={() => {
+          setNum(num + 1);
+          setNumTik(numTik + 1);
+          setTotal(numTik * disBet.ticketCost);
+        }}
+      >
+        Add Ticket?
+      </button>
       <h3>Number of Tickets:{num}</h3>
       <h3>Your Total:{total}</h3>
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

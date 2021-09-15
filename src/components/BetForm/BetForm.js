@@ -13,7 +13,6 @@ const BetForm = () => {
   const [category, setCategory] = useState("");
   const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
-  const [other, setOther] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +24,7 @@ const BetForm = () => {
       category,
       ticketCost,
       description,
+      members: [],
       id: uuidv4(),
     };
 
@@ -39,6 +39,8 @@ const BetForm = () => {
       .catch((err) => console.log(err));
   };
 
+  console.log(category)
+
   return (
     <div className="general flex-component custom-form-page">
       <h2 className="custom-form-title">Create A Bet</h2>
@@ -52,26 +54,46 @@ const BetForm = () => {
           value={name}
         />
 
-        {other ? (
-          <input
-            className="custom-input"
-            type="text"
-            name="category"
-            placeholder="Other"
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}
-          />
-        ) : (
-          <div className="custom-select">
-            <select className="select-dropdown">
-              <option className="category-option" onClick={() => setCategory("Sports")}>Sports</option>
-              <option className="category-option" onClick={() => setCategory("Weather")}>Weather</option>
-              <option className="category-option" onClick={() => setCategory("Trivial")}>Trivial</option>
-              <option className="category-option" onClick={() => setCategory("Made")}>Made Up</option>
-              <option className="category-option" onClick={() => setCategory("Other")}>Other</option>
-            </select>
-          </div>
-        )}
+        <div className="custom-select">
+          <select className="select-dropdown" onChange={(e) => setCategory(e.target.value)}>
+            <option
+              className="category-option"
+              value="sports"
+              
+            >
+              Sports
+            </option>
+            <option
+              className="category-option"
+              value="Weather"
+             
+            >
+              Weather
+            </option>
+            <option
+              className="category-option"
+              value="trivial"
+            
+            >
+              Trivial
+            </option>
+            <option
+              className="category-option"
+              value="fiction"
+            
+            >
+              Made Up
+            </option>
+            <option
+              className="category-option"
+              value="other"
+              
+            >
+              Other
+            </option>
+          </select>
+        </div>
+
         <input
           className="custom-input"
           type="number"
