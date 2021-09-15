@@ -9,6 +9,7 @@ const BetList = () => {
   const { bets, getBets, setDisBet, deleteBetById } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
+
   useEffect(() => {
     getBets(currentUserId);
    
@@ -35,12 +36,16 @@ const BetList = () => {
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
                     <button>Display Bet</button>
                   </Link>
+                  {
+                    currentUser.owner === bet.owner && bet.members.length === 0 ?
                   <button
                     onClick={() => deleteBetById(bet.id)}
                     style={{ backgroundColor: "red" }}
                   >
                     Delete Bet
                   </button>
+                  : null
+                  }
                 </td>
               </tr>
             ))
