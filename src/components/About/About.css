@@ -4,10 +4,6 @@
 }
 
 .about{
-  /* background-image: url("../../assets/mitchell-luo-nEN6tkAfe5w-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   display: flex;
   height: 100%;
   padding: 1em 1em 3em 3em;
