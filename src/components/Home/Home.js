@@ -17,8 +17,9 @@ const Home = () => {
         <h4 className="bet-intro">Create a bet with your friends</h4>
         <ButtonText link="/bet-form" text="Create Bet"/>
       </div>
+      </div>
       <BetList />
-    </div>
+ 
     </div>
   );
 };
