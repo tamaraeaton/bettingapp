@@ -39,8 +39,6 @@ const BetForm = () => {
       .catch((err) => console.log(err));
   };
 
-  console.log(category)
-
   return (
     <div className="general flex-component custom-form-page">
       <h2 className="custom-form-title">Create A Bet</h2>

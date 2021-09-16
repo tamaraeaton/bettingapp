@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
-  const { bets, getBets, setDisBet, deleteBetById, getUsersBets, getOwnersBets } = useContext(AppContext);
+  const { bets, getBets, setDisBet, deleteBetById } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
   useEffect(() => {
     getBets(currentUserId);
 
-    getUsersBets(currentUser.owner)
   }, [currentUser]);
 
   return (
