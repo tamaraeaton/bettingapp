@@ -8,20 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [pending, setPending] = useState(true);
-
   const refUsers = firebase.firestore().collection("users");
-
-  const addToUserBets = async (user) => {
-    if (user.ownedBets) {
-      return await refUsers.where("owner", "==", user.id).update({
-        ownedBets: [...user.ownedBets, user.belongsTo],
-      });
-    } else {
-      return await refUsers.where("owner", "==", user.id).update({
-        ownedBets: user.belongsTo,
-      });
-    }
-  };
 
   const login = async (email, password) => {
     return await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -62,10 +49,11 @@ export const AuthProvider = ({ children }) => {
     getAuth();
   }, []);
 
-  const addUser = async (user, ownerId) => {
+  const addUser = async (user, ownerId, history) => {
     const newUser = {
       ...user,
       owner: ownerId,
+      userBets: [],
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
@@ -88,7 +76,6 @@ export const AuthProvider = ({ children }) => {
         addUser,
         isAuth,
         getUser,
-        addToUserBets
       }}
     >
       {children}

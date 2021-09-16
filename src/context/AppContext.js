@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import firebase from "./firebase";
 
 export const AppContext = createContext();
@@ -9,7 +9,12 @@ export const AppProvider = (props) => {
   const [membersArr, setMembersArr] = useState([]);
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
-  const refBetMember = firebase.firestore().collection("members");
+
+  const [member, setMember] = useState({});
+  const [members, setMembers] = useState([]);
+  const [userBets, setUserBets] = useState([]);
+  const [joinedBets, setJoinedBets] = useState([])
+  const [betsArr, setBetsArr] = useState([])
 
   const getBets = (user) => {
     ref
@@ -55,9 +60,63 @@ export const AppProvider = (props) => {
     await ref.doc(bet.id).set({ ...bet, members: [...membersArr, newMember] });
   };
 
+  const getUserBets = async (id) => {
+    refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => setBetsArr(doc.data().userBets));
+    });
+  };
+
+  const addBetToUser = async (user, newBetId) => {
+    await getUserBets(user.owner.owner);
+    await refUsers
+      .doc(user.owner)
+      .set({ ...user, userBets: [...betsArr, newBetId] });
+  };
+
   const deleteBetById = async (id) => {
     await ref.doc(id).delete();
   };
+
+  // const getUsersBets = (user) => {
+  //   ref
+  //     .where("owner", "==", user.owner)
+  //     .orderBy("lastUpdate", "asc")
+  //     .onSnapshot((querySnapshot) => {
+  //       const items = [];
+  //       querySnapshot.forEach((bet) => {
+  //         setUserBets(bet.data());
+  //       });
+  //     });
+  // };
+  // const getOwnersBets = (user, prevItems) => {
+  //   ref.where("owner", "!=", user).onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((bet) => {
+  //       items.push(bet.data());
+  //       setJoinedBets([...joinedBets, bet.data()])
+  //       items.map((ownedBet) => {
+  //         ownedBet.members.map((joinedUser) => {
+  //           if(joinedUser.owner === user) {
+  //             // setJoinedBets(ownedBet)
+  //             // console.log(ownedBet)
+  //             // console.log(joinedBets)
+  //           }
+  //         });
+  //       });
+  //     });
+  //   });
+  // };
+  // const getUsersBets = (user) => {
+  //   ref.where("owner", "==", user).onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((bet) => {
+  //       items.push(bet.data());
+  //       setUserBets(bet.data())
+  //       getOwnersBets(user, items);
+  //     });
+  //   });
+  // };
+  console.log(joinedBets)
 
   return (
     <AppContext.Provider
@@ -67,9 +126,11 @@ export const AppProvider = (props) => {
         addBet,
         disBet,
         setDisBet,
+        members,
         deleteBetById,
-        addBetMember,
         getBetMembers,
+        addBetMember,
+        addBetToUser
       }}
     >
       {props.children}
