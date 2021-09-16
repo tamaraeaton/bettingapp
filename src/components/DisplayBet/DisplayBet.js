@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./DisplayBet.css";
 import { AuthContext } from "../../context/Auth";
@@ -7,9 +7,11 @@ import ButtonText from "../Buttons/ButtonText";
 
 const DisplayBet = ({ bet }) => {
   const { currentUser } = useContext(AuthContext);
-  const { disBet } = useContext(AppContext);
-  console.log(disBet);
-  console.log(currentUser);
+  const { disBet, getBetMembers } = useContext(AppContext);
+
+  useEffect(() => {
+    getBetMembers(disBet.id);
+  }, []);
   const currentUserId = currentUser ? currentUser.uid : null;
   return (
     <div className='join-bet'>

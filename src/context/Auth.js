@@ -8,9 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
   const [pending, setPending] = useState(true);
-
   const refUsers = firebase.firestore().collection("users");
-  console.log('auth' + refUsers)
 
   const login = async (email, password) => {
     return await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -30,11 +28,10 @@ export const AuthProvider = ({ children }) => {
     refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
-        console.log(user.data());
         setPending(false);
       });
     });
-  };
+  }
 
   const getAuth = async () => {
     await firebase.auth().onAuthStateChanged((user) => {
@@ -49,13 +46,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getAuth()
+    getAuth();
   }, []);
 
-  const addUser = async (user, ownerId) => {
+  const addUser = async (user, ownerId, history) => {
     const newUser = {
       ...user,
       owner: ownerId,
+      userBets: [],
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };

@@ -13,6 +13,7 @@ const BetList = () => {
 
   useEffect(() => {
     getBets(currentUserId);
+
   }, [currentUser]);
 
   return (

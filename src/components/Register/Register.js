@@ -30,15 +30,15 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      
       register(newUser, password)
         .then((user) => {
-          addUser(newUser, user.user.uid).then(userdata => console.log(userdata))
-          setEmail("");
-          setPassword("");
-          setConfirmPassword("");
-          setErrMsg("");
-          history.push("/home");
+          addUser(newUser, user.user.uid, history).then(() => {
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+            setErrMsg("");
+            history.push("/home");
+          });
         })
         .catch((err) => setErrMsg(err.message));
     }
