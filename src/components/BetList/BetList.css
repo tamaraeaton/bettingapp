@@ -5,6 +5,7 @@
   color: white;
   max-height: 80vh;
   height: 20rem;
+  border-radius: 4px;
 }
 
 .bet-list-title {

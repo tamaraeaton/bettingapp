@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import "./MembersList.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const MembersList = () => {
   const { getMembers, members } = useContext(AppContext);
@@ -27,12 +29,14 @@ const MembersList = () => {
             <tbody>
               {members.map((member, index) => (
                 <tr key={index} className='memberslist-head-row member-item'>
-                  <td className="custom-border">{member.firstName}</td>
-                  <td className="custom-border">{member.lastName}</td>
-                  <td className="custom-border">{member.email}</td>
+                  <td className='custom-border'>{member.firstName}</td>
+                  <td className='custom-border'>{member.lastName}</td>
+                  <td className='custom-border'>{member.email}</td>
                   <td>
                     <a href={`mailto:${member.email}`}>
-                      <button>Contact</button>
+                      <button className='custom-button custom-icon'>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </button>
                     </a>
                   </td>
                 </tr>
