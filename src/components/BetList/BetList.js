@@ -32,7 +32,7 @@ const BetList = () => {
             {bets.map((bet) => (
               <tr key={bet.id} className="betlist-head-row bet-item">
                 <td className="custom-border">{bet.name}</td>
-                <td className="custom-border">{bet.amount}</td>
+                <td className="custom-border">{bet.ticketCost}</td>
                 <td>
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
                     <button 
