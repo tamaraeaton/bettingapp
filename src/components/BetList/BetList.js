@@ -11,6 +11,7 @@ const BetList = () => {
   const { bets, getBets, setDisBet, deleteBetById } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
+
   useEffect(() => {
     getBets(currentUserId);
 
@@ -39,12 +40,16 @@ const BetList = () => {
                     className="custom-button custom-icon"
                     ><FontAwesomeIcon icon={faGlasses} /></button>
                   </Link>
+                  {
+                    currentUser.owner === bet.owner && bet.members.length === 0 ?
                   <button
                     className="custom-button custom-icon"
                     onClick={() => deleteBetById(bet.id)}
                   >
                      <FontAwesomeIcon icon={faTrash} />
                   </button>
+                  : null
+                  }
                 </td>
               </tr>
             ))
