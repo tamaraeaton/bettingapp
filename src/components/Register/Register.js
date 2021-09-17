@@ -32,7 +32,7 @@ const Register = () => {
     } else {
       register(newUser, password)
         .then((user) => {
-          addUser(newUser, user.user.uid, history).then(() => {
+          addUser(newUser, user.user.uid).then(() => {
             setEmail("");
             setPassword("");
             setConfirmPassword("");

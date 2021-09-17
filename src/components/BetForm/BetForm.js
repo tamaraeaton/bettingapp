@@ -28,7 +28,7 @@ const BetForm = () => {
       id: uuidv4(),
     };
 
-    addBet(newBet)
+    addBet(newBet, currentUser)
       .then(() => {
         setName("");
         setTicketCost(0);

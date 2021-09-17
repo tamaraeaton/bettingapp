@@ -49,11 +49,13 @@ export const AuthProvider = ({ children }) => {
     getAuth();
   }, []);
 
-  const addUser = async (user, ownerId, history) => {
+  const addUser = async (user, ownerId) => {
     const newUser = {
       ...user,
+      id: ownerId,
       owner: ownerId,
       userBets: [],
+      joinedBets: [],
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
