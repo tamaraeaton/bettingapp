@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./BetForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";

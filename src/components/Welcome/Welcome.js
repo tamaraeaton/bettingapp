@@ -1,11 +1,11 @@
 import React from "react";
 import "./Welcome.css";
-import FriendsBetting from "../../assets/istockphoto-674585488-1024x1024.jpg";
+import ImagePlaceholder from "../../assets/istockphoto-674585488-1024x1024.jpg";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="welcome">
+    <div className="general flex-component welcome">
       <div className="welcome-hero">
         <div className="links-section">
           <Link to="/login" className="login-anchor">
@@ -16,9 +16,9 @@ const Welcome = () => {
           </Link>
         </div>
         <img
-          id="friends-betting-img"
-          src={FriendsBetting}
-          alt="bettingFriends"
+          id="image-placeholder"
+          src={ImagePlaceholder}
+          alt="ImagePlaceholder"
         />
       </div>
 
