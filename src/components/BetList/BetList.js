@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./BetList.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
