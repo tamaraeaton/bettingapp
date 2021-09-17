@@ -7,7 +7,8 @@ import { useHistory } from "react-router-dom";
 
 const JoinBet = () => {
   const { currentUser } = useContext(AuthContext);
-  const { disBet, addBetMember, addBetToUser } = useContext(AppContext);
+  const { disBet, addBetMember, addBetToUserJoinedBet } =
+    useContext(AppContext);
   const history = useHistory();
 
   const [num, setNum] = useState(0);
@@ -18,12 +19,12 @@ const JoinBet = () => {
     total,
     numTik: numTik - 1,
     belongsTo: disBet.id,
-    id: uuidv4()
+    id: uuidv4(),
   };
 
   const handleSubmit = () => {
-    addBetMember(disBet, newMember)
-    addBetToUser(currentUser, disBet.id)
+    addBetMember(disBet, newMember);
+    addBetToUserJoinedBet(currentUser, disBet.id);
   };
 
   return (
