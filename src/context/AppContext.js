@@ -11,6 +11,7 @@ export const AppProvider = (props) => {
   const refUsers = firebase.firestore().collection("users");
 
   const [members, setMembers] = useState([]);
+  const [allUsersBets, setAllUsersBets] = useState([]);
 
   const getBets = (user) => {
     ref
@@ -70,6 +71,33 @@ export const AppProvider = (props) => {
     });
   };
 
+  const getAllUsersBets = (user) => {
+    let theUserBets = user.joinedBets.concat(user.userBets);
+    let userBetsArr = [];
+    const promises = [];
+
+    for (let i = 0; i < theUserBets.length; i++) {
+      promises.push(
+        new Promise((resolve) => {
+          ref
+            .where("id", "==", theUserBets[i])
+            .onSnapshot((querySnapshot) =>
+              querySnapshot.forEach((doc) => resolve(doc.data()))
+            );
+        })
+      );
+      // ref.where("id", "==", theUserBets[i]).onSnapshot((querySnapshot) => {
+      //   querySnapshot.forEach((doc) => {
+      //     userBetsArr.push(doc.data());
+      //   });
+      // });
+    }
+
+    Promise.all(promises).then((res) => {
+      setAllUsersBets(res);
+    });
+  };
+
   const deleteBetById = async (id) => {
     await ref.doc(id).delete();
   };
@@ -88,6 +116,9 @@ export const AppProvider = (props) => {
         addBetMember,
         addBetToUser,
         addBetToUserJoinedBet,
+        getAllUsersBets,
+        allUsersBets,
+        setAllUsersBets,
       }}
     >
       {props.children}

@@ -6,11 +6,13 @@ import { AppContext } from "../../context/AppContext";
 
 const DisplayBet = ({ bet }) => {
   const { currentUser } = useContext(AuthContext);
-  const { disBet, getBetMembers } = useContext(AppContext);
+  const { disBet, getBetMembers, allUsersBets } = useContext(AppContext);
 
   useEffect(() => {
     getBetMembers(disBet.id);
   }, []);
+
+  console.log(allUsersBets);
   const currentUserId = currentUser ? currentUser.uid : null;
   return (
     <div className="join-bet">
