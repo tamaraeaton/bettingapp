@@ -18,7 +18,7 @@
 
 .memberslist-head-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
   min-width: 20rem;
   width: 70vw;
   text-align: left;
@@ -28,10 +28,11 @@
 .custom-border {
   border-right: 2px solid black;
   margin-right: 0.2rem;
-  height: 100%;
   padding: 0.2rem;
   display: flex;
   align-items: flex-end;
+  word-wrap: wrap;
+
 }
 
 .member-item:nth-child(odd) {
