@@ -1,11 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const ButtonText = ({link, text}) => {
+const ButtonText = ({ link, text, betToggle }) => {
   return (
-    <button className="custom-button">
-    <Link to={link}>{text}</Link>
-  </button>
+    <div>
+      {betToggle ? <button className="custom-button" onClick={betToggle}>
+        <Link to={link}>{text}</Link >
+      </button > : <button className="custom-button">
+        <Link to={link}>{text}</Link>
+      </button>}
+    </div>
   )
 }
 
