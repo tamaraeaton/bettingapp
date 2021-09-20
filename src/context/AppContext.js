@@ -39,7 +39,8 @@ export const AppProvider = (props) => {
     await getBetMembers(bet.id);
     let newMember = {
       email: member.email,
-      name: member.firstName,
+      firstName: member.firstName,
+      lastName: member.lastName,
       owner: member.owner,
       ticketsOwned: member.numTik,
       totalMoney: member.total,
@@ -108,7 +109,7 @@ export const AppProvider = (props) => {
         addBet,
         disBet,
         setDisBet,
-        members,
+        membersArr,
         deleteBetById,
         getBetMembers,
         addBetMember,
