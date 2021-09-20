@@ -12,10 +12,11 @@ export const AppProvider = (props) => {
 
   const [members, setMembers] = useState([]);
   const [allUsersBets, setAllUsersBets] = useState([]);
+  const [displayMembers, setDisplayMembers] = useState([]);
+
 
   const getBets = (user) => {
     ref
-      // .where("owner", "==", user)
       .orderBy("lastUpdate", "asc")
       .onSnapshot((querySnapshot) => {
         const items = [];
@@ -23,6 +24,7 @@ export const AppProvider = (props) => {
           items.push(bet.data());
         });
         setBets(items);
+        setDisplayMembers(items)
       });
   };
 
@@ -87,11 +89,6 @@ export const AppProvider = (props) => {
             );
         })
       );
-      // ref.where("id", "==", theUserBets[i]).onSnapshot((querySnapshot) => {
-      //   querySnapshot.forEach((doc) => {
-      //     userBetsArr.push(doc.data());
-      //   });
-      // });
     }
 
     Promise.all(promises).then((res) => {
@@ -107,6 +104,7 @@ export const AppProvider = (props) => {
     <AppContext.Provider
       value={{
         bets,
+        setBets,
         getBets,
         addBet,
         disBet,
@@ -120,6 +118,7 @@ export const AppProvider = (props) => {
         getAllUsersBets,
         allUsersBets,
         setAllUsersBets,
+        displayMembers, setDisplayMembers
       }}
     >
       {props.children}

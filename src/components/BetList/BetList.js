@@ -1,25 +1,46 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import "./BetList.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faGlasses } from "@fortawesome/free-solid-svg-icons";
+import ButtonText from "../Buttons/ButtonText";
 
 const BetList = () => {
   const { currentUser } = useContext(AuthContext);
-  const { bets, getBets, setDisBet, deleteBetById, getAllUsersBets } = useContext(AppContext);
+  const { bets, setBets, getBets, setDisBet, deleteBetById, getAllUsersBets, allUsersBets, displayMembers, setDisplayMembers } = useContext(AppContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
-  useEffect(() => {
-    getBets(currentUserId);
-    // getAllUsersBets(currentUser)
+  const betToggleJoinedAndCreated = () => {
+    setDisplayMembers(allUsersBets);
+  }
 
+  const betToggleAllBets = () => {
+    setDisplayMembers(bets)
+  }
+
+
+  useEffect(() => {
+    getBets(currentUserId)
+    getAllUsersBets(currentUser)
   }, [currentUser]);
+
+  console.log(bets)
+  console.log(displayMembers)
+
 
   return (
     <div className="custom-bet-list">
-      <h2 className="bet-list-title">Bet List</h2>
+      {/* <Link to='/display-bet'>All Bets</Link>
+       <Link to='/bet-form'>Joined & Created Bets</Link> */}
+      {/* <ButtonText link='/join-bet' text='J' /> */}
+      <div className='bet-list-title'>
+        <h2 className="bet-list-title">Bet List</h2>
+        <ButtonText betToggle={betToggleAllBets} text='All Bets' link="/home" />
+        <ButtonText betToggle={betToggleJoinedAndCreated} text='Joined & Created Bets' link="/home" />
+      </div>
       <div>
-        <button onClick={() => getAllUsersBets(currentUser)}>get user bets</button>
         <table>
           <thead>
             <tr className="betlist-head-row">
@@ -29,20 +50,26 @@ const BetList = () => {
             </tr>
           </thead>
           <tbody>
-            {bets.map((bet) => (
+            {displayMembers.map((bet) => (
               <tr key={bet.id} className="betlist-head-row bet-item">
                 <td className="custom-border">{bet.name}</td>
-                <td className="custom-border">{bet.amount}</td>
+                <td className="custom-border">{bet.ticketCost}</td>
                 <td>
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
-                    <button>Display Bet</button>
+                    <button
+                      className="custom-button custom-icon"
+                    ><FontAwesomeIcon icon={faGlasses} /></button>
                   </Link>
-                  <button
-                    onClick={() => deleteBetById(bet.id)}
-                    style={{ backgroundColor: "red" }}
-                  >
-                    Delete Bet
-                  </button>
+                  {
+                    currentUser.owner === bet.owner && bet.members.length === 0 ?
+                      <button
+                        className="custom-button custom-icon"
+                        onClick={() => deleteBetById(bet.id)}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                      : null
+                  }
                 </td>
               </tr>
             ))

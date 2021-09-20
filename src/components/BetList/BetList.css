@@ -5,6 +5,7 @@
   color: white;
   max-height: 80vh;
   height: 20rem;
+  border-radius: 4px;
 }
 
 .bet-list-title {
@@ -13,7 +14,7 @@
   width: 100%;
   background: white;
   margin: 0;
-  padding: 0;
+  padding: .5rem 0;
 }
 
 .betlist-head-row {
