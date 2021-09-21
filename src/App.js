@@ -25,6 +25,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
+        
 
         <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
         <ProtectedComponent exact path="/home" component={Home} />
