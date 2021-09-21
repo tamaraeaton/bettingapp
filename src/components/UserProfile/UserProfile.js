@@ -28,7 +28,8 @@ const UserProfile = () => {
       </div>
       <div className="user-links">
         <div className="user-link-container">
-          <Link className="link custom-user-links" to="/user-bets">
+          {/* <Link className="link custom-user-links" to="/user-bets"> */}
+          <Link to={"/home"} className="link custom-user-links">
             <FontAwesomeIcon icon={faDollarSign} /> Your Bets
           </Link>
           <Link className="link custom-user-links" to="/user-friends">
@@ -36,6 +37,7 @@ const UserProfile = () => {
           </Link>
           <Link className="link custom-user-links" to="/"></Link>
           <Link className="link custom-user-links" to="/"></Link>
+
         </div>
       </div>
     </div>
