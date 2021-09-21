@@ -25,6 +25,7 @@ const BetForm = () => {
       ticketCost,
       description,
       members: [],
+      potTotal: 0,
       id: uuidv4(),
     };
 
