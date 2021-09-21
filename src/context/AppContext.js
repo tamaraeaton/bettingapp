@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import firebase from "./firebase";
 
 export const AppContext = createContext();
@@ -10,28 +10,23 @@ export const AppProvider = (props) => {
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
 
-  const [members, setMembers] = useState([]);
   const [allUsersBets, setAllUsersBets] = useState([]);
   const [displayMembers, setDisplayMembers] = useState([]);
 
-
-  const getBets = (user) => {
-    ref
-      .orderBy("lastUpdate", "asc")
-      .onSnapshot((querySnapshot) => {
-        const items = [];
-        querySnapshot.forEach((bet) => {
-          items.push(bet.data());
-        });
-        setBets(items);
-        setDisplayMembers(items)
+  const getBets = () => {
+    ref.orderBy("lastUpdate", "asc").onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((bet) => {
+        items.push(bet.data());
       });
+      setBets(items);
+      setDisplayMembers(items);
+    });
   };
 
   const getBetMembers = async (id) => {
     await ref.where("id", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => setMembersArr(doc.data().members));
-      console.log(membersArr);
     });
   };
 
@@ -47,8 +42,14 @@ export const AppProvider = (props) => {
       belongsTo: member.belongsTo,
     };
 
+    let updateBet = {
+      ...bet,
+      members: [...bet.members, newMember],
+      potTotal: bet.potTotal + newMember.totalMoney,
+    };
+
     setMembersArr([...membersArr, newMember]);
-    await ref.doc(bet.id).set({ ...bet, members: [...membersArr, newMember] });
+    await ref.doc(bet.id).set(updateBet);
   };
 
   const addBetToUser = async (user, newBetId) => {
@@ -76,7 +77,6 @@ export const AppProvider = (props) => {
 
   const getAllUsersBets = (user) => {
     let theUserBets = user.joinedBets.concat(user.userBets);
-    let userBetsArr = [];
     const promises = [];
 
     for (let i = 0; i < theUserBets.length; i++) {
@@ -118,7 +118,8 @@ export const AppProvider = (props) => {
         getAllUsersBets,
         allUsersBets,
         setAllUsersBets,
-        displayMembers, setDisplayMembers
+        displayMembers,
+        setDisplayMembers,
       }}
     >
       {props.children}

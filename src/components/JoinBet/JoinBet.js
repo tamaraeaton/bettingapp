@@ -3,13 +3,14 @@ import "./JoinBet";
 import { AppContext } from "../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom"; --> will be used by the variable  on line 13. 
 
 const JoinBet = () => {
   const { currentUser } = useContext(AuthContext);
   const { disBet, addBetMember, addBetToUserJoinedBet } =
     useContext(AppContext);
-  const history = useHistory();
+
+  // const history = useHistory();  ---> use this variable to send the user back to home once you submit your tickets.
 
   const [num, setNum] = useState(0);
   const [total, setTotal] = useState(0);
