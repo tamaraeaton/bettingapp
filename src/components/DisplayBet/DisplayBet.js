@@ -29,7 +29,7 @@ const DisplayBet = ({ bet }) => {
         <h1 className='bd'>Bet Description: {disBet.description}</h1>
       </div>
       <div>
-        <h1 className='Am'>Pot Total: {disBet.potTotal}</h1>
+        <h1 className='Am'>Pot Total: $ {disBet.potTotal}</h1>
       </div>
       <div className='button-container'>
         <ButtonText link='/display-members' text='Display Members' />
