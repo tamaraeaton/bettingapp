@@ -13,6 +13,12 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
+  const [toggle, setToggle] = useState(false);
+
+  const toggleGenderField = () => {
+    setToggle(!toggle);
+    setGender("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +49,8 @@ const Register = () => {
         .catch((err) => setErrMsg(err.message));
     }
   };
+
+  console.log(gender);
 
   return (
     <div className="general flex-component custom-form-page">
@@ -82,14 +90,47 @@ const Register = () => {
           onChange={(e) => setAge(e.target.value)}
           value={age}
         />
-        <input
-          type="text"
-          name="gender"
-          placeholder="Gender"
-          className="custom-input"
-          onChange={(e) => setGender(e.target.value)}
-          value={gender}
-        />
+        <div className="custom-radio-wrapper">
+          <div className="custom-radio">
+            <p style={{ marginRight: ".3rem" }}>Male </p>
+            <input
+              type="radio"
+              value="Male"
+              name="gender"
+              onClick={(e) => {
+                setGender("Male");
+                setToggle(false);
+              }}
+            />
+          </div>
+          <div className="custom-radio">
+            <p style={{ marginRight: ".3rem" }}>Female </p>
+            <input
+              type="radio"
+              value="Female"
+              name="gender"
+              onClick={(e) => {
+                setGender("Female");
+                setToggle(false);
+              }}
+            />
+          </div>
+          <div className="custom-radio">
+            <p style={{ marginRight: ".3rem" }}>Other </p>
+            <input type="radio" name="gender" onClick={toggleGenderField} />
+          </div>
+        </div>
+        {toggle ? (
+          <input
+            type="text"
+            name="gender"
+            placeholder="Gender"
+            className="custom-input"
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
+          />
+        ) : null}
+
         <input
           type="password"
           name="password"
