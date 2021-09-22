@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./login.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const Login = () => {
@@ -43,6 +43,7 @@ const Login = () => {
         />
         <input className="custom-button" type="submit" value="Submit" />
       </form>
+      <Link className="register-link" to="/register">If you are not registered, click here to Register.</Link>
     </div>
   );
 };
