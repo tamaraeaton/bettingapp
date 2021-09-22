@@ -1,6 +1,6 @@
 import React from "react";
 import "./Welcome.css";
-import ImagePlaceholder from "../../assets/istockphoto-674585488-1024x1024.jpg";
+import ImagePlaceholder from "../../assets/welcome1.PNG";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
@@ -18,7 +18,7 @@ const Welcome = () => {
         <img
           id="image-placeholder"
           src={ImagePlaceholder}
-          alt="ImagePlaceholder"
+          alt=""
         />
       </div>
 
