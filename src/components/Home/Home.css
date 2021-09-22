@@ -3,6 +3,11 @@
   justify-content: space-around;
 }
 
+.welcome-name {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
 .welcome-user-container {
   display: flex;
   flex-direction: column;
@@ -13,6 +18,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
+}
+
+.create-button {
+  height: 3rem;
 }
 
 .bet-intro {
