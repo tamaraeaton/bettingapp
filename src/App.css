@@ -31,9 +31,6 @@ body,
   overflow-y: auto;
   background-color: #013A6B;
   background-image: linear-gradient(45deg, #cbcbcb 40%, #646464 60%);
-  /* background: url("./assets/mitchell-luo-nEN6tkAfe5w-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;*/
 } 
 
 /* utility class for layout - used by all components */

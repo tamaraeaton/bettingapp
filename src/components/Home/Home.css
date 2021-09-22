@@ -5,7 +5,8 @@
 
 .welcome-name {
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .welcome-user-container {
@@ -20,12 +21,10 @@
   text-align: left;
 }
 
-.create-button {
-  height: 3rem;
-}
-
 .bet-intro {
-  color: rgba(253, 253, 253, 0.6);
+  color: black;
+  font-size: 2rem;
+  text-align: center;
 }
 
 .bet-list {
