@@ -9,7 +9,7 @@ const ButtonText = ({ link, text, betToggle, createButton }) => {
           <Link to={link}>{text}</Link>
         </button>
       ) : createButton ? (
-        <button className='custom-button' style={createButton}>Create Bet</button>
+        <button className='custom-button' style={createButton}><Link to={link}>Create Bet</Link></button>
       ) : (
         <button className='custom-button'>
           <Link to={link}>{text}</Link>
