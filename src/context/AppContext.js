@@ -6,6 +6,7 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const [disBet, setDisBet] = useState({});
+  const [editBet, setEditBet] = useState({});
   const [membersArr, setMembersArr] = useState([]);
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
@@ -19,6 +20,7 @@ export const AppProvider = (props) => {
       querySnapshot.forEach((bet) => {
         items.push(bet.data());
       });
+      console.log(items)
       setBets(items);
       setDisplayMembers(items);
     });
@@ -75,6 +77,11 @@ export const AppProvider = (props) => {
     });
   };
 
+  
+  const ownerEditBet = (updatedBet) => {
+    return ref.doc(disBet.id).update(updatedBet);
+  }
+
   const getAllUsersBets = (user) => {
     let theUserBets = user.joinedBets.concat(user.userBets);
     const promises = [];
@@ -120,6 +127,7 @@ export const AppProvider = (props) => {
         setAllUsersBets,
         displayMembers,
         setDisplayMembers,
+        ownerEditBet
       }}
     >
       {props.children}
