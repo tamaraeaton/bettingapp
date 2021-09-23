@@ -3,6 +3,7 @@ import "./JoinBet";
 import { AppContext } from "../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
+import { Link } from "react-router-dom";
 // import { useHistory } from "react-router-dom"; --> will be used by the variable  on line 13. 
 
 const JoinBet = () => {
@@ -44,7 +45,9 @@ const JoinBet = () => {
       </button>
       <h3>Number of Tickets:{num}</h3>
       <h3>Your Total:{total}</h3>
+      <Link to={"/home"} className="">
       <button onClick={handleSubmit}>Submit</button>
+      </Link>
     </div>
   );
 };
