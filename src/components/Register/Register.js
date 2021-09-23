@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 const Register = () => {
@@ -149,6 +149,7 @@ const Register = () => {
         />
         <input type="submit" value="Sign up" className="custom-button" />
       </form>
+      <Link className="login-link" to="/login">If you are already registered, click here to Login.</Link>
     </div>
   );
 };
