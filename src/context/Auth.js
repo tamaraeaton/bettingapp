@@ -24,11 +24,14 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
-  function getUser(id) {
-    refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
+  async function getUser(id, l, history) {
+    await refUsers.where("id", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
         setPending(false);
+        if (l) {
+          history.push("/home");
+        }
       });
     });
   }
