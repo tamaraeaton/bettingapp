@@ -1,0 +1,72 @@
+.ticket-increment-decrement-wrapper {
+  display: flex;
+  width: 45%;
+  justify-content: space-evenly;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.bet-desc {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.custom-form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.ticket-title {
+  font-weight: 500;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.join-bet-icon {
+  background: rgb(53, 53, 53);
+  border-radius: 50%;
+}
+
+.icon-minus {
+  color: red;
+}
+
+.icon-plus {
+  color: rgb(0, 194, 0);
+}
+
+.total-submit-wrapper {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.join-bet-button {
+  display: inline-block;
+  padding: 0.5em 1.7em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid lime;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.join-bet-button:hover {
+  color: white;
+  background-color: lime;
+  border: 0.16em solid lime; 
+}
