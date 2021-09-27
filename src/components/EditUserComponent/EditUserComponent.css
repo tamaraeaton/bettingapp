@@ -1,0 +1,12 @@
+.edit-user-link {
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.email-password-wrapper {
+  display: flex;
+  flex-direction: column;
+}
