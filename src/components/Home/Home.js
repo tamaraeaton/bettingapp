@@ -14,6 +14,8 @@ const Home = () => {
     height: 80,
   } 
 
+  console.log(currentUser)
+
   return (
     <div className='home general flex-component'>
       <div className='welcome-user-container'>

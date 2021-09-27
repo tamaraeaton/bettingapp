@@ -5,17 +5,17 @@ import { AuthContext } from "../../context/Auth";
 
 const Login = () => {
   const history = useHistory();
-  const { login, errMsg, setErrMsg } = useContext(AuthContext);
+  const { login, errMsg, setErrMsg, getUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password)
-      .then(() => {
+      .then(res => {
         setEmail("");
         setPassword("");
-        history.push("/home");
+        getUser(res.user.uid, true, history)
       })
       .catch((err) => setErrMsg(err.message));
   };
