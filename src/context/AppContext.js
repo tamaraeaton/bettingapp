@@ -76,7 +76,7 @@ export const AppProvider = (props) => {
     });
   };
 
-  
+  // need to add timestamp
   const ownerEditBet = (updatedBet) => {
     return ref.doc(disBet.id).update(updatedBet);
   }
