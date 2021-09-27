@@ -9,9 +9,13 @@
   align-items: center;
 }
 
-.company-section {
-  display: flex;
-  align-items: center;
+.open-style {
+  display: inline;
+  position: relative;
+}
+
+.closed-style {
+  display: none;
 }
 
 .twire-logo {
@@ -25,21 +29,40 @@
   color: white;
   text-decoration: none;
   font-weight: 900;
+  display: flex;
+  align-items: center;
 }
+
 .header-link-section {
   display: flex;
-  justify-content: space-evenly;
+  float: right;
+  opacity: 1;
 }
 
-.log-out {
+.custom-header-link {
+  text-decoration: none;
   color: white;
+  font-weight: 600;
   margin-right: 1rem;
-  text-decoration: none;
-  font-weight: 600;
 }
 
-.about-link {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
+.hambagga-menu {
+  display: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 770px) {
+ .hambagga-menu {
+   display: block;
+   font-size: 2rem;
+ }
+
+ .header-link-section {
+   display: none;
+ }
+
+ .custom-header-link {
+   border-bottom: solid black 1px;
+   padding: 1rem 1.5rem;
+ }
 }
