@@ -6,16 +6,14 @@
 }
 
 .welcome-name {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
-  font-size: calc(0.8em + 1vmin);
-  padding: calc(0.4em + 1vmin);
 }
 
 .welcome-user-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .create-bet-here {
@@ -29,8 +27,6 @@
   color: black;
   font-size: 2rem;
   text-align: center;
-  /* font-size: calc(0.8em + 1vmin); */
-  /* padding: calc(0.4em + 1vmin); */
 }
 
 .bet-list {
@@ -42,8 +38,4 @@
 .custom-button a {
   text-decoration: none;
   color: white;
-}
-
-.custom-button {
-    width: fit-content;
 }

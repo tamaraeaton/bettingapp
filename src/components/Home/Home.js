@@ -5,14 +5,16 @@ import BetList from "../BetList/BetList";
 import ButtonText from "../Buttons/ButtonText";
 import { AuthContext } from "../../context/Auth";
 
+const createButton = {
+  fontSize: "150%",
+  width: "fit-content",
+  padding: "1rem 2rem",
+  // marginBotton: "10px"
+}
+
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const createButton = {
-    fontSize: 30,
-    width: 500,
-    height: 80,
-  };
 
   return (
     <div className='home general flex-component'>

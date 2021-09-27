@@ -6,6 +6,8 @@
   max-height: 80vh;
   height: 20rem;
   border-radius: 4px;
+  margin-top: 1rem;
+  min-width: 700px;
 }
 
 .bet-list-title {
@@ -24,6 +26,7 @@
   width: 50vw;
   text-align: left;
   align-items: center;
+  min-width: 700px;
 }
 
 .custom-border {
