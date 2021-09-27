@@ -20,7 +20,7 @@ export const AppProvider = (props) => {
       querySnapshot.forEach((bet) => {
         items.push(bet.data());
       });
-      console.log(items)
+      // console.log(items)
       setBets(items);
       setDisplayMembers(items);
     });
