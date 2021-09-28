@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./login.css";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
@@ -19,6 +19,10 @@ const Login = () => {
       })
       .catch((err) => setErrMsg(err.message));
   };
+
+  useEffect(() => {
+    setErrMsg("")
+  }, [])
 
   return (
     <div className="general flex-component custom-form-page">
