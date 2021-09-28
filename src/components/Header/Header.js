@@ -37,7 +37,7 @@ const Header = () => {
         {isAuth ? (
           <div
             className="header-link-section"
-            style={isOpen ? openStyle : { display: "none" }}
+            style={isOpen ? openStyle : null}
           >
             <Link to="/user-profile" className="custom-header-link">
               <FontAwesomeIcon icon={faUser} /> Profile
