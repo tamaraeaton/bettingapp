@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
@@ -22,14 +22,25 @@ const Header = () => {
     background: "darkgrey",
     width: "100%",
   };
+ 
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    function handleResize() {
+      if(window.innerWidth >= 770) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+  });
+
   return (
     <div className="calheader">
-      <Link href="/home" className="twire-link">
+      <Link to="/home" className="twire-link">
         <div className="twire-logo"></div> TWIRE
       </Link>
 
