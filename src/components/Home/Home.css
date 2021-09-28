@@ -1,17 +1,19 @@
 .home {
   padding: 1em 1em 3em 3em;
   justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 .welcome-name {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .welcome-user-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .create-bet-here {

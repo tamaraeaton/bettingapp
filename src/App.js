@@ -15,6 +15,7 @@ import JoinBet from "./components/JoinBet/JoinBet";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
 import DisplayMembers from "./components/MembersList/MembersList";
+import EditUserComponent from "./components/EditUserComponent/EditUserComponent";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
         <ProtectedComponent exact path="/user-profile" component={UserProfile} />
         <ProtectedComponent exact path="/join-bet" component={JoinBet} />
         <ProtectedComponent exact path="/update-bet" component={UpdateBetForm} />
-
+        <ProtectedComponent exact path="/edit-profile" component={EditUserComponent} />
         <Footer />
       </div>
     </BrowserRouter>

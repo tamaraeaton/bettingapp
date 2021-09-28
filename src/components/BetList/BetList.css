@@ -6,15 +6,22 @@
   max-height: 80vh;
   height: 20rem;
   border-radius: 4px;
+  margin-top: 1rem;
+  min-width: 350px;
 }
 
 .bet-list-title {
   text-align: center;
   color: black;
-  width: 100%;
   background: white;
   margin: 0;
   padding: .5rem 0;
+}
+
+.joined-created-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 1rem 0 1rem;
 }
 
 .betlist-head-row {
@@ -24,6 +31,7 @@
   width: 50vw;
   text-align: left;
   align-items: center;
+  min-width: 350px;
 }
 
 .custom-border {

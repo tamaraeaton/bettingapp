@@ -1,4 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
+import UpdateBetForm from "../components/UpdateBetForm/UpdateBetForm";
 import firebase from "./firebase";
 
 export const AuthContext = createContext();
@@ -24,11 +25,14 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
-  function getUser(id) {
-    refUsers.where("owner", "==", id).onSnapshot((querySnapshot) => {
+  async function getUser(id, l, history) {
+    await refUsers.where("id", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
         setPending(false);
+        if (l) {
+          history.push("/home");
+        }
       });
     });
   }
@@ -62,6 +66,40 @@ export const AuthProvider = ({ children }) => {
     return await refUsers.doc(newUser.id).set(newUser);
   };
 
+  // const updateEmailOrPassword = (user) => {
+  //   const updateUser = firebase.auth().currentUser;
+  //   updateUser.updatePassword(user.password);
+  // };
+
+  const editUser = async (user, history) => {
+    if (user.password) {
+      const updateUser = firebase.auth().currentUser;
+      updateUser
+        .updateEmail(user.email)
+        .then(() => updateUser.updatePassword(user.password));
+
+      return refUsers.doc(user.id).update({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        age: user.age,
+        gender: user.gender,
+        email: user.email,
+        lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+    } else {
+      const updateUser = firebase.auth().currentUser;
+      updateUser.updateEmail(user.email);
+      return refUsers.doc(user.id).update({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        age: user.age,
+        gender: user.gender,
+        email: user.email,
+        lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+    }
+  };
+
   if (pending) {
     return <div>Loading...</div>;
   }
@@ -78,6 +116,7 @@ export const AuthProvider = ({ children }) => {
         addUser,
         isAuth,
         getUser,
+        editUser,
       }}
     >
       {children}
