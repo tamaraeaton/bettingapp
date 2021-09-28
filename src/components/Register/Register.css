@@ -4,16 +4,6 @@
   color: white;
 }
 
-.error {
-  text-align: center;
-  background: rgba(255, 0, 0, 0.741);
-  width: 600px;
-  margin: auto;
-  min-width: 400px;
-  font-size: 0.8rem;
-  border-radius: 10px;
-}
-
 .login-link {
   color: white;
 }
@@ -38,13 +28,3 @@
   margin-right: 1rem;
   color: #999999;
 }
-
-/* @media only screen and (max-width: 600px) {
-  .register-form {
-    width: 400px;
-  }
-
-  .error {
-    max-width: 400px;
-  }
-} */

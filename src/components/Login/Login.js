@@ -22,28 +22,32 @@ const Login = () => {
 
   return (
     <div className="general flex-component custom-form-page">
-      {errMsg ? <div className="error">{errMsg}</div> : null}
-      <h2 className="custom-form-title">Login</h2>
-      <form className="custom-form" onSubmit={handleSubmit}>
-        <input
-          className="custom-input"
-          type="text"
-          placeholder="Email"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          className="custom-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <input className="custom-button" type="submit" value="Submit" />
-      </form>
-      <Link className="register-link" to="/register">If you are not registered, click here to Register.</Link>
+      <div className="form-wrappers">
+        <h2 className="custom-form-title">Login</h2>
+        {errMsg ? <div className="error">{errMsg}</div> : null}
+        <form className="custom-form" onSubmit={handleSubmit}>
+          <input
+            className="custom-input"
+            type="text"
+            placeholder="Email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <input
+            className="custom-input"
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input className="custom-button" type="submit" value="Submit" />
+        </form>
+        <Link className="register-link" to="/register">
+          If you are not registered, click here to Register.
+        </Link>
+      </div>
     </div>
   );
 };

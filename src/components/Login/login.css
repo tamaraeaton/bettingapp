@@ -7,9 +7,3 @@
 .register-link {
   color: white;
 }
-
-@media only screen and (max-width: 600px) {
-  .login-form {
-    width: 400px;
-  }
-}

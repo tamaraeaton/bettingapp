@@ -54,102 +54,106 @@ const Register = () => {
 
   return (
     <div className="general flex-component custom-form-page">
-      {errMsg ? <div className="error">{errMsg}</div> : null}
-      <h2 className="custom-form-title">Sign Up</h2>
-      <form className="custom-form" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="custom-input"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          className="custom-input"
-          onChange={(e) => setFirstName(e.target.value)}
-          value={firstName}
-          required
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          className="custom-input"
-          onChange={(e) => setLastName(e.target.value)}
-          value={lastName}
-        />
-        <input
-          type="text"
-          name="age"
-          placeholder="Age"
-          className="custom-input"
-          onChange={(e) => setAge(e.target.value)}
-          value={age}
-        />
-        <div className="custom-radio-wrapper">
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Male </p>
-            <input
-              type="radio"
-              value="Male"
-              name="gender"
-              onClick={(e) => {
-                setGender("Male");
-                setToggle(false);
-              }}
-            />
-          </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Female </p>
-            <input
-              type="radio"
-              value="Female"
-              name="gender"
-              onClick={(e) => {
-                setGender("Female");
-                setToggle(false);
-              }}
-            />
-          </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Other </p>
-            <input type="radio" name="gender" onClick={toggleGenderField} />
-          </div>
-        </div>
-        {toggle ? (
+      <div className="form-wrappers">
+        <h2 className="custom-form-title">Sign Up</h2>
+        {errMsg ? <div className="error">{errMsg}</div> : null}
+        <form className="custom-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="custom-input"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
           <input
             type="text"
-            name="gender"
-            placeholder="Gender"
+            name="firstName"
+            placeholder="First Name"
             className="custom-input"
-            onChange={(e) => setGender(e.target.value)}
-            value={gender}
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+            required
           />
-        ) : null}
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className="custom-input"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+          />
+          <input
+            type="text"
+            name="age"
+            placeholder="Age"
+            className="custom-input"
+            onChange={(e) => setAge(e.target.value)}
+            value={age}
+          />
+          <div className="custom-radio-wrapper">
+            <div className="custom-radio">
+              <p style={{ marginRight: ".3rem" }}>Male </p>
+              <input
+                type="radio"
+                value="Male"
+                name="gender"
+                onClick={(e) => {
+                  setGender("Male");
+                  setToggle(false);
+                }}
+              />
+            </div>
+            <div className="custom-radio">
+              <p style={{ marginRight: ".3rem" }}>Female </p>
+              <input
+                type="radio"
+                value="Female"
+                name="gender"
+                onClick={(e) => {
+                  setGender("Female");
+                  setToggle(false);
+                }}
+              />
+            </div>
+            <div className="custom-radio">
+              <p style={{ marginRight: ".3rem" }}>Other </p>
+              <input type="radio" name="gender" onClick={toggleGenderField} />
+            </div>
+          </div>
+          {toggle ? (
+            <input
+              type="text"
+              name="gender"
+              placeholder="Gender"
+              className="custom-input"
+              onChange={(e) => setGender(e.target.value)}
+              value={gender}
+            />
+          ) : null}
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="custom-input"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          className="custom-input"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          value={confirmPassword}
-        />
-        <input type="submit" value="Sign up" className="custom-button" />
-      </form>
-      <Link className="login-link" to="/login">If you are already registered, click here to Login.</Link>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="custom-input"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="custom-input"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+          />
+          <input type="submit" value="Sign up" className="custom-button" />
+        </form>
+        <Link className="login-link" to="/login">
+          If you are already registered, click here to Login.
+        </Link>
+      </div>
     </div>
   );
 };
