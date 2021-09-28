@@ -7,6 +7,8 @@
   height: 25rem;
   border-radius: 4px;
   width: 55rem;
+  margin-top: 1rem;
+  min-width: 350px;
 }
 
 .bet-list-title {
@@ -30,10 +32,8 @@
   width: 50vw;
   text-align: left;
   align-items: center;
-  width: 55rem;
-}
+  /* width: 55rem; */
 
-.custom-border {
   border-right: 2px solid black;
   margin-right: 0.2rem;
   height: 100%;
