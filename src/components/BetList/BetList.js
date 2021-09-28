@@ -23,8 +23,8 @@ const BetList = () => {
     displayMembers,
     setDisplayMembers,
   } = useContext(AppContext);
-  const [ownedBets, setOwnedBets] = useState(currentUser.userBets);
-  const [joinedBets, setJoinedBets] = useState(currentUser.joinedBets);
+  const [ownedBets] = useState(currentUser.userBets);
+  const [joinedBets] = useState(currentUser.joinedBets);
   const currentUserId = currentUser ? currentUser.uid : null;
 
   const betToggleJoinedAndCreated = () => {

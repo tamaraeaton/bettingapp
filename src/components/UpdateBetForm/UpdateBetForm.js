@@ -14,7 +14,7 @@ const UpdateBetForm = () => {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    console.log(disBet);
+    // console.log(disBet);
     setName(disBet.name)
     setCategory(disBet.category)
     setTicketCost(disBet.ticketCost)
@@ -103,7 +103,7 @@ const UpdateBetForm = () => {
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         ></textarea>
-        <input type="submit" value="Submit" className="custom-button" />
+        <input type="submit" value="Submit" className="custom-button login-button" />
       </form>
      </div>
   );

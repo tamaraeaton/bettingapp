@@ -4,8 +4,9 @@
   background: black;
   color: white;
   max-height: 80vh;
-  height: 20rem;
+  height: 25rem;
   border-radius: 4px;
+  width: 55rem;
 }
 
 .bet-list-title {
@@ -29,6 +30,7 @@
   width: 50vw;
   text-align: left;
   align-items: center;
+  width: 55rem;
 }
 
 .custom-border {
