@@ -11,7 +11,7 @@
   min-width: 350px;
 }
 
-.bet-list-title {
+.bet-list-title-div {
   text-align: center;
   color: black;
   background: white;
@@ -21,19 +21,20 @@
 
 .joined-created-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0 1rem 0 1rem;
 }
 
 .betlist-head-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr .5fr .5fr;
   min-width: 20rem;
-  width: 50vw;
+  width: 100%;
   text-align: left;
   align-items: center;
-  /* width: 55rem; */
+ }
 
+  .custom-border {
   border-right: 2px solid black;
   margin-right: 0.2rem;
   height: 100%;

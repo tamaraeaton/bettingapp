@@ -58,7 +58,7 @@ const BetList = () => {
 
   return (
     <div className='custom-bet-list'>
-      <div className='bet-list-title'>
+      <div className='bet-list-title-div'>
         <div className='joined-created-buttons'>
           <h2 className='bet-list-title'>Bet List</h2>
           <ButtonText
