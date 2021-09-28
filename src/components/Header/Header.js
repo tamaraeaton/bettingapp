@@ -22,7 +22,6 @@ const Header = () => {
     background: "darkgrey",
     width: "100%",
   };
- 
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -30,8 +29,8 @@ const Header = () => {
 
   useEffect(() => {
     function handleResize() {
-      if(window.innerWidth >= 770) {
-        setIsOpen(false)
+      if (window.innerWidth >= 770) {
+        setIsOpen(false);
       }
     }
 
@@ -50,19 +49,39 @@ const Header = () => {
             className="header-link-section"
             style={isOpen ? openStyle : null}
           >
-            <Link to="/user-profile" className="custom-header-link">
+            <Link
+              to="/user-profile"
+              className="custom-header-link"
+              onClick={() => setIsOpen(false)}
+            >
               <FontAwesomeIcon icon={faUser} /> Profile
             </Link>
-            <Link to="/home" className="custom-header-link">
+            <Link
+              to="/home"
+              className="custom-header-link"
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Link>
-            <Link to="/bet-form" className="custom-header-link">
+            <Link
+              to="/bet-form"
+              className="custom-header-link"
+              onClick={() => setIsOpen(false)}
+            >
               Create Bet
             </Link>
-            <Link to="/trshtok" className="custom-header-link">
+            <Link
+              to="/trshtok"
+              className="custom-header-link"
+              onClick={() => setIsOpen(false)}
+            >
               TrshTok
             </Link>
-            <Link to="/about" className="custom-header-link">
+            <Link
+              to="/about"
+              className="custom-header-link"
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Link>
             <Link to="/" className="custom-header-link" onClick={logout}>
