@@ -95,7 +95,7 @@ body,
   font-weight: 530;
   color: white;
   text-align: center;
-  height: 1.7rem;
+  /* height: 1.7rem; */
   padding: 0.1rem 0.4rem;
   letter-spacing: 0.1rem;
   cursor: pointer;

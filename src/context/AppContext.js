@@ -6,7 +6,6 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const [disBet, setDisBet] = useState({});
-  const [editBet, setEditBet] = useState({});
   const [membersArr, setMembersArr] = useState([]);
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
