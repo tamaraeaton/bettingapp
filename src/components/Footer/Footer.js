@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,9 +10,11 @@ const Footer = () => {
         <p className='company-text'>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Banyan Labs All Rights Reserved</p>
       </div>
       <div className="footer-right">
-        <a target="_blank" className="footer-link">
+        <Link to="/contact-form" className="footer-link">
           Contact Us
-        </a>
+        </Link>
+          
+        
       </div>
     </div>
   );
