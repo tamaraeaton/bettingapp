@@ -36,18 +36,19 @@ const ContactForm = () => {
   };
 
   return (
-    <div className='general flex-component'>
-      <h1>This is where you can send me an email.</h1>
+    <div className='general flex-component custom-form-page'>
+      <h1 className="contact-form-title">Please feel free to contact us with your questions
+        or comments. We will reply within 2-4 days.</h1>
       <form onSubmit={handleSubmit} className='contact-form custom-form'>
         <label>Name</label>
-        <input type='text' name='user_name' />
+        <input type='text' name='user_name' required />
         <label>Email</label>
-        <input type='text' name='user_email' />
+        <input type='text' name='user_email' required />
         <label>Subject</label>
-        <input type="text" name="subject" />
+        <input type="text" name="subject" required />
         <label>Comment</label>
-        <input type='text' name='text' />
-        <input type='submit' value='Send Message' />
+        <input type='text' name='text' required />
+        <input className="send-message-button custom-button" type='submit' value='Send Message' />
       </form>
     </div>
   );
