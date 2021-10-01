@@ -8,7 +8,6 @@ const EditUserComponent = () => {
   const { currentUser, editUser, errMsg, setErrMsg } = useContext(AuthContext);
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
-  const [age, setAge] = useState(currentUser.age);
   const [gender, setGender] = useState(currentUser.gender);
   const [email, setEmail] = useState(currentUser.email);
   const [password, setPassword] = useState("");
@@ -29,7 +28,6 @@ const EditUserComponent = () => {
       email,
       firstName,
       lastName,
-      age,
       gender,
       id: currentUser.id,
     };
@@ -40,7 +38,6 @@ const EditUserComponent = () => {
           ...currentUser,
           firstName,
           lastName,
-          age,
           gender,
           email,
           password,
@@ -90,14 +87,6 @@ const EditUserComponent = () => {
           className="custom-input"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="number"
-          name="age"
-          placeholder="Age"
-          className="custom-input"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
         />
 
         <div className="custom-radio-wrapper">

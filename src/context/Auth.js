@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import UpdateBetForm from "../components/UpdateBetForm/UpdateBetForm";
+// import UpdateBetForm from "../components/UpdateBetForm/UpdateBetForm";
 import firebase from "./firebase";
 
 export const AuthContext = createContext();
@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [errMsg, setErrMsg] = useState("");
   const [pending, setPending] = useState(true);
   const refUsers = firebase.firestore().collection("users");
+  const [userJoinedBets, setUserJoinedBets] = useState([])
 
   const login = async (email, password) => {
     return await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -25,10 +26,11 @@ export const AuthProvider = ({ children }) => {
       .createUserWithEmailAndPassword(user.email, password);
   };
 
-  async function getUser(id, l, history) {
-    await refUsers.where("id", "==", id).onSnapshot((querySnapshot) => {
+   function getUser(id, l, history) {
+     refUsers.where("id", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((user) => {
         setCurrentUser(user.data());
+        setUserJoinedBets(user.data().joinedBets)
         setPending(false);
         if (l) {
           history.push("/home");
@@ -114,6 +116,7 @@ export const AuthProvider = ({ children }) => {
         isAuth,
         getUser,
         editUser,
+        userJoinedBets
       }}
     >
       {children}
