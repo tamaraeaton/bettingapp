@@ -10,14 +10,10 @@ const createButton = {
   fontSize: "150%",
   width: "fit-content",
   padding: "1rem 2rem",
-  // marginBotton: "10px"
 }
 
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
-
-
-  // console.log(currentUser)
 
   return (
     <div className='home general flex-component'>
@@ -30,11 +26,7 @@ const Home = () => {
           link='/bet-form'
           text='Create Bet' />
       </div>
-     
-
-      <BetList />
-
-      
+        <BetList />
     </div>
   );
 };

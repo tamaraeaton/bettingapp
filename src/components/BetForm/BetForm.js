@@ -6,10 +6,8 @@ import { AppContext } from "../../context/AppContext";
 import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
-  const { currentUser } = useContext(AuthContext);
   const { addBet, notify } = useContext(AppContext);
   const { currentUser, errMsg, setErrMsg } = useContext(AuthContext);
-  const { addBet } = useContext(AppContext);
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
