@@ -56,19 +56,18 @@ const Register = () => {
     }
   };
 
-
   useEffect(() => {
-    setErrMsg("")
-  }, [])
-  
+    setErrMsg("");
+  }, []);
+
   const ageValidator = (e) => {
     setAge(calAge(e.target.value));
     setDob(e.target.value);
   };
-  
+
   const calAge = (date) => {
     new Date(Date.now() - new Date(date).getTime()).getFullYear() - 1970;
-  }
+  };
 
   return (
     <div className="general flex-component custom-form-page">
@@ -105,7 +104,7 @@ const Register = () => {
           className="custom-input"
           onChange={(e) => ageValidator(e)}
         />
-        <div className="custom-radio-wrapper">
+      <div className="custom-radio-wrapper">
           <div className="custom-radio">
             <p style={{ marginRight: ".3rem" }}>Male </p>
             <input
@@ -118,40 +117,54 @@ const Register = () => {
               }}
             />
           </div>
-          {toggle ? (
+          <div className="custom-radio">
+            <p style={{ marginRight: ".3rem" }}>Female </p>
             <input
-              type="text"
+              type="radio"
+              value="Female"
               name="gender"
-              placeholder="Gender"
-              className="custom-input"
-              onChange={(e) => setGender(e.target.value)}
-              value={gender}
+              onClick={(e) => {
+                setGender("Female");
+                setToggle(false);
+              }}
             />
-          ) : null}
-
+          </div>
+          <div className="custom-radio">
+            <p style={{ marginRight: ".3rem" }}>Other </p>
+            <input type="radio" name="gender" onClick={toggleGenderField} />
+          </div>
+        </div>
+        {toggle ? (
           <input
-            type="password"
-            name="password"
-            placeholder="Password"
+            type="text"
+            name="gender"
+            placeholder="Gender"
             className="custom-input"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
           />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            className="custom-input"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            value={confirmPassword}
-          />
-          <input type="submit" value="Sign up" className="custom-button" />
-        </form>
-        <Link className="login-link" to="/login">
-          If you are already registered, click here to Login.
-        </Link>
-      </div>
-
+        ) : null}
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="custom-input"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          className="custom-input"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+        />
+        <input type="submit" value="Sign up" className="custom-button" />
+      </form>
+      <Link className="login-link" to="/login">
+        If you are already registered, click here to Login.
+      </Link>
     </div>
   );
 };
