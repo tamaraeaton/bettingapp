@@ -11,7 +11,7 @@ const MembersList = () => {
     getBetMembers(disBet.id);
   }, []);
 
-  console.log(membersArr);
+  // console.log(membersArr);
 
   return (
     <div className="general flex-component">

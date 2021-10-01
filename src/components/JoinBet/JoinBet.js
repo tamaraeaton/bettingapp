@@ -15,7 +15,7 @@ const JoinBet = () => {
   // const history = useHistory();  ---> use this variable to send the user back to home once you submit your tickets.
 
   const [num, setNum] = useState(0);
-  const [num2, setNum2] = useState(-1);
+  // const [num2, setNum2] = useState(-1);
   const [total, setTotal] = useState(0);
   const [numTik, setNumTik] = useState(1);
   let newMember = {
@@ -31,8 +31,8 @@ const JoinBet = () => {
     addBetToUserJoinedBet(currentUser, disBet.id);
   };
 
-  console.log(total);
-  console.log(numTik);
+  // console.log(total);
+  // console.log(numTik);
 
   return (
     <div className="general flex-component">

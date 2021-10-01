@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Register.css";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
@@ -12,6 +12,8 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
+  const [dob, setDob] = useState("");
+  const [toggleNotification, setToggleNotification] = useState(false);
   const [gender, setGender] = useState("");
   const [toggle, setToggle] = useState(false);
 
@@ -23,39 +25,55 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newUser = {
-      firstName,
-      lastName,
-      email,
-      age,
-      gender,
-    };
-
-    if (confirmPassword !== password) {
-      setErrMsg("Passwords do not match!");
-      setPassword("");
-      setConfirmPassword("");
+    if (age < 21) {
+      setErrMsg("Must be at least 21 years of age!");
     } else {
-      register(newUser, password)
-        .then((user) => {
-          addUser(newUser, user.user.uid).then(() => {
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
-            setErrMsg("");
-            history.push("/home");
-          });
-        })
-        .catch((err) => setErrMsg(err.message));
+      const newUser = {
+        firstName,
+        lastName,
+        email,
+        dob,
+        gender,
+      };
+
+      if (confirmPassword !== password) {
+        setErrMsg("Passwords do not match!");
+        setPassword("");
+        setConfirmPassword("");
+      } else {
+        register(newUser, password)
+          .then((user) => {
+            addUser(newUser, user.user.uid).then(() => {
+              setEmail("");
+              setPassword("");
+              setConfirmPassword("");
+              setErrMsg("");
+              history.push("/home");
+            });
+          })
+          .catch((err) => setErrMsg(err.message));
+      }
     }
   };
 
-  console.log(gender);
+
+  useEffect(() => {
+    setErrMsg("")
+  }, [])
+  
+  const ageValidator = (e) => {
+    setAge(calAge(e.target.value));
+    setDob(e.target.value);
+  };
+  
+  const calAge = (date) => {
+    new Date(Date.now() - new Date(date).getTime()).getFullYear() - 1970;
+  }
 
   return (
     <div className="general flex-component custom-form-page">
-      {errMsg ? <div className="error">{errMsg}</div> : null}
       <h2 className="custom-form-title">Sign Up</h2>
+      {errMsg ? <div className="error">{errMsg}</div> : null}
       <form className="custom-form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -72,7 +90,6 @@ const Register = () => {
           className="custom-input"
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
-          required
         />
         <input
           type="text"
@@ -83,12 +100,10 @@ const Register = () => {
           value={lastName}
         />
         <input
-          type="text"
-          name="age"
-          placeholder="Age"
+          type="date"
+          name="dob"
           className="custom-input"
-          onChange={(e) => setAge(e.target.value)}
-          value={age}
+          onChange={(e) => ageValidator(e)}
         />
         <div className="custom-radio-wrapper">
           <div className="custom-radio">
@@ -103,53 +118,40 @@ const Register = () => {
               }}
             />
           </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Female </p>
+          {toggle ? (
             <input
-              type="radio"
-              value="Female"
+              type="text"
               name="gender"
-              onClick={(e) => {
-                setGender("Female");
-                setToggle(false);
-              }}
+              placeholder="Gender"
+              className="custom-input"
+              onChange={(e) => setGender(e.target.value)}
+              value={gender}
             />
-          </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Other </p>
-            <input type="radio" name="gender" onClick={toggleGenderField} />
-          </div>
-        </div>
-        {toggle ? (
-          <input
-            type="text"
-            name="gender"
-            placeholder="Gender"
-            className="custom-input"
-            onChange={(e) => setGender(e.target.value)}
-            value={gender}
-          />
-        ) : null}
+          ) : null}
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="custom-input"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          className="custom-input"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          value={confirmPassword}
-        />
-        <input type="submit" value="Sign up" className="custom-button" />
-      </form>
-      <Link className="login-link" to="/login">If you are already registered, click here to Login.</Link>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="custom-input"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="custom-input"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+          />
+          <input type="submit" value="Sign up" className="custom-button" />
+        </form>
+        <Link className="login-link" to="/login">
+          If you are already registered, click here to Login.
+        </Link>
+      </div>
+
     </div>
   );
 };
