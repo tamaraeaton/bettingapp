@@ -13,6 +13,7 @@ export const AppProvider = (props) => {
 
   const [allUsersBets, setAllUsersBets] = useState([]);
   const [displayMembers, setDisplayMembers] = useState([]);
+ 
 
   const getBets = () => {
     ref.orderBy("lastUpdate", "asc").onSnapshot((querySnapshot) => {
@@ -62,7 +63,7 @@ export const AppProvider = (props) => {
   const addBetToUserJoinedBet = async (user, newBetId) => {
     refUsers
       .doc(user.id)
-      .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+      .set({ ...user, joinedBets: [...user.joinedBets, newBetId] })
   };
 
   const addBet = async (bet, user) => {
@@ -126,7 +127,7 @@ export const AppProvider = (props) => {
         setAllUsersBets,
         displayMembers,
         setDisplayMembers,
-        ownerEditBet
+        ownerEditBet,
       }}
     >
       {props.children}

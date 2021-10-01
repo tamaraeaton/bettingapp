@@ -12,7 +12,7 @@ import {
 import ButtonText from "../Buttons/ButtonText";
 
 const BetList = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, userJoinedBets } = useContext(AuthContext);
   const {
     bets,
     getBets,
@@ -23,8 +23,7 @@ const BetList = () => {
     displayMembers,
     setDisplayMembers,
   } = useContext(AppContext);
-  const [ownedBets] = useState(currentUser.userBets);
-  const [joinedBets] = useState(currentUser.joinedBets);
+  const [ownedBets, setOwnedBets] = useState(currentUser.userBets);
   const currentUserId = currentUser ? currentUser.uid : null;
 
   const betToggleJoinedAndCreated = () => {
@@ -36,8 +35,8 @@ const BetList = () => {
   };
 
   const isJoined = (id) => {
-    for (let i = 0; i < joinedBets.length; i++) {
-      if (id === joinedBets[i]) {
+    for (let i = 0; i < userJoinedBets.length; i++) {
+      if (id === userJoinedBets[i]) {
         return "(joined)";
       }
     }
@@ -56,27 +55,29 @@ const BetList = () => {
     getAllUsersBets(currentUser);
   }, [currentUser]);
 
+  console.log(userJoinedBets);
+
   return (
-    <div className='custom-bet-list'>
-      <div className='bet-list-title-div'>
-        <div className='joined-created-buttons'>
-          <h2 className='bet-list-title'>Bet List</h2>
+    <div className="custom-bet-list">
+      <div className="bet-list-title-div">
+        <div className="joined-created-buttons">
+          <h2 className="bet-list-title">Bet List</h2>
           <ButtonText
             betToggle={betToggleAllBets}
-            text='All Bets'
-            link='/home'
+            text="All Bets"
+            link="/home"
           />
           <ButtonText
             betToggle={betToggleJoinedAndCreated}
-            text='Joined & Created Bets'
-            link='/home'
+            text="Joined & Created Bets"
+            link="/home"
           />
         </div>
       </div>
       <div>
         <table>
           <thead>
-            <tr className='betlist-head-row'>
+            <tr className="betlist-head-row">
               <th>Bet Name</th>
               <th>Amount</th>
               <th>Actions</th>
@@ -84,21 +85,21 @@ const BetList = () => {
           </thead>
           <tbody>
             {displayMembers.map((bet) => (
-              <tr key={bet.id} className='betlist-head-row bet-item'>
-                <td className='custom-border'>
+              <tr key={bet.id} className="betlist-head-row bet-item">
+                <td className="custom-border">
                   {bet.name} {isOwned(bet.id)} {isJoined(bet.id)}
                 </td>
-                <td className='custom-border'>{bet.ticketCost}</td>
+                <td className="custom-border">{bet.ticketCost}</td>
                 <td>
-                  <Link to='/display-bet' onClick={() => setDisBet(bet)}>
-                    <button className='custom-button custom-icon'>
+                  <Link to="/display-bet" onClick={() => setDisBet(bet)}>
+                    <button className="custom-button custom-icon">
                       <FontAwesomeIcon icon={faGlasses} />
                     </button>
                   </Link>
                   {currentUser.owner === bet.owner &&
                   bet.members.length === 0 ? (
                     <button
-                      className='custom-button custom-icon'
+                      className="custom-button custom-icon"
                       onClick={() => deleteBetById(bet.id)}
                     >
                       <FontAwesomeIcon icon={faTrash} />
@@ -106,8 +107,8 @@ const BetList = () => {
                   ) : null}
                   {currentUser.owner === bet.owner &&
                   bet.members.length === 0 ? (
-                    <Link to='/update-bet' onClick={() => setDisBet(bet)}>
-                      <button className='custom-button custom-icon'>
+                    <Link to="/update-bet" onClick={() => setDisBet(bet)}>
+                      <button className="custom-button custom-icon">
                         <FontAwesomeIcon icon={faPencilAlt} />
                       </button>
                     </Link>
