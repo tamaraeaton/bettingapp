@@ -61,9 +61,10 @@ const Register = () => {
     setDob(e.target.value);
   };
   
-  const calAge = (date) =>
+  const calAge = (date) => {
     new Date(Date.now() - new Date(date).getTime()).getFullYear() - 1970;
   console.log(age);
+  }
 
   return (
     <div className="general flex-component custom-form-page">
@@ -157,7 +158,7 @@ const Register = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           value={confirmPassword}
         />
-        <input type="submit" value="Sign up" className="custom-button" />
+        <input type="submit" value="Sign up" className="custom-button login-button" />
       </form>
       <Link className="login-link" to="/login">
         If you are already registered, click here to Login.

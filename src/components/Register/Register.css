@@ -14,7 +14,14 @@
   border-radius: 10px;
 }
 
+.login-button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
 .login-link {
+  margin-top: 1rem;
   color: white;
 }
 
@@ -61,8 +68,7 @@
   z-index: 11;
 }
 
-
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .register-form {
     width: 400px;
   }
@@ -70,4 +76,4 @@
   .error {
     max-width: 400px;
   }
-} */
+}
