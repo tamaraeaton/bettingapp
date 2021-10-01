@@ -78,8 +78,9 @@ export const AppProvider = (props) => {
   };
 
   const ownerEditBet = (updatedBet) => {
-    return ref.doc(disBet.id).update(updatedBet);
-  };
+    updatedBet.lastUpdate = firebase.firestore.FieldValue.serverTimestamp();
+    return ref.doc(updatedBet.id).update(updatedBet);
+  }
 
   const getAllUsersBets = (user) => {
     let theUserBets = user.joinedBets.concat(user.userBets);

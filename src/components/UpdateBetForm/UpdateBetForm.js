@@ -23,7 +23,7 @@ const UpdateBetForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    ownerEditBet({name, category, ticketCost, description})
+    ownerEditBet({name, category, ticketCost, description, id: disBet.id})
     .then(() => {
       setName("");
       setTicketCost(0);
