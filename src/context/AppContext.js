@@ -1,19 +1,41 @@
 import React, { createContext, useState } from "react";
 import firebase from "./firebase";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
   const [disBet, setDisBet] = useState({});
-  // const [editBet, setEditBet] = useState({});
   const [membersArr, setMembersArr] = useState([]);
   const ref = firebase.firestore().collection("bets");
   const refUsers = firebase.firestore().collection("users");
-
   const [allUsersBets, setAllUsersBets] = useState([]);
   const [displayMembers, setDisplayMembers] = useState([]);
  
+
+  toast.configure()
+  const notify = (message, cOrJOrU) => {
+    if (cOrJOrU === 'j') {
+      toast.success(`Successfully Joined ${message}`, {
+        position: toast.POSITION_BOTTOM_CENTER,
+        autoclose: 8000
+      })
+
+    } else  if(cOrJOrU === 'c'){
+      toast.success(`Successfully Created ${message}`, {
+        position: toast.POSITION_BOTTOM_CENTER,
+        autoclose: 8000
+      })
+    } else if (cOrJOrU === 'u') {
+      toast.success(`Successfully Updated ${message}`, {
+        position: toast.POSITION_BOTTOM_CENTER,
+        autoclose: 8000
+      })
+    }
+
+  }
 
   const getBets = () => {
     ref.orderBy("lastUpdate", "asc").onSnapshot((querySnapshot) => {
@@ -51,7 +73,7 @@ export const AppProvider = (props) => {
     };
 
     setMembersArr([...membersArr, newMember]);
-    await ref.doc(bet.id).set(updateBet);
+    await ref.doc(bet.id).set(updateBet).then(() => notify(bet.name, 'j'));
   };
 
   const addBetToUser = async (user, newBetId) => {
@@ -77,9 +99,12 @@ export const AppProvider = (props) => {
     });
   };
 
+
+
+
   const ownerEditBet = (updatedBet) => {
     updatedBet.lastUpdate = firebase.firestore.FieldValue.serverTimestamp();
-    return ref.doc(updatedBet.id).update(updatedBet);
+    return ref.doc(updatedBet.id).update(updatedBet).then(() => notify(updatedBet.name, 'u'));
   }
 
   const getAllUsersBets = (user) => {
@@ -128,6 +153,7 @@ export const AppProvider = (props) => {
         displayMembers,
         setDisplayMembers,
         ownerEditBet,
+        notify
       }}
     >
       {props.children}

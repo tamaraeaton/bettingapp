@@ -25,6 +25,7 @@ const UpdateBetForm = () => {
     e.preventDefault();
     ownerEditBet({name, category, ticketCost, description, id: disBet.id})
     .then(() => {
+      // notify (updatedBet.name, 'u')
       setName("");
       setTicketCost(0);
       setDescription("");
