@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Register.css";
 import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
@@ -56,6 +56,11 @@ const Register = () => {
     }
   };
 
+
+  useEffect(() => {
+    setErrMsg("")
+  }, [])
+  
   const ageValidator = (e) => {
     setAge(calAge(e.target.value));
     setDob(e.target.value);
@@ -63,7 +68,6 @@ const Register = () => {
   
   const calAge = (date) => {
     new Date(Date.now() - new Date(date).getTime()).getFullYear() - 1970;
-  console.log(age);
   }
 
   return (
@@ -114,55 +118,40 @@ const Register = () => {
               }}
             />
           </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Female </p>
+          {toggle ? (
             <input
-              type="radio"
-              value="Female"
+              type="text"
               name="gender"
-              onClick={(e) => {
-                setGender("Female");
-                setToggle(false);
-              }}
+              placeholder="Gender"
+              className="custom-input"
+              onChange={(e) => setGender(e.target.value)}
+              value={gender}
             />
-          </div>
-          <div className="custom-radio">
-            <p style={{ marginRight: ".3rem" }}>Other </p>
-            <input type="radio" name="gender" onClick={toggleGenderField} />
-          </div>
-        </div>
-        {toggle ? (
-          <input
-            type="text"
-            name="gender"
-            placeholder="Gender"
-            className="custom-input"
-            onChange={(e) => setGender(e.target.value)}
-            value={gender}
-          />
-        ) : null}
+          ) : null}
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="custom-input"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          className="custom-input"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          value={confirmPassword}
-        />
-        <input type="submit" value="Sign up" className="custom-button login-button" />
-      </form>
-      <Link className="login-link" to="/login">
-        If you are already registered, click here to Login.
-      </Link>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="custom-input"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="custom-input"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+          />
+          <input type="submit" value="Sign up" className="custom-button" />
+        </form>
+        <Link className="login-link" to="/login">
+          If you are already registered, click here to Login.
+        </Link>
+      </div>
+
     </div>
   );
 };

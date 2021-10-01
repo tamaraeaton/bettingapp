@@ -4,22 +4,6 @@
   color: white;
 }
 
-.error {
-  text-align: center;
-  background: rgba(255, 0, 0, 0.741);
-  width: 600px;
-  margin: auto;
-  min-width: 400px;
-  font-size: 0.8rem;
-  border-radius: 10px;
-}
-
-.login-button:hover {
-  cursor: pointer;
-  background-color: black;
-  color: white;
-}
-
 .login-link {
   margin-top: 1rem;
   color: white;
@@ -44,36 +28,4 @@
   font-size: 1rem;
   margin-right: 1rem;
   color: #999999;
-}
-
-.notification-box {
-  position: relative;
-}
-
-.notification {
-  position: absolute;
-  background-color: darkgray;
-  padding: 10px;
-  width: 100%;
-  height: auto;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-}
-
-.notification-closer {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 11;
-}
-
-@media only screen and (max-width: 600px) {
-  .register-form {
-    width: 400px;
-  }
-
-  .error {
-    max-width: 400px;
-  }
 }

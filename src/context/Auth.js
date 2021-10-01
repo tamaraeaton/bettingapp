@@ -68,10 +68,7 @@ export const AuthProvider = ({ children }) => {
     return await refUsers.doc(newUser.id).set(newUser);
   };
 
-  // const updateEmailOrPassword = (user) => {
-  //   const updateUser = firebase.auth().currentUser;
-  //   updateUser.updatePassword(user.password);
-  // };
+ 
 
   const editUser = async (user, history) => {
     if (user.password) {
