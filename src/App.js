@@ -16,6 +16,7 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import ProtectedComponent from "./components/ProtectedComponent/ProtectedComponent";
 import DisplayMembers from "./components/MembersList/MembersList";
 import EditUserComponent from "./components/EditUserComponent/EditUserComponent";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/contact-form" component={ContactForm} />
         
 
         <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
