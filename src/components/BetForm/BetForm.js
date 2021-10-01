@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
   const { currentUser } = useContext(AuthContext);
-  const { addBet } = useContext(AppContext);
+  const { addBet, notify } = useContext(AppContext);
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -31,6 +31,7 @@ const BetForm = () => {
 
     addBet(newBet, currentUser)
       .then(() => {
+        notify (newBet.name, 'c')
         setName("");
         setTicketCost(0);
         setDescription("");

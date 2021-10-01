@@ -1,7 +1,10 @@
 import React, { createContext, useState } from "react";
 import firebase from "./firebase";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const AppContext = createContext();
+
 
 export const AppProvider = (props) => {
   const [bets, setBets] = useState([]);
@@ -12,6 +15,23 @@ export const AppProvider = (props) => {
 
   const [allUsersBets, setAllUsersBets] = useState([]);
   const [displayMembers, setDisplayMembers] = useState([]);
+
+  toast.configure()
+  const notify = (message, cOrJ) => {
+    if (cOrJ === 'j') {
+      toast.success(`Successfully Joined ${message}`, {
+        position: toast.POSITION_BOTTOM_CENTER,
+        autoclose: 8000
+      })
+
+    } else  if(cOrJ === 'c'){
+      toast.success(`Successfully Created ${message}`, {
+        position: toast.POSITION_BOTTOM_RIGHT,
+        autoclose: 8000
+      })
+    }
+
+  }
 
   const getBets = () => {
     ref.orderBy("lastUpdate", "asc").onSnapshot((querySnapshot) => {
@@ -49,7 +69,7 @@ export const AppProvider = (props) => {
     };
 
     setMembersArr([...membersArr, newMember]);
-    await ref.doc(bet.id).set(updateBet);
+    await ref.doc(bet.id).set(updateBet).then(() => notify(bet.name, 'j'));
   };
 
   const addBetToUser = async (user, newBetId) => {
@@ -75,7 +95,7 @@ export const AppProvider = (props) => {
     });
   };
 
-  
+
   const ownerEditBet = (updatedBet) => {
     return ref.doc(disBet.id).update(updatedBet);
   }
@@ -125,7 +145,8 @@ export const AppProvider = (props) => {
         setAllUsersBets,
         displayMembers,
         setDisplayMembers,
-        ownerEditBet
+        ownerEditBet,
+        notify
       }}
     >
       {props.children}

@@ -5,6 +5,7 @@ import BetList from "../BetList/BetList";
 import ButtonText from "../Buttons/ButtonText";
 import { AuthContext } from "../../context/Auth";
 
+
 const createButton = {
   fontSize: "150%",
   width: "fit-content",
@@ -29,6 +30,7 @@ const Home = () => {
           link='/bet-form'
           text='Create Bet' />
       </div>
+     
 
       <BetList />
 
