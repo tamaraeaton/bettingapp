@@ -13,7 +13,7 @@ const Header = () => {
       <div className="company-section">
         <div className="twire-logo"></div>
         <div>
-          <a href="" className="twire-link">
+          <a href="/" className="twire-link">
             <link src="url" />
             TWIRE
           </a>
