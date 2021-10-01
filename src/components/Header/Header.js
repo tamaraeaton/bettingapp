@@ -42,7 +42,6 @@ const Header = () => {
       <Link to="/home" className="twire-link">
         <div className="twire-logo"></div> TWIRE
       </Link>
-
       <div className="navigation">
         {isAuth ? (
           <div
