@@ -14,13 +14,13 @@
   flex-direction: column;
 }
 
-.custom-form-page {
+/* .custom-form-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
-}
+} */
 
 .ticket-title {
   font-weight: 500;

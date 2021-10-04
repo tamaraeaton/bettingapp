@@ -75,7 +75,7 @@ const BetList = () => {
         </div>
       </div>
       <div>
-        <table>
+        <table style={{ width: "100%" }}>
           <thead>
             <tr className="betlist-head-row">
               <th>Bet Name</th>

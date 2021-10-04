@@ -7,6 +7,10 @@ import {
   faUser,
   faSignOutAlt,
   faBars,
+  faHome,
+  faDiceD6,
+  faCommentAlt,
+  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
@@ -17,10 +21,11 @@ const Header = () => {
     display: "flex",
     position: "absolute",
     flexDirection: "column",
-    top: "70px",
+    top: "75px",
     left: "0",
-    background: "darkgrey",
+    background: "darkslategrey",
     width: "100%",
+    opacity: ".95",
   };
 
   const toggle = () => {
@@ -60,38 +65,37 @@ const Header = () => {
               className="custom-header-link"
               onClick={() => setIsOpen(false)}
             >
-              Home
+              <FontAwesomeIcon icon={faHome} /> Home
             </Link>
             <Link
               to="/bet-form"
               className="custom-header-link"
               onClick={() => setIsOpen(false)}
             >
-              Create Bet
+              <FontAwesomeIcon icon={faDiceD6} /> Create Bet
             </Link>
             <Link
               to="/trshtok"
               className="custom-header-link"
               onClick={() => setIsOpen(false)}
             >
-              TrshTok
+              <FontAwesomeIcon icon={faCommentAlt} /> TrshTok
             </Link>
             <Link
               to="/about"
               className="custom-header-link"
               onClick={() => setIsOpen(false)}
             >
-              About
+              <FontAwesomeIcon icon={faInfoCircle} /> About
             </Link>
             <Link to="/" className="custom-header-link" onClick={logout}>
-              <FontAwesomeIcon icon={faSignOutAlt} />
-              Log Out
+              <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
             </Link>
           </div>
         ) : (
           <div className="header-link-section">
             <Link to="/about" className="custom-header-link">
-              About
+              <FontAwesomeIcon icon={faInfoCircle} /> About
             </Link>
           </div>
         )}

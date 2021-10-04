@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [errMsg, setErrMsg] = useState("");
-  const [pending, setPending] = useState(true);
+  const [pending, setPending] = useState(false);
   const refUsers = firebase.firestore().collection("users");
   const [userJoinedBets, setUserJoinedBets] = useState([])
 

@@ -1,16 +1,16 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-require('dotenv').config()
+require("dotenv").config();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBY7tWgvoz_jO2oAHx0LTA17lM7iF55CmI",
-  authDomain: "collab-twire.firebaseapp.com",
-  projectId: "collab-twire",
-  storageBucket: "collab-twire.appspot.com",
-  messagingSenderId: "374058999959",
-  appId: "1:374058999959:web:3b8d86fec9a7f8c71109d2",
-  measurementId: "G-JJVRB4X2LS",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
