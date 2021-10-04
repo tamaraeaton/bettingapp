@@ -41,13 +41,13 @@ const ContactForm = () => {
         or comments. We will reply within 2-4 days.</h1>
       <form onSubmit={handleSubmit} className='contact-form custom-form'>
         <label>Name</label>
-        <input type='text' name='user_name' required />
+        <input className="textarea" type='text' name='user_name' required />
         <label>Email</label>
-        <input type='text' name='user_email' required />
+        <input className="textarea" type='text' name='user_email' required />
         <label>Subject</label>
-        <input type="text" name="subject" required />
+        <input className="textarea" type="text" name="subject" required />
         <label>Comment</label>
-        <input type='text' name='text' required />
+        <input className="textarea" type='text' name='text' required />
         <input className="send-message-button custom-button" type='submit' value='Send Message' />
       </form>
     </div>
