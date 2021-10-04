@@ -20,7 +20,7 @@ const UserProfile = () => {
           <p>
             Email: <u>{currentUser.email}</u>
           </p>
-          <p>Age: {currentUser.dob}</p>
+          <p>DOB: {currentUser.dob}</p>
           <p>Gender: {currentUser.gender}</p>
           <p></p>
         </div>

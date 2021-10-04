@@ -71,7 +71,7 @@ const JoinBet = () => {
           />
         </div>
         <div className="total-submit-wrapper">
-          <h3>Total:{total}</h3>
+          <h3>Total: ${total}</h3>
           <Link to={"/home"} className="join-bet-button" onClick={handleSubmit}>
             Buy tickets
           </Link>
