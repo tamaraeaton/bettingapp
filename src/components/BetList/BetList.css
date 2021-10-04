@@ -6,7 +6,7 @@
   max-height: 80vh;
   height: 25rem;
   border-radius: 4px;
-  width: 55rem;
+  width: 50rem;
   margin-top: 1rem;
   min-width: 350px;
 }
@@ -27,8 +27,7 @@
 
 .betlist-head-row {
   display: grid;
-  grid-template-areas: 'name' 'name' 'amount' 'actions';
-  grid-template-columns: 9fr 2fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   min-width: 20rem;
   width: 100%;
   text-align: left;

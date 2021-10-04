@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
 }
 
 .create-bet-here {
@@ -30,7 +31,7 @@
 }
 
 .bet-list {
-  width: 60%;
+  width: 55%;
   height: 90%;
   background-color: hsla(34, 44%, 69%, 1);
 }
