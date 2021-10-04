@@ -2,7 +2,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   background: black;
-  color: white;
+  color: black;
   max-height: 80vh;
   height: 25rem;
   border-radius: 4px;
@@ -16,7 +16,7 @@
   color: black;
   background: white;
   margin: 0;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .joined-created-buttons {
@@ -27,16 +27,15 @@
 
 .betlist-head-row {
   display: grid;
-  grid-template-areas: 'name' 'name' 'amount' 'actions';
-  grid-template-columns: 9fr 2fr 1fr 2fr;
+  grid-template-columns: 3fr 1fr 1fr;
   min-width: 20rem;
   width: 100%;
   text-align: left;
   align-items: center;
   padding-left: 2%;
- }
+}
 
-  .custom-border {
+.custom-border {
   border-right: 2px solid black;
   margin-right: 0.2rem;
   height: 100%;
@@ -44,6 +43,7 @@
   display: flex;
   align-items: flex-end;
 }
+
 
 .bet-item:nth-child(odd) {
   background: darkslategrey;

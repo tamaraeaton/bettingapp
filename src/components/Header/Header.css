@@ -39,12 +39,16 @@
   text-decoration: none;
   color: white;
   font-weight: 600;
-  margin-right: 1rem;
+  margin-right: 1.4rem;
 }
 
 .hambagga-menu {
   display: none;
   cursor: pointer;
+}
+
+.navigation {
+  z-index: 1;
 }
 
 @media only screen and (max-width: 770px) {
