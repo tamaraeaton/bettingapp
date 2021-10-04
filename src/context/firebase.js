@@ -1,9 +1,10 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+require('dotenv').config()
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBY7tWgvoz_jO2oAHx0LTA17lM7iF55CmI",
+  apiKey: `${process.env.API_KEY}`,
   authDomain: "collab-twire.firebaseapp.com",
   projectId: "collab-twire",
   storageBucket: "collab-twire.appspot.com",

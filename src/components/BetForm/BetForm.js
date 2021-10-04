@@ -6,8 +6,8 @@ import { AppContext } from "../../context/AppContext";
 import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
+  const { addBet, notify } = useContext(AppContext);
   const { currentUser, errMsg, setErrMsg } = useContext(AuthContext);
-  const { addBet } = useContext(AppContext);
   const history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -29,6 +29,18 @@ const BetForm = () => {
       id: uuidv4(),
     };
 
+
+    addBet(newBet, currentUser)
+      .then(() => {
+        notify (newBet.name, 'c')
+        setName("");
+        setTicketCost(0);
+        setDescription("");
+        setCategory("");
+        history.push("/home");
+      })
+      .catch((err) => console.log(err));
+
     if (
       newBet.name === "" ||
       newBet.category === "" ||
@@ -48,6 +60,7 @@ const BetForm = () => {
         })
         .catch((err) => console.log(err));
     }
+
   };
 
   return (
