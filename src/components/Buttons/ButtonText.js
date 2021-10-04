@@ -5,15 +5,17 @@ const ButtonText = ({ link, text, betToggle, createButton }) => {
   return (
     <div>
       {betToggle ? (
-        <button className='custom-button' onClick={betToggle}>
-          <Link to={link}>{text}</Link>
-        </button>
+        <Link to={link}><button className='custom-button' onClick={betToggle}>
+          {text}
+        </button></Link>
       ) : createButton ? (
-        <button className='custom-button' style={createButton}><Link to={link}>Create Bet</Link></button>
+        <Link to={link}><button className='custom-button' style={createButton}>
+          Create Bet
+        </button></Link>
       ) : (
-        <button className='custom-button'>
-          <Link to={link}>{text}</Link>
-        </button>
+        <Link to={link}>
+          <button className='custom-button'>{text}</button>
+        </Link>
       )}
     </div>
   );
