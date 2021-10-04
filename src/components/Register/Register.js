@@ -13,7 +13,6 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [dob, setDob] = useState("");
-  const [toggleNotification, setToggleNotification] = useState(false);
   const [gender, setGender] = useState("");
   const [toggle, setToggle] = useState(false);
 
@@ -60,14 +59,18 @@ const Register = () => {
     setErrMsg("");
   }, []);
 
+  function calAge(date) {
+    var diff_ms = Date.now() - new Date(date).getTime();
+    var age_dt = new Date(diff_ms);
+    setAge(Math.abs(age_dt.getUTCFullYear() - 1970));
+  }
+
   const ageValidator = (e) => {
-    setAge(calAge(e.target.value));
+    calAge(e.target.value);
     setDob(e.target.value);
   };
 
-  const calAge = (date) => {
-    new Date(Date.now() - new Date(date).getTime()).getFullYear() - 1970;
-  };
+  console.log(age);
 
   return (
     <div className="general flex-component custom-form-page">
@@ -104,7 +107,7 @@ const Register = () => {
           className="custom-input"
           onChange={(e) => ageValidator(e)}
         />
-      <div className="custom-radio-wrapper">
+        <div className="custom-radio-wrapper">
           <div className="custom-radio">
             <p style={{ marginRight: ".3rem" }}>Male </p>
             <input

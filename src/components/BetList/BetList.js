@@ -55,8 +55,6 @@ const BetList = () => {
     getAllUsersBets(currentUser);
   }, [currentUser]);
 
-  console.log(userJoinedBets);
-
   return (
     <div className="custom-bet-list">
       <div className="bet-list-title-div">
