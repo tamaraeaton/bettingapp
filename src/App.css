@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* width: 100%; */
   font-family: 'Source Code Pro', monospace;
 }
 
@@ -20,7 +19,6 @@ html,
 body,
 #root {
   height: 100%;
-  /* width: 100%; */
 }
 
 .header,
@@ -34,7 +32,6 @@ body,
   overflow-y: auto;
   background-color: #013a6b;
   background-image: linear-gradient(45deg, #cbcbcb 40%, #646464 60%);
-  /* width: 100%; */
   font-family: 'Source Code Pro', monospace;
 }
 
@@ -47,7 +44,6 @@ body,
   font-weight: bold;
   font-size: calc(0.8em + 1vmin);
   padding: calc(0.4em + 1vmin);
-  /* width: 100%; */
 }
 
 .link {
@@ -101,7 +97,6 @@ body,
   font-weight: 530;
   color: white;
   text-align: center;
-  /* height: 1.7rem; */
   padding: 0.1rem 0.4rem;
   letter-spacing: 0.1rem;
   cursor: pointer;

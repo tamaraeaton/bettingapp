@@ -1,13 +1,11 @@
 .welcome {
   background-color: #646464b8;
-  display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .welcome-hero {
   display: flex;
-  /* margin: 2rem; */
   justify-content: space-evenly;
 }
 
@@ -45,9 +43,13 @@
 
 .intro {
   width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .intro-text {
   margin: 5%;
+  width: 70%;
 }

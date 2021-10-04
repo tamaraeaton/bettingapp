@@ -80,7 +80,6 @@ export const AuthProvider = ({ children }) => {
       return refUsers.doc(user.id).update({
         firstName: user.firstName,
         lastName: user.lastName,
-        age: user.age,
         gender: user.gender,
         email: user.email,
         lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
@@ -91,7 +90,6 @@ export const AuthProvider = ({ children }) => {
       return refUsers.doc(user.id).update({
         firstName: user.firstName,
         lastName: user.lastName,
-        age: user.age,
         gender: user.gender,
         email: user.email,
         lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
