@@ -38,7 +38,7 @@ export const AppProvider = (props) => {
   }
 
   const getBets = () => {
-    ref.orderBy("lastUpdate", "asc").onSnapshot((querySnapshot) => {
+    ref.orderBy("lastUpdate", "desc").onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((bet) => {
         items.push(bet.data());
