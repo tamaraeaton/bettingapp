@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./BetForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/Auth";
@@ -13,14 +13,43 @@ const BetForm = () => {
   const [category, setCategory] = useState("");
   const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
-  const [numChoices, setNumChoices] = useState(0);
+  const [numChoices, setNumChoices] = useState([]);
   const [choiceDescriptions, setChoiceDescriptions] = useState([]);
   const [choiceNames, setChoiceNames] = useState([]);
 
-  const toggleChoiceFields = () => {
-    for (let i = 0; i <= numChoices; i++) {
-      
+  const toggle = () => {
+    return numChoices.map((index) => (
+      <div key={index} className="choice-container">
+        <input
+          className="custom-input"
+          type="text"
+          name="choiceName"
+          placeholder={`Choice ${index + 1} Name`}
+        />
+        <input
+          className="custom-input"
+          type="text"
+          name="choiceDescription"
+          placeholder={`Choice ${index + 1} Description`}
+        />
+      </div>
+    ));
+  };
+
+  const toggleChoiceFields = (choices) => {
+    const promises = [];
+    for (let i = 0; i <= choices - 1; i++) {
+      promises.push(
+        new Promise((resolve) => {
+          resolve(i);
+        })
+      );
     }
+
+    Promise.all(promises).then((res) => {
+      setNumChoices(res);
+      toggle();
+    });
   };
 
   const handleSubmit = (e) => {
@@ -70,6 +99,11 @@ const BetForm = () => {
     }
   };
 
+  // useEffect(() => {
+  //   setNumChoices([...numChoices])
+  // }, [toggleChoiceFields])
+
+  console.log(numChoices);
   return (
     <div className="general flex-component custom-form-page">
       <div className="form-wrappers">
@@ -110,18 +144,18 @@ const BetForm = () => {
           </div>
 
           <div className="custom-choices">
-            <p onClick={() => setNumChoices(2)}>2</p>
-            <p onClick={() => setNumChoices(3)}>3</p>
-            <p onClick={() => setNumChoices(4)}>4</p>
-            <p onClick={() => setNumChoices(5)}>5</p>
-            <p onClick={() => setNumChoices(6)}>6</p>
-            <p onClick={() => setNumChoices(7)}>7</p>
-            <p onClick={() => setNumChoices(8)}>8</p>
-            <p onClick={() => setNumChoices(9)}>9</p>
-            <p onClick={() => setNumChoices(10)}>10</p>
+            <p onClick={() => toggleChoiceFields(2)}>2</p>
+            <p onClick={() => toggleChoiceFields(3)}>3</p>
+            <p onClick={() => toggleChoiceFields(4)}>4</p>
+            <p onClick={() => toggleChoiceFields(5)}>5</p>
+            <p onClick={() => toggleChoiceFields(6)}>6</p>
+            <p onClick={() => toggleChoiceFields(7)}>7</p>
+            <p onClick={() => toggleChoiceFields(8)}>8</p>
+            <p onClick={() => toggleChoiceFields(9)}>9</p>
+            <p onClick={() => toggleChoiceFields(10)}>10</p>
           </div>
 
-          {toggleChoiceFields}
+          {toggle()}
 
           <input
             className="custom-input"

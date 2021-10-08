@@ -48,3 +48,9 @@
   justify-content: space-evenly;
   margin-top: .5rem;
 }
+
+.choice-container {
+  display: flex;
+  flex-direction: column;
+  
+}
