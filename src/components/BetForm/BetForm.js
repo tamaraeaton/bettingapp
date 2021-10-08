@@ -13,6 +13,15 @@ const BetForm = () => {
   const [category, setCategory] = useState("");
   const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
+  const [numChoices, setNumChoices] = useState(0);
+  const [choiceDescriptions, setChoiceDescriptions] = useState([]);
+  const [choiceNames, setChoiceNames] = useState([]);
+
+  const toggleChoiceFields = () => {
+    for (let i = 0; i <= numChoices; i++) {
+      
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +38,9 @@ const BetForm = () => {
       id: uuidv4(),
     };
 
-
     addBet(newBet, currentUser)
       .then(() => {
-        notify (newBet.name, 'c')
+        notify(newBet.name, "c");
         setName("");
         setTicketCost(0);
         setDescription("");
@@ -56,11 +64,10 @@ const BetForm = () => {
           setDescription("");
           setCategory("");
           history.push("/home");
-          setErrMsg("")
+          setErrMsg("");
         })
         .catch((err) => console.log(err));
     }
-
   };
 
   return (
@@ -102,6 +109,20 @@ const BetForm = () => {
             </select>
           </div>
 
+          <div className="custom-choices">
+            <p onClick={() => setNumChoices(2)}>2</p>
+            <p onClick={() => setNumChoices(3)}>3</p>
+            <p onClick={() => setNumChoices(4)}>4</p>
+            <p onClick={() => setNumChoices(5)}>5</p>
+            <p onClick={() => setNumChoices(6)}>6</p>
+            <p onClick={() => setNumChoices(7)}>7</p>
+            <p onClick={() => setNumChoices(8)}>8</p>
+            <p onClick={() => setNumChoices(9)}>9</p>
+            <p onClick={() => setNumChoices(10)}>10</p>
+          </div>
+
+          {toggleChoiceFields}
+
           <input
             className="custom-input"
             type="number"
@@ -109,7 +130,6 @@ const BetForm = () => {
             placeholder="Amount"
             onChange={(e) => setTicketCost(e.target.value)}
             value={ticketCost}
-            
           />
           <textarea
             rows="5"

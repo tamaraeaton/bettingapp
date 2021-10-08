@@ -27,7 +27,6 @@
   padding: 0.3rem;
   border-radius: 0.4rem;
   cursor: pointer;
-
 }
 
 .custom-select:after {
@@ -40,4 +39,12 @@
   width: 10%;
   height: 100%;
   pointer-events: none;
+}
+
+.custom-choices {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: .5rem;
 }
