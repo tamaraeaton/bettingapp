@@ -84,10 +84,10 @@ const BetList = () => {
           <tbody>
             {displayMembers.map((bet) => (
               <tr key={bet.id} className="betlist-head-row bet-item">
-                <td className="custom-border">
+                <td className="custom-border custom-font">
                   {bet.name} {isOwned(bet.id)} {isJoined(bet.id)}
                 </td>
-                <td className="custom-border">{bet.ticketCost}</td>
+                <td className="custom-border custom-font">{bet.ticketCost}</td>
                 <td>
                   <Link to="/display-bet" onClick={() => setDisBet(bet)}>
                     <button className="custom-button custom-icon">
