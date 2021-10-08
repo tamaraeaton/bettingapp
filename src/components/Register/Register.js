@@ -40,6 +40,9 @@ const Register = () => {
         setPassword("");
         setConfirmPassword("");
       } else {
+        if (calAge() < 21) {
+          setErrMsg("Must be at least 21 years of age!");
+        } else {
         register(newUser, password)
           .then((user) => {
             addUser(newUser, user.user.uid).then(() => {
@@ -51,6 +54,8 @@ const Register = () => {
             });
           })
           .catch((err) => setErrMsg(err.message));
+        }
+
       }
     }
   };
