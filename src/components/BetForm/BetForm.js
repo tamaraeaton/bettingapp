@@ -14,24 +14,56 @@ const BetForm = () => {
   const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
   const [numChoices, setNumChoices] = useState([]);
-  const [choiceDescriptions, setChoiceDescriptions] = useState([]);
-  const [choiceNames, setChoiceNames] = useState([]);
+  let choice1 = { name: "", description: "" };
+  let choice2 = { name: "", description: "" };
+  let choice3 = { name: "", description: "" };
+  let choice4 = { name: "", description: "" };
+  let choice5 = { name: "", description: "" };
+  let choice6 = { name: "", description: "" };
+  let choice7 = { name: "", description: "" };
+  let choice8 = { name: "", description: "" };
+  let choice9 = { name: "", description: "" };
+  let choice10 = { name: "", description: "" };
+  let choice = [
+    choice1,
+    choice2,
+    choice3,
+    choice4,
+    choice5,
+    choice6,
+    choice7,
+    choice8,
+    choice9,
+    choice10,
+  ];
 
   const toggle = () => {
     return numChoices.map((index) => (
       <div key={index} className="choice-container">
         <input
+          id={index}
           className="custom-input"
           type="text"
           name="choiceName"
           placeholder={`Choice ${index + 1} Name`}
+          // value={}
+          onChange={(e) => {
+            choice[index].name = e.target.value;
+            // choice[index] = { ...choice[index], name: e.target.value };
+          }}
         />
-        <input
-          className="custom-input"
-          type="text"
+        <textarea
+          id={index}
+          rows="2"
+          className="bet-textarea"
+          type="textarea"
           name="choiceDescription"
-          placeholder={`Choice ${index + 1} Description`}
-        />
+          placeholder="Description..."
+          // value={choice[index].description}
+          onChange={(e) => {
+            choice[index] = { ...choice[index], description: e.target.value };
+          }}
+        ></textarea>
       </div>
     ));
   };
@@ -48,7 +80,6 @@ const BetForm = () => {
 
     Promise.all(promises).then((res) => {
       setNumChoices(res);
-      toggle();
     });
   };
 
@@ -64,6 +95,7 @@ const BetForm = () => {
       description,
       members: [],
       potTotal: 0,
+      choices: choice,
       id: uuidv4(),
     };
 
@@ -99,13 +131,10 @@ const BetForm = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setNumChoices([...numChoices])
-  // }, [toggleChoiceFields])
+  console.log(choice.filter(cho => cho.name === ''))
 
-  console.log(numChoices);
   return (
-    <div className="general flex-component custom-form-page">
+    <div className="general custom-form-page-bet-form">
       <div className="form-wrappers">
         <h2 className="custom-form-title">Create A Bet</h2>
         {errMsg ? <div className="error">{errMsg}</div> : null}
@@ -143,20 +172,6 @@ const BetForm = () => {
             </select>
           </div>
 
-          <div className="custom-choices">
-            <p onClick={() => toggleChoiceFields(2)}>2</p>
-            <p onClick={() => toggleChoiceFields(3)}>3</p>
-            <p onClick={() => toggleChoiceFields(4)}>4</p>
-            <p onClick={() => toggleChoiceFields(5)}>5</p>
-            <p onClick={() => toggleChoiceFields(6)}>6</p>
-            <p onClick={() => toggleChoiceFields(7)}>7</p>
-            <p onClick={() => toggleChoiceFields(8)}>8</p>
-            <p onClick={() => toggleChoiceFields(9)}>9</p>
-            <p onClick={() => toggleChoiceFields(10)}>10</p>
-          </div>
-
-          {toggle()}
-
           <input
             className="custom-input"
             type="number"
@@ -173,6 +188,40 @@ const BetForm = () => {
             onChange={(e) => setDescription(e.target.value)}
             value={description}
           ></textarea>
+
+          <p className="choice-field-desc">Number Of Choices On Bet</p>
+          <div className="custom-choices">
+            <p className="choice-number" onClick={() => toggleChoiceFields(2)}>
+              2
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(3)}>
+              3
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(4)}>
+              4
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(5)}>
+              5
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(6)}>
+              6
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(7)}>
+              7
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(8)}>
+              8
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(9)}>
+              9
+            </p>
+            <p className="choice-number" onClick={() => toggleChoiceFields(10)}>
+              10
+            </p>
+          </div>
+
+          {toggle()}
+
           <input type="submit" value="Submit" className="custom-button" />
         </form>
       </div>

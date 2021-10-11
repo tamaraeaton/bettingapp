@@ -61,7 +61,7 @@ body,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 5rem;
+  padding: 5rem 0;
   width: 100%;
 }
 
