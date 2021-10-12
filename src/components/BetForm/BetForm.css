@@ -1,3 +1,10 @@
+.custom-form-page-bet-form {
+  flex: 1 1 0;
+  background-color: #013a6b;
+  background-image: linear-gradient(45deg, #cbcbcb 40%, #646464 60%);
+  font-family: "Source Code Pro", monospace;
+}
+
 .bet-textarea {
   margin-top: 0.5rem;
   opacity: 0.8;
@@ -27,7 +34,6 @@
   padding: 0.3rem;
   border-radius: 0.4rem;
   cursor: pointer;
-
 }
 
 .custom-select:after {
@@ -40,4 +46,45 @@
   width: 10%;
   height: 100%;
   pointer-events: none;
+}
+
+.custom-choices {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+}
+
+.choice-container {
+  display: flex;
+  flex-direction: column;
+  background: rgb(80, 80, 80);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.choice-field-desc {
+  text-align: center;
+  margin-top: 0.5rem;
+  border-bottom: solid black 1px;
+}
+
+.choice-number {
+  cursor: pointer;
+  border-radius: 50%;
+  background: white;
+  padding: .2rem;
+  height: 1.7rem;
+  width: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice-number:hover {
+  color: cyan;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.2);
 }

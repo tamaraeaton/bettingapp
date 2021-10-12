@@ -34,7 +34,7 @@ const Header = () => {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 770) {
+      if (window.innerWidth >= 850) {
         setIsOpen(false);
       }
     }
