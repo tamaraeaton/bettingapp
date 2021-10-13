@@ -13,12 +13,12 @@
 }
 
 .info1 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .info2 {
-    font-size: 100%;
-    font-style: italic;
+  font-style: italic;
+  font-size: 80%;
 }
 
 .choices-container {
@@ -31,17 +31,13 @@
   justify-content: center;
 }
 
-.choice-button {
-  width: 100%;
-}
-
 .a-choice-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   width: 70%;
   margin: 0.7rem;
-  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(83, 83, 83), black);
+  background: linear-gradient(45deg, rgb(23, 23, 23), rgb(115, 115, 115), rgb(23, 23, 23));
   border-radius: 1rem;
   justify-content: space-between;
   color: black;
@@ -75,7 +71,7 @@
   text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
   text-align: center;
   transition: all 0.2s;
-  background: white;
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(145, 145, 145), black);
   letter-spacing: 7px;
   font-size: 100%;
   color: black;

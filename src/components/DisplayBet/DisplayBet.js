@@ -7,10 +7,16 @@ import { useState } from "react/cjs/react.development";
 
 const DisplayBet = ({ bet }) => {
   const { currentUser } = useContext(AuthContext);
-  const { disBet, getBetMembers } = useContext(AppContext);
+  const { disBet, getBetMembers, addBetToUserJoinedBet, addBetMember } =
+    useContext(AppContext);
   const [theChoices, setTheChoices] = useState(
     disBet.choices.filter((cho) => (cho.name !== "" ? cho : null))
   );
+
+  const handleSubmit = (e) => {
+    addBetMember(disBet)
+    addBetToUserJoinedBet(currentUser, disBet.id)
+  }
 
   useEffect(() => {
     getBetMembers(disBet.id);
@@ -23,19 +29,20 @@ const DisplayBet = ({ bet }) => {
     <div className="general join-bet">
       <div className="bet-information">
         <div className="info1">
-          <h2>
+          <h3>
             Bet:{" "}
             <u>
               <i>{disBet.name}</i>
             </u>
-          </h2>
+          </h3>
           <h3>Pot: ${disBet.potTotal}</h3>
-          <h4>{disBet.description}</h4>
+          <h3>{disBet.description}</h3>
+          <h3>Each choice costs ${disBet.ticketCost}</h3>
         </div>
 
-        <h5 className="info2">
+        <p className="info2">
           Questions about the bet? Email the creator, <u>{disBet.ownerEmail}</u>
-        </h5>
+        </p>
       </div>
       <div className="choices-container">
         {theChoices.map((cho, index) => (
