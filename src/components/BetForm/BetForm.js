@@ -222,7 +222,7 @@ const BetForm = () => {
 
           {toggle()}
 
-          <input type="submit" value="Submit" className="custom-button" />
+          <input type="submit" value="Submit" className="general-button" />
         </form>
       </div>
     </div>
