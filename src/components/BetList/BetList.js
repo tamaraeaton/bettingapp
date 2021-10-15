@@ -60,16 +60,12 @@ const BetList = () => {
       <div className="bet-list-title-div">
         <div className="joined-created-buttons">
           <h2 className="bet-list-title">Bet List</h2>
-          <ButtonText
-            betToggle={betToggleAllBets}
-            text="All Bets"
-            link="/home"
-          />
-          <ButtonText
-            betToggle={betToggleJoinedAndCreated}
-            text="Joined & Created Bets"
-            link="/home"
-          />
+          {/* <Link to="/home"> */}
+            <button className='general-button' onClick={() => betToggleAllBets}><span>allBets</span></button>
+          {/* </Link> */}
+          {/* <Link to="/home"> */}
+            <button className='general-button' onClick={() => betToggleJoinedAndCreated}><span>joinedAndCreated</span></button>
+          {/* </Link> */}
         </div>
       </div>
       <div>
@@ -95,7 +91,7 @@ const BetList = () => {
                     </button>
                   </Link>
                   {currentUser.owner === bet.owner &&
-                  bet.members.length === 0 ? (
+                    bet.members.length === 0 ? (
                     <button
                       className="custom-button custom-icon"
                       onClick={() => deleteBetById(bet.id)}
@@ -104,7 +100,7 @@ const BetList = () => {
                     </button>
                   ) : null}
                   {currentUser.owner === bet.owner &&
-                  bet.members.length === 0 ? (
+                    bet.members.length === 0 ? (
                     <Link to="/update-bet" onClick={() => setDisBet(bet)}>
                       <button className="custom-button custom-icon">
                         <FontAwesomeIcon icon={faPencilAlt} />

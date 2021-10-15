@@ -61,7 +61,7 @@ const ContactForm = () => {
           required
         />
         <input
-          className="send-message-button custom-button"
+          className="general-button general-button-custom"
           type="submit"
           value="Send Message"
         />
