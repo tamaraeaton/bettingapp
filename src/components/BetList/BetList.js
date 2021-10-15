@@ -60,12 +60,8 @@ const BetList = () => {
       <div className="bet-list-title-div">
         <div className="joined-created-buttons">
           <h2 className="bet-list-title">Bet List</h2>
-          {/* <Link to="/home"> */}
-            <button className='general-button' onClick={() => betToggleAllBets}><span>allBets</span></button>
-          {/* </Link> */}
-          {/* <Link to="/home"> */}
-            <button className='general-button' onClick={() => betToggleJoinedAndCreated}><span>joinedAndCreated</span></button>
-          {/* </Link> */}
+            <button className='general-button' onClick={betToggleAllBets}><span>allBets</span></button>
+            <button className='general-button' onClick={betToggleJoinedAndCreated}><span>joinedAndCreated</span></button>
         </div>
       </div>
       <div>
