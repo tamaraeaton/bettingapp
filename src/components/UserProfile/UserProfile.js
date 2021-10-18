@@ -7,7 +7,8 @@ import {
   faUser,
   faUsers,
   faDollarSign,
-  faUserEdit
+  faUserEdit,
+  faMoneyBillAlt
 } from "@fortawesome/free-solid-svg-icons";
 const UserProfile = () => {
   const { currentUser } = useContext(AuthContext);
@@ -34,7 +35,7 @@ const UserProfile = () => {
             <FontAwesomeIcon icon={faUsers} /> Friends
           </Link>
           <Link className="link custom-user-links" to="/edit-profile"><FontAwesomeIcon icon={faUserEdit} /> Edit Profile</Link>
-          <Link className="link custom-user-links" to="/"></Link>
+          <Link className="link custom-user-links" to="/buy-money"><FontAwesomeIcon icon={faMoneyBillAlt} /> Buy money</Link>
 
         </div>
       </div>

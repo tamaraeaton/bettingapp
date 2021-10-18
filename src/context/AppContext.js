@@ -16,28 +16,30 @@ export const AppProvider = (props) => {
 
 
   toast.configure()
-  const notify = (message, cOrJOrUOrE) => {
-    if (cOrJOrUOrE === 'j') {
+  const notify = (message, cOrJOrUOrEOrFM) => {
+    if (cOrJOrUOrEOrFM === 'j') {
       toast.success(`Successfully Joined ${message}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000
       })
 
-    } else if (cOrJOrUOrE === 'c') {
+    } else if (cOrJOrUOrEOrFM === 'c') {
       toast.success(`Successfully Created ${message}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000
       })
-    } else if (cOrJOrUOrE === 'u') {
+    } else if (cOrJOrUOrEOrFM === 'u') {
       toast.success(`Successfully Updated ${message}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000
       })
-    } else if (cOrJOrUOrE === 'e') {
+    } else if (cOrJOrUOrEOrFM === 'e') {
       toast.success(`Successfully Updated ${message}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000
       })
+    } else if(cOrJOrUOrEOrFM === "fm") {
+      toast.success(`Your Purchase Was Successfully Made For ${message}`)
     }
   }
       const getBets = () => {
