@@ -1,67 +1,105 @@
-.join-bet{
-    background-color: gray;
-    color: white;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+.join-bet {
+  flex-direction: column;
+  flex: 1 1 0;
+  overflow: inherit;
+  background-color: #013a6b;
+  background-image: linear-gradient(45deg, #cbcbcb 40%, #646464 60%);
+  /* font-family: "Source Code Pro", monospace; */
 }
 
-.bd{
-    font-weight: 400;
-    font-size:xx-large;
-    margin-top: 50px;
+.bet-information {
+  flex-grow: 2;
+  margin: 1rem auto;
 }
 
-.name{
-    font-weight: 400;
-    font-size:xx-large;
-
+.info1 {
+  margin-bottom: 1rem;
 }
 
-.Am{
-    font-weight: 400;
-    font-size:xx-large;
-    margin-top: 50px;
+.info2 {
+  font-style: italic;
+  font-size: 80%;
 }
 
-.Oh{
-    font-weight: 400;
-    font-size:xx-large;
-    margin-top: 50px;
+.choices-container {
+  flex-grow: 3;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-.button-link{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 150px;
-    /* height: 100px; */
-    /* justify-content: center; */
+.a-choice-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 70%;
+  margin: 0.7rem;
+  background: linear-gradient(45deg, rgb(23, 23, 23), rgb(115, 115, 115), rgb(23, 23, 23));
+  border-radius: 1rem;
+  justify-content: space-between;
+  color: black;
+  font-style: cursive, apple chancery;
 }
 
-.display-bet-button{
-    /* height:75px;
-    background-color: tan;
-    font-weight: 75px;
-    font-size: 15px;
-    margin-top: 20px;
-    padding: 20px;  */
-    background-color: tan; 
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    /* text-align: center;
-    text-decoration: none; */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+.item-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.button-container{
-    align-self: flex-end;
+.choice-name {
+  font-size: 130%;
+  letter-spacing: 3px;
+  font-weight: 700;
+  border-bottom: solid silver 1px;
+  justify-self: flex-start;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
+.choice-button {
+  display: inline-block;
+  padding: 0.2em;
+  margin: 1.2rem 0 0 0;
+  border: 0.1em solid black;
+  border-radius: 9px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 500;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(145, 145, 145), black);
+  letter-spacing: 7px;
+  font-size: 100%;
+  color: black;
+}
 
+.choice-button:hover {
+  color: white;
+  background-color: black;
+  border: 0.1em solid white;
+  cursor: pointer;
+}
 
+.choice-description {
+  font-weight: 600;
+  margin-bottom: auto;
+}
+
+.button-container {
+  flex-grow: 2;
+}
+
+@media (min-width: 40rem) {
+  .a-choice-container {
+    width: 40%;
+  }
+}
+@media (min-width: 56rem) {
+  .a-choice-container {
+    width: 18%;
+  }
+}
