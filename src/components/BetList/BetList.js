@@ -60,16 +60,9 @@ const BetList = () => {
       <div className="bet-list-title-div">
         <div className="joined-created-buttons">
           <h2 className="bet-list-title">Bet List</h2>
-          <ButtonText
-            betToggle={betToggleAllBets}
-            text="All Bets"
-            link="/home"
-          />
-          <ButtonText
-            betToggle={betToggleJoinedAndCreated}
-            text="Joined & Created Bets"
-            link="/home"
-          />
+          <button onClick={betToggleAllBets}>all</button>
+          <button onClick={betToggleJoinedAndCreated}>jc</button>
+         
         </div>
       </div>
       <div>

@@ -1,0 +1,40 @@
+.buy-money-page {
+  flex-direction: column;
+}
+
+.money-option-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.money-option {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: white;
+  min-width: 100px;
+  width: 12em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.money-icon-wrapper {
+  font-size: larger;
+  margin: 0;
+  padding: 0;
+}
+
+.money-option-button {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 1rem;
+  padding: 0.2em 0;
+  margin-top: 1em;
+}
+
+.money-option-button:hover {
+  background: white;
+}
