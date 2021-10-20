@@ -46,6 +46,13 @@ body,
   padding: calc(0.4em + 1vmin);
 }
 
+.custom-toast {
+  position: absolute;
+  background: red;
+  top: 0;
+  left: 0;
+}
+
 .link {
   text-decoration: none;
   color: #333;

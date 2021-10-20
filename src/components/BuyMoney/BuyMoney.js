@@ -11,8 +11,8 @@ const BuyMoney = () => {
   const handleSubmit = (money, message) => {
     let newUserWithMoney = {
       ...currentUser,
-      money: currentUser.money + money
-    }
+      money: currentUser.money + money,
+    };
     addFakeMoneyToUserAccount(newUserWithMoney).then(() => {
       notify(message, "fm");
     });

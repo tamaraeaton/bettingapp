@@ -14,16 +14,16 @@ const BetForm = () => {
   const [ticketCost, setTicketCost] = useState(0);
   const [description, setDescription] = useState("");
   const [numChoices, setNumChoices] = useState([]);
-  let choice1 = { name: "", description: "" };
-  let choice2 = { name: "", description: "" };
-  let choice3 = { name: "", description: "" };
-  let choice4 = { name: "", description: "" };
-  let choice5 = { name: "", description: "" };
-  let choice6 = { name: "", description: "" };
-  let choice7 = { name: "", description: "" };
-  let choice8 = { name: "", description: "" };
-  let choice9 = { name: "", description: "" };
-  let choice10 = { name: "", description: "" };
+  let choice1 = { name: "", description: "", members: [] };
+  let choice2 = { name: "", description: "", members: [] };
+  let choice3 = { name: "", description: "", members: [] };
+  let choice4 = { name: "", description: "", members: [] };
+  let choice5 = { name: "", description: "", members: [] };
+  let choice6 = { name: "", description: "", members: [] };
+  let choice7 = { name: "", description: "", members: [] };
+  let choice8 = { name: "", description: "", members: [] };
+  let choice9 = { name: "", description: "", members: [] };
+  let choice10 = { name: "", description: "", members: [] };
   let choice = [
     choice1,
     choice2,

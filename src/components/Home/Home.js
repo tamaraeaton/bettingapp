@@ -5,28 +5,27 @@ import BetList from "../BetList/BetList";
 import ButtonText from "../Buttons/ButtonText";
 import { AuthContext } from "../../context/Auth";
 
-
 const createButton = {
   fontSize: "150%",
   width: "fit-content",
   padding: "1rem 2rem",
-}
+};
 
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <div className='home general flex-component'>
-      
-      <div className='welcome-user-container'>
-        <h1 className='welcome-name'>Welcome, {currentUser.firstName}</h1>
-        <h4 className='bet-intro'>Create a bet with your friends</h4>
+    <div className="home general flex-component">
+      <div className="welcome-user-container">
+        <h1 className="welcome-name">Welcome, {currentUser.firstName}</h1>
+        <h4 className="bet-intro">Create a bet with your friends</h4>
         <ButtonText
           createButton={createButton}
-          link='/bet-form'
-          text='Create Bet' />
+          link="/bet-form"
+          text="Create Bet"
+        />
       </div>
-        <BetList />
+      <BetList />
     </div>
   );
 };
