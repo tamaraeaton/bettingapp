@@ -65,7 +65,7 @@ const DisplayBet = ({ bet }) => {
               <p className="choice-name">{cho.name}</p>
               <p className="choice-description">-{cho.description}</p>
             </div>
-            {cho.members.map(mem => mem.id === currentUser.id ? "Joined" : mem.id !== currentUser.id ? (<button>Join</button>) : null)}
+            {cho.members.map(mem => mem.id === currentUser.id ? "Joined" : <button onClick={() => handleSubmit(index)}>Join</button>)}
             {checkIfJoined(cho)}
           </div>
         ))}
