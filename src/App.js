@@ -17,7 +17,8 @@ import ProtectedComponent from "./components/ProtectedComponent/ProtectedCompone
 import DisplayMembers from "./components/MembersList/MembersList";
 import EditUserComponent from "./components/EditUserComponent/EditUserComponent";
 import ContactForm from "./components/ContactForm/ContactForm";
-
+import BuyMoney from "./components/BuyMoney/BuyMoney";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -30,16 +31,33 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-form" component={ContactForm} />
-        
 
         <ProtectedComponent exact path="/display-bet" component={DisplayBet} />
         <ProtectedComponent exact path="/home" component={Home} />
         <ProtectedComponent exact path="/bet-form" component={BetForm} />
-        <ProtectedComponent exact path="/display-members" component={DisplayMembers} />
-        <ProtectedComponent exact path="/user-profile" component={UserProfile} />
+        <ProtectedComponent
+          exact
+          path="/display-members"
+          component={DisplayMembers}
+        />
+        <ProtectedComponent
+          exact
+          path="/user-profile"
+          component={UserProfile}
+        />
         <ProtectedComponent exact path="/join-bet" component={JoinBet} />
-        <ProtectedComponent exact path="/update-bet" component={UpdateBetForm} />
-        <ProtectedComponent exact path="/edit-profile" component={EditUserComponent} />
+        <ProtectedComponent
+          exact
+          path="/update-bet"
+          component={UpdateBetForm}
+        />
+        <ProtectedComponent
+          exact
+          path="/edit-profile"
+          component={EditUserComponent}
+        />
+        <ProtectedComponent exact path="/buy-money" component={BuyMoney} />
+        <ToastContainer autoClose={false} />
         <Footer />
       </div>
     </BrowserRouter>
