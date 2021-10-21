@@ -16,6 +16,7 @@ export const AppProvider = (props) => {
   const [displayMembers, setDisplayMembers] = useState([]);
 
   toast.configure();
+
   const ToastWithLink = (link, text) => {
     console.log({text})
     return (
@@ -60,23 +61,24 @@ export const AppProvider = (props) => {
     });
   };
 
-  const getBetMembers = async (id) => {
-    await ref.where("id", "==", id).onSnapshot((querySnapshot) => {
+  const getBetMembers = (id) => {
+    ref.where("id", "==", id).onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => setMembersArr(doc.data().members));
     });
   };
 
-  const addBetMember = async (bet, member) => {
+  const addBetMember = async (index, bet, member) => {
     await getBetMembers(bet.id);
+
     let newMember = {
       email: member.email,
       firstName: member.firstName,
       lastName: member.lastName,
       owner: member.owner,
-      ticketsOwned: member.numTik,
-      totalMoney: member.total,
-      belongsTo: member.belongsTo,
+      id: member.id,
     };
+
+    bet.choices[index].members = [newMember, ...bet.choices[index].members];
 
     let updateBet = {
       ...bet,

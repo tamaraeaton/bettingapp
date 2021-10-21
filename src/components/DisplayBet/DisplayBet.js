@@ -6,25 +6,27 @@ import { useState } from "react/cjs/react.development";
 import { Link } from "react-router-dom";
 
 const DisplayBet = ({ bet }) => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setErrMsg, errMsg } = useContext(AuthContext);
   const { disBet, getBetMembers, addBetToUserJoinedBet, addBetMember } =
     useContext(AppContext);
   const [theChoices, setTheChoices] = useState(
     disBet.choices.filter((cho) => (cho.name !== "" ? cho : null))
   );
 
-  const handleSubmit = (e) => {
-    addBetMember(disBet)
-    addBetToUserJoinedBet(currentUser, disBet.id)
-  }
+  const handleSubmit = (index) => {
+    console.log(disBet, currentUser, index);
+    if (currentUser.money < disBet.ticketCost) {
+      setErrMsg("Not enough funds to join bet!");
+    } else {
+      addBetMember(index, disBet, currentUser);
+      addBetToUserJoinedBet(currentUser, disBet.id);
+    }
+  };
 
   useEffect(() => {
     getBetMembers(disBet.id);
   }, []);
 
-  const currentUserId = currentUser ? currentUser.uid : null;
-
-  console.log(theChoices);
   return (
     <div className="general join-bet">
       <div className="bet-information">
@@ -36,14 +38,15 @@ const DisplayBet = ({ bet }) => {
             </u>
           </h3>
           <h3>Pot: ${disBet.potTotal}</h3>
-          <h3>{disBet.description}</h3>
-          <h3>Each choice costs ${disBet.ticketCost}</h3>
+          <h3>{disBet.description}.</h3>
+          <h3>Each choice costs ${disBet.ticketCost}.</h3>
         </div>
 
         <p className="info2">
           Questions about the bet? Email the creator, <u>{disBet.ownerEmail}</u>
         </p>
       </div>
+      {errMsg ? <div className="error">{errMsg}</div> : null}
       <div className="choices-container">
         {theChoices.map((cho, index) => (
           <div key={index} className="a-choice-container">
@@ -51,7 +54,12 @@ const DisplayBet = ({ bet }) => {
               <p className="choice-name">{cho.name}</p>
               <p className="choice-description">-{cho.description}</p>
             </div>
-            <button className="choice-button">Join</button>
+            <button
+              className="choice-button"
+              onClick={() => handleSubmit(index)}
+            >
+              Join
+            </button>
           </div>
         ))}
       </div>

@@ -10,6 +10,10 @@
 .bet-information {
   flex-grow: 2;
   margin: 1rem auto;
+  background: rgba(0, 0, 0, 0.796);
+  color: silver;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .info1 {
@@ -42,6 +46,7 @@
   justify-content: space-between;
   color: black;
   font-style: cursive, apple chancery;
+  min-width: 10rem;
 }
 
 .item-info {
