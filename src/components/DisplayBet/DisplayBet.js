@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import "./DisplayBet.css";
 import { AuthContext } from "../../context/Auth";
 import { AppContext } from "../../context/AppContext";
-import ButtonText from "../Buttons/ButtonText";
 import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 
 const DisplayBet = ({ bet }) => {
   const { currentUser } = useContext(AuthContext);
@@ -57,10 +57,10 @@ const DisplayBet = ({ bet }) => {
       </div>
 
       <div className="button-container">
-        <ButtonText link="/display-members" text="Display Members" />
+      <Link to="/display-members"><button className='general-button'><span>Display Members</span></button></Link>
       </div>
       <div className="button-container">
-        <ButtonText link="/join-bet" text="Join Bet" />
+      <Link to="/join-bet"><button className='general-button'><span>Join Bet</span></button></Link>
       </div>
     </div>
   );

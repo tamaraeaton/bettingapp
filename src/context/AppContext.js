@@ -32,21 +32,21 @@ export const AppProvider = (props) => {
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "c") {
-      toast.success(
+      toast.dark(
         ToastWithLink("/display-bet", `Successfully created bet ${bet.name}`)
       );
     } else if (cOrJOrUOrEOrFM === "u") {
-      toast.success(`Successfully Updated ${bet.name}`, {
+      toast.dark(`Successfully Updated ${bet.name}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "e") {
-      toast.success(`Successfully Updated ${bet.name}`, {
+      toast.dark(`Successfully Updated ${bet.name}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "fm") {
-      toast.success(`Your Purchase Was Successfully Made For ${bet.name}`);
+      toast.dark(`Your Purchase Was Successfully Made For ${bet}`);
     }
   };
   const getBets = () => {
@@ -119,7 +119,7 @@ export const AppProvider = (props) => {
     return ref
       .doc(updatedBet.id)
       .update(updatedBet)
-      .then(() => notify(updatedBet.name, "u"));
+      .then(() => notify(updatedBet, "u"));
   };
 
   const getAllUsersBets = (user) => {

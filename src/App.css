@@ -138,7 +138,7 @@ body,
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
-  outline: none;
+  /* outline: none; */
   overflow: hidden;
   position: relative;
   color: #fff;

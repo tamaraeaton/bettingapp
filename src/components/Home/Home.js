@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import "./Home.css";
-import { withRouter } from "react-router-dom";
+import { withRouter,Link } from "react-router-dom";
 import BetList from "../BetList/BetList";
-import ButtonText from "../Buttons/ButtonText";
 import { AuthContext } from "../../context/Auth";
 
 
@@ -21,10 +20,7 @@ const Home = () => {
       <div className='welcome-user-container'>
         <h1 className='welcome-name'>Welcome, {currentUser.firstName}</h1>
         <h4 className='bet-intro'>Create a bet with your friends</h4>
-        <ButtonText
-          createButton={createButton}
-          link='/bet-form'
-          text='Create Bet' />
+        <Link to="/bet-form"><button className='general-button'><span>Create Bet</span></button></Link>
       </div>
         <BetList />
     </div>
