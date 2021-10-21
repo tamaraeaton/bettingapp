@@ -99,17 +99,6 @@ const BetForm = () => {
       id: uuidv4(),
     };
 
-    addBet(newBet, currentUser)
-      .then(() => {
-        notify(newBet.name, "c");
-        setName("");
-        setTicketCost(0);
-        setDescription("");
-        setCategory("");
-        history.push("/home");
-      })
-      .catch((err) => console.log(err));
-
     if (
       newBet.name === "" ||
       newBet.category === "" ||
@@ -121,6 +110,7 @@ const BetForm = () => {
       addBet(newBet, currentUser)
         .then(() => {
           setName("");
+          notify(newBet.name, "c")
           setTicketCost(0);
           setDescription("");
           setCategory("");

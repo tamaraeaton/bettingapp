@@ -6,7 +6,7 @@ import ButtonText from "../Buttons/ButtonText";
 import { useState } from "react/cjs/react.development";
 
 const DisplayBet = ({ bet }) => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setErrMsg, errMsg } = useContext(AuthContext);
   const { disBet, getBetMembers, addBetToUserJoinedBet, addBetMember } =
     useContext(AppContext);
   const [theChoices, setTheChoices] = useState(
@@ -14,16 +14,18 @@ const DisplayBet = ({ bet }) => {
   );
 
   const handleSubmit = (index) => {
-    console.log(disBet, currentUser, index)
-    addBetMember(index, disBet, currentUser)
-    addBetToUserJoinedBet(currentUser, disBet.id)
-  }
+    console.log(disBet, currentUser, index);
+    if (currentUser.money < disBet.ticketCost) {
+      setErrMsg("Not enough funds to join bet!");
+    } else {
+      addBetMember(index, disBet, currentUser);
+      addBetToUserJoinedBet(currentUser, disBet.id);
+    }
+  };
 
   useEffect(() => {
     getBetMembers(disBet.id);
   }, []);
-
-  const currentUserId = currentUser ? currentUser.uid : null;
 
   return (
     <div className="general join-bet">
@@ -44,6 +46,7 @@ const DisplayBet = ({ bet }) => {
           Questions about the bet? Email the creator, <u>{disBet.ownerEmail}</u>
         </p>
       </div>
+      {errMsg ? <div className="error">{errMsg}</div> : null}
       <div className="choices-container">
         {theChoices.map((cho, index) => (
           <div key={index} className="a-choice-container">
@@ -51,7 +54,12 @@ const DisplayBet = ({ bet }) => {
               <p className="choice-name">{cho.name}</p>
               <p className="choice-description">-{cho.description}</p>
             </div>
-            <button className="choice-button" onClick={() => handleSubmit(index)}>Join</button>
+            <button
+              className="choice-button"
+              onClick={() => handleSubmit(index)}
+            >
+              Join
+            </button>
           </div>
         ))}
       </div>
