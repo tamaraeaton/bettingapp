@@ -33,6 +33,7 @@ const Register = () => {
         email,
         dob,
         gender,
+        money: 0,
       };
 
       if (confirmPassword !== password) {

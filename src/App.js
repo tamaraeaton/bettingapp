@@ -17,7 +17,6 @@ import ProtectedComponent from "./components/ProtectedComponent/ProtectedCompone
 import DisplayMembers from "./components/MembersList/MembersList";
 import EditUserComponent from "./components/EditUserComponent/EditUserComponent";
 import ContactForm from "./components/ContactForm/ContactForm";
-import BuyMoney from "./components/BuyMoney/BuyMoney";
 
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
         <ProtectedComponent exact path="/join-bet" component={JoinBet} />
         <ProtectedComponent exact path="/update-bet" component={UpdateBetForm} />
         <ProtectedComponent exact path="/edit-profile" component={EditUserComponent} />
-        <ProtectedComponent exact path="/buy-money" component={BuyMoney} />
         <Footer />
       </div>
     </BrowserRouter>
