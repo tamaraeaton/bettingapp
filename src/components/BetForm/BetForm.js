@@ -6,7 +6,7 @@ import { AppContext } from "../../context/AppContext";
 import { useHistory } from "react-router-dom";
 
 const BetForm = () => {
-  const { addBet, notify } = useContext(AppContext);
+  const { addBet, notify, setDisBet } = useContext(AppContext);
   const { currentUser, errMsg, setErrMsg } = useContext(AuthContext);
   const history = useHistory();
   const [name, setName] = useState("");
@@ -110,7 +110,7 @@ const BetForm = () => {
       addBet(newBet, currentUser)
         .then(() => {
           setName("");
-          notify(newBet.name, "c")
+          notify(newBet, "c")
           setTicketCost(0);
           setDescription("");
           setCategory("");
@@ -120,9 +120,6 @@ const BetForm = () => {
         .catch((err) => console.log(err));
     }
   };
-
-  console.log(choice.filter(cho => cho.name === ''))
-
   return (
     <div className="general custom-form-page-bet-form">
       <div className="form-wrappers">

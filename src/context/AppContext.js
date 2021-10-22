@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import firebase from "./firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 export const AppContext = createContext();
 
@@ -15,29 +16,38 @@ export const AppProvider = (props) => {
   const [displayMembers, setDisplayMembers] = useState([]);
 
   toast.configure();
-  const notify = (message, cOrJOrUOrEOrFM) => {
+
+  const ToastWithLink = (link, text) => {
+    console.log({text})
+    return (
+      <div>
+        <Link to={link}>{text}</Link>
+      </div>
+    );
+  };
+
+  const notify = (bet, cOrJOrUOrEOrFM) => {
     if (cOrJOrUOrEOrFM === "j") {
-      toast.success(`Successfully Joined ${message}`, {
+      toast.success(`Successfully Joined ${bet.name}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "c") {
-      toast.success(`Successfully Created ${message}`, {
-        position: toast.POSITION_BOTTOM_CENTER,
-        autoclose: 8000,
-      });
+      toast.dark(
+        ToastWithLink("/display-bet", `Successfully created bet ${bet.name}`)
+      );
     } else if (cOrJOrUOrEOrFM === "u") {
-      toast.success(`Successfully Updated ${message}`, {
+      toast.dark(`Successfully Updated ${bet.name}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "e") {
-      toast.success(`Successfully Updated ${message}`, {
+      toast.dark(`Successfully Updated ${bet.name}`, {
         position: toast.POSITION_BOTTOM_CENTER,
         autoclose: 8000,
       });
     } else if (cOrJOrUOrEOrFM === "fm") {
-      toast.success(`Your Purchase Was Successfully Made For ${message}`);
+      toast.dark(`Your Purchase Was Successfully Made For ${bet}`);
     }
   };
   const getBets = () => {
@@ -111,7 +121,7 @@ export const AppProvider = (props) => {
     return ref
       .doc(updatedBet.id)
       .update(updatedBet)
-      .then(() => notify(updatedBet.name, "u"));
+      .then(() => notify(updatedBet, "u"));
   };
 
   const getAllUsersBets = (user) => {
