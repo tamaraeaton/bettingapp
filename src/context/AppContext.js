@@ -77,7 +77,7 @@ export const AppProvider = (props) => {
       owner: member.owner,
       id: member.id,
     };
-
+    
     bet.choices[index].members = [newMember, ...bet.choices[index].members];
 
     let updateBet = {
@@ -90,7 +90,7 @@ export const AppProvider = (props) => {
     await ref
       .doc(bet.id)
       .set(updateBet)
-      .then(() => notify(bet.name, "j"));
+      .then(() => notify(bet, "j"));
   };
 
   const addBetToUser = async (user, newBetId) => {

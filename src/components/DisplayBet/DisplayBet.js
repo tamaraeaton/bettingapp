@@ -6,20 +6,31 @@ import { useState } from "react/cjs/react.development";
 import { Link } from "react-router-dom";
 
 const DisplayBet = ({ bet }) => {
-  const { currentUser, setErrMsg, errMsg } = useContext(AuthContext);
+  const { currentUser, setErrMsg, errMsg, addFakeMoneyToUserAccount } =
+    useContext(AuthContext);
   const { disBet, getBetMembers, addBetToUserJoinedBet, addBetMember } =
     useContext(AppContext);
   const [theChoices, setTheChoices] = useState(
     disBet.choices.filter((cho) => (cho.name !== "" ? cho : null))
   );
+  const [toggleJoin, setToggleJoin] = useState(false);
 
   const handleSubmit = (index) => {
-    console.log(disBet, currentUser, index);
     if (currentUser.money < disBet.ticketCost) {
       setErrMsg("Not enough funds to join bet!");
     } else {
+      let newUser = {
+        ...currentUser,
+        money: currentUser.money - disBet.ticketCost,
+      };
       addBetMember(index, disBet, currentUser);
       addBetToUserJoinedBet(currentUser, disBet.id);
+    }
+  };
+
+  const checkIfJoined = (choice, index) => {
+    if(choice.members.length === 0) {
+      return <button onClick={() => handleSubmit(index)}>Join</button>
     }
   };
 
@@ -54,12 +65,8 @@ const DisplayBet = ({ bet }) => {
               <p className="choice-name">{cho.name}</p>
               <p className="choice-description">-{cho.description}</p>
             </div>
-            <button
-              className="choice-button"
-              onClick={() => handleSubmit(index)}
-            >
-              Join
-            </button>
+            {cho.members.map(mem => mem.id === currentUser.id ? "Joined" : <button onClick={() => handleSubmit(index)}>Join</button>)}
+            {checkIfJoined(cho)}
           </div>
         ))}
       </div>

@@ -20,6 +20,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import BuyMoney from "./components/BuyMoney/BuyMoney";
 import { ToastContainer } from "react-toastify";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -46,18 +47,10 @@ function App() {
           component={UserProfile}
         />
         <ProtectedComponent exact path="/join-bet" component={JoinBet} />
-        <ProtectedComponent
-          exact
-          path="/update-bet"
-          component={UpdateBetForm}
-        />
-        <ProtectedComponent
-          exact
-          path="/edit-profile"
-          component={EditUserComponent}
-        />
+        <ProtectedComponent exact path="/update-bet" component={UpdateBetForm} />
+        <ProtectedComponent exact path="/edit-profile" component={EditUserComponent} />
         <ProtectedComponent exact path="/buy-money" component={BuyMoney} />
-        <ToastContainer autoClose={false} />
+        <ToastContainer />
         <Footer />
       </div>
     </BrowserRouter>
