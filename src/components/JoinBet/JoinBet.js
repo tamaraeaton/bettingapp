@@ -2,8 +2,12 @@ import React, { useContext, useState } from "react";
 import "./JoinBet.css";
 import { AppContext } from "../../context/AppContext";
 import { AuthContext } from "../../context/Auth";
+import { useHistory } from 'react-router-dom';
+
 
 const JoinBet = () => {
+  const history = useHistory();
+
   const { currentUser, setErrMsg, errMsg } = useContext(AuthContext);
   const {
     theChoiceMembers,
@@ -24,7 +28,7 @@ const JoinBet = () => {
       };
 
       addBetMember(index, disBet, currentUser);
-      addBetToUserJoinedBet(newMember, disBet.id);
+      addBetToUserJoinedBet(newMember, disBet.id, history);
     }
   };
 

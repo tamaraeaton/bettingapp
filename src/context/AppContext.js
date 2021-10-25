@@ -102,13 +102,14 @@ export const AppProvider = (props) => {
       .set({ ...user, userBets: [...user.userBets, newBetId] });
   };
 
-  const addBetToUserJoinedBet = (user, newBetId) => {
+  const addBetToUserJoinedBet = (user, newBetId, history) => {
     let promises = [];
 
     if (user.joinedBets.length === 0) {
       refUsers
         .doc(user.id)
-        .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+        .set({ ...user, joinedBets: [...user.joinedBets, newBetId] })
+        .then(()=> history.push('/home'))
     }
 
     for (let i = 0; i < user.joinedBets.length; i++) {
@@ -126,7 +127,8 @@ export const AppProvider = (props) => {
       } else {
         refUsers
           .doc(user.id)
-          .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+          .set({ ...user, joinedBets: [...user.joinedBets, newBetId] })
+          .then(()=> history.push('/home'))
       }
     });
   };
