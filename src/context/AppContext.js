@@ -14,14 +14,17 @@ export const AppProvider = (props) => {
   const refUsers = firebase.firestore().collection("users");
   const [allUsersBets, setAllUsersBets] = useState([]);
   const [displayMembers, setDisplayMembers] = useState([]);
+  const [theChoiceMembers, setTheChoiceMembers] = useState([]);
+  const [theChoice, setTheChoice] = useState({});
+  const [theIndex, setTheIndex] = useState(0);
 
   toast.configure();
 
   const ToastWithLink = (link, text) => {
-    console.log({text})
+    console.log({ text });
     return (
       <div>
-        <Link to={link}>{text}</Link>
+        <Link className="toast-link" to={link}>{text}</Link>
       </div>
     );
   };
@@ -77,7 +80,7 @@ export const AppProvider = (props) => {
       owner: member.owner,
       id: member.id,
     };
-    
+
     bet.choices[index].members = [newMember, ...bet.choices[index].members];
 
     let updateBet = {
@@ -99,10 +102,33 @@ export const AppProvider = (props) => {
       .set({ ...user, userBets: [...user.userBets, newBetId] });
   };
 
-  const addBetToUserJoinedBet = async (user, newBetId) => {
-    refUsers
-      .doc(user.id)
-      .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+  const addBetToUserJoinedBet = (user, newBetId) => {
+    let promises = [];
+
+    if (user.joinedBets.length === 0) {
+      refUsers
+        .doc(user.id)
+        .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+    }
+
+    for (let i = 0; i < user.joinedBets.length; i++) {
+      promises.push(
+        new Promise((resolve) => {
+          resolve(user.joinedBets[i] === newBetId ? true : false);
+        })
+      );
+    }
+
+    Promise.all(promises).then((res) => {
+      let joinedAlready = res.find((ress) => ress === true);
+      if (joinedAlready) {
+        return null;
+      } else {
+        refUsers
+          .doc(user.id)
+          .set({ ...user, joinedBets: [...user.joinedBets, newBetId] });
+      }
+    });
   };
 
   const addBet = async (bet, user) => {
@@ -171,6 +197,12 @@ export const AppProvider = (props) => {
         setDisplayMembers,
         ownerEditBet,
         notify,
+        theChoiceMembers,
+        setTheChoiceMembers,
+        theChoice,
+        setTheChoice,
+        theIndex,
+        setTheIndex,
       }}
     >
       {props.children}
