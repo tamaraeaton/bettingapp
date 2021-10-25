@@ -120,6 +120,10 @@ const BetForm = () => {
         .catch((err) => console.log(err));
     }
   };
+
+  useEffect(() => {
+    setErrMsg("")
+  }, [])
   return (
     <div className="general custom-form-page-bet-form">
       <div className="form-wrappers">

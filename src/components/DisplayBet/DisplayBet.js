@@ -8,12 +8,19 @@ import { Link } from "react-router-dom";
 const DisplayBet = ({ bet }) => {
   const { currentUser, setErrMsg, errMsg, addFakeMoneyToUserAccount } =
     useContext(AuthContext);
-  const { disBet, getBetMembers, addBetToUserJoinedBet, addBetMember } =
-    useContext(AppContext);
+  const {
+    disBet,
+    getBetMembers,
+    addBetToUserJoinedBet,
+    addBetMember,
+    theChoiceMembers,
+    setTheChoiceMembers,
+    setTheChoice,
+    setTheIndex
+  } = useContext(AppContext);
   const [theChoices, setTheChoices] = useState(
     disBet.choices.filter((cho) => (cho.name !== "" ? cho : null))
   );
-  const [toggleJoin, setToggleJoin] = useState(false);
 
   const handleSubmit = (index) => {
     if (currentUser.money < disBet.ticketCost) {
@@ -28,9 +35,17 @@ const DisplayBet = ({ bet }) => {
     }
   };
 
-  const checkIfJoined = (choice, index) => {
-    if(choice.members.length === 0) {
-      return <button onClick={() => handleSubmit(index)}>Join</button>
+  const checkIfJoined = (mem) => {
+    if (mem.id === currentUser.id) {
+      return <p>Joined</p>;
+    }
+  };
+
+  const checkIfJoined1 = (index) => {};
+
+  const checkIfMembers = (choice, index) => {
+    if (choice.members.length === 0) {
+      return <button onClick={() => handleSubmit(index)}>Join</button>;
     }
   };
 
@@ -65,17 +80,35 @@ const DisplayBet = ({ bet }) => {
               <p className="choice-name">{cho.name}</p>
               <p className="choice-description">-{cho.description}</p>
             </div>
-            {cho.members.map(mem => mem.id === currentUser.id ? "Joined" : <button onClick={() => handleSubmit(index)}>Join</button>)}
-            {checkIfJoined(cho)}
+            <Link to="/join-bet">
+              <button
+                className="general-button"
+                onClick={() => {
+                  setTheIndex(index)
+                  setTheChoice(cho)
+                  setTheChoiceMembers(cho.members);
+                }}
+              >
+                <span>View</span>
+              </button>
+            </Link>
           </div>
         ))}
       </div>
 
       <div className="button-container">
-      <Link to="/display-members"><button className='general-button'><span>Display Members</span></button></Link>
+        <Link to="/display-members">
+          <button className="general-button">
+            <span>Display Members</span>
+          </button>
+        </Link>
       </div>
       <div className="button-container">
-      <Link to="/join-bet"><button className='general-button'><span>Join Bet</span></button></Link>
+        <Link to="/join-bet">
+          <button className="general-button">
+            <span>Join Bet</span>
+          </button>
+        </Link>
       </div>
     </div>
   );
